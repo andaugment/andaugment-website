@@ -1,0 +1,221 @@
+/* カスタムCSS - andAugment */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ヒーローセクション */
+.hero {
+  background: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ヘッダースクロール時 */
+header.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブナビゲーション */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
+
+/* ボタンスタイル */
+.btn-primary {
+  display: inline-block;
+  background: white;
+  color: #2563EB;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #2563EB;
+}
+
+/* 製品カード */
+.product-card {
+  transition: all 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.btn-product {
+  display: inline-block;
+  background: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-product:hover {
+  transform: scale(1.05);
+}
+
+.btn-product-disabled {
+  background: #E5E7EB;
+  color: #9CA3AF;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: not-allowed;
+  border: none;
+}
+
+/* CTAボタン */
+.btn-cta-white {
+  display: inline-block;
+  background: white;
+  color: #2563EB;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-cta-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.btn-cta-outline {
+  display: inline-block;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-cta-outline:hover {
+  background: white;
+  color: #2563EB;
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ホバーエフェクト */
+a {
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* モバイルレスポンシブ */
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .btn-cta-white,
+  .btn-cta-outline {
+    padding: 12px 24px;
+    font-size: 16px;
+    display: block;
+    margin: 8px auto;
+  }
+
+  .space-x-4 > * + * {
+    margin-top: 8px;
+  }
+}
