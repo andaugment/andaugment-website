@@ -35,90 +35,236 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
 
   <!-- フォント -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              900: '#060a14',
+              800: '#0a0f1e',
+              700: '#0f1628',
+              600: '#141d34',
+              500: '#1a2540',
+            },
+            accent: {
+              blue: '#3b82f6',
+              cyan: '#22d3ee',
+              green: '#10b981',
+              glow: '#60a5fa',
+            }
+          },
+          fontFamily: {
+            mono: ['IBM Plex Mono', 'monospace'],
+            body: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- カスタムCSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-surface-900 text-gray-200 font-body antialiased">
+
+  <!-- Grid overlay (decorative) -->
+  <div class="grid-overlay" aria-hidden="true"></div>
 
   <!-- ヘッダー（固定ナビゲーション） -->
-  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+  <header class="fixed top-0 w-full z-50 header-glass">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="logo">
-        <a href="#home">
-          <img src="assets/images/logo.png" alt="andAugment" class="h-10">
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="assets/images/logo.png" alt="andAugment" class="h-9 transition-transform duration-300 group-hover:scale-105">
+          <span class="font-mono font-bold text-white text-lg tracking-tight hidden sm:inline">
+            <span class="text-accent-cyan">&amp;</span>Augment
+          </span>
         </a>
       </div>
-      <ul class="nav-menu hidden md:flex space-x-8">
-        <li><a href="#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
-        <li><a href="#products" class="text-gray-700 hover:text-blue-600 font-medium">Products</a></li>
-        <li><a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a></li>
-        <li><a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a></li>
+      <ul class="nav-menu hidden md:flex items-center gap-1">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="hamburger md:hidden" aria-label="メニュー">&#9776;</button>
+      <button class="hamburger md:hidden text-gray-300 hover:text-white transition-colors" aria-label="メニュー">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </nav>
   </header>
 
   <!-- ヒーローセクション -->
-  <section id="home" class="hero min-h-screen flex items-center justify-center">
-    <div class="text-center text-white z-10 px-4">
-      <img src="assets/images/logo.png" alt="andAugment" class="mx-auto mb-8 w-32 h-32">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">andAugment</h1>
-      <p class="text-2xl md:text-3xl mb-2">あなたの時間を増幅する</p>
-      <p class="text-lg md:text-xl mb-8 text-white/80">ちょっとニッチだけど、ちょっと便利。</p>
-      <div class="space-x-4">
-        <a href="#products" class="btn-primary">製品を見る</a>
-        <a href="#contact" class="btn-secondary">お問い合わせ</a>
+  <section id="home" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="hero-bg-elements" aria-hidden="true">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-circuit-lines"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <!-- Ampersand motif -->
+      <div class="hero-ampersand" aria-hidden="true">&amp;</div>
+
+      <div class="hero-content">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 mb-8 hero-badge">
+          <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
+          <span class="font-mono text-xs text-accent-cyan tracking-wider uppercase">Automation Tools for Windows</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 leading-[0.95] tracking-tight">
+          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-cyan hero-title-line" style="--delay: 1">Augment</span>
+        </h1>
+
+        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-medium hero-fade" style="--delay: 2">
+          あなたの時間を増幅する
+        </p>
+        <p class="text-base sm:text-lg text-gray-400 mb-10 font-mono hero-fade" style="--delay: 3">
+          ちょっとニッチだけど、ちょっと便利。
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-fade" style="--delay: 4">
+          <a href="#products" class="btn-primary group">
+            <span>製品を見る</span>
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+      <div class="w-5 h-8 rounded-full border-2 border-gray-500/40 flex justify-center pt-1.5">
+        <div class="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
       </div>
     </div>
   </section>
 
   <!-- 製品一覧 -->
-  <section id="products" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4">製品ラインナップ</h2>
-      <p class="text-center text-gray-600 mb-12">あなたの時間を節約するツール</p>
+  <section id="products" class="py-24 md:py-32 relative">
+    <div class="section-line" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Products</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">製品ラインナップ</h2>
+        <p class="text-gray-400 max-w-md mx-auto">あなたの時間を節約するツール</p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
         <!-- 製品1: Video Auto Uploader -->
-        <div class="product-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
-          <img src="assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-24 h-24 mb-6" loading="lazy">
-          <h3 class="text-2xl font-bold mb-3">Video Auto Uploader for YouTube</h3>
-          <p class="text-gray-600 mb-4">フォルダに入れるだけでYouTubeに自動アップロード</p>
-          <div class="text-3xl font-bold text-blue-600 mb-4">&yen;2,980</div>
-          <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">詳細を見る &rarr;</a>
+        <div class="product-card product-card--active reveal" style="--reveal-delay: 0.1s">
+          <div class="product-card-inner">
+            <div class="product-status">
+              <span class="status-dot status-dot--live"></span>
+              <span class="font-mono text-xs text-accent-green">販売中</span>
+            </div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap">
+                <img src="assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-xl font-bold text-white mb-2 leading-tight">Video Auto Uploader for YouTube</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">フォルダに入れるだけでYouTubeに自動アップロード</p>
+              </div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+              <div>
+                <span class="font-mono text-xs text-gray-500 block">Price</span>
+                <span class="text-2xl font-bold text-white font-mono">&yen;2,980</span>
+              </div>
+              <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">
+                詳細を見る
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- 製品2: Multi-Store Auto Publisher -->
-        <div class="product-card bg-white rounded-2xl shadow-lg p-8 opacity-75">
-          <img src="assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-24 h-24 mb-6" loading="lazy">
-          <h3 class="text-2xl font-bold mb-3">Multi-Store Auto Publisher</h3>
-          <p class="text-gray-600 mb-4">海外3サイトに一括自動公開</p>
-          <div class="text-3xl font-bold text-gray-400 mb-4">&yen;4,980</div>
-          <button class="btn-product-disabled" disabled>近日公開</button>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.2s">
+          <div class="product-card-inner">
+            <div class="product-status">
+              <span class="status-dot status-dot--upcoming"></span>
+              <span class="font-mono text-xs text-gray-500">近日公開</span>
+            </div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim">
+                <img src="assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Multi-Store Auto Publisher</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">海外3サイトに一括自動公開</p>
+              </div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+              <div>
+                <span class="font-mono text-xs text-gray-600 block">Price</span>
+                <span class="text-2xl font-bold text-white/40 font-mono">&yen;4,980</span>
+              </div>
+              <span class="btn-product-disabled font-mono text-xs">Coming Soon</span>
+            </div>
+          </div>
         </div>
 
         <!-- 製品3: Keep Awake Pro -->
-        <div class="product-card bg-white rounded-2xl shadow-lg p-8 opacity-75">
-          <img src="assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-24 h-24 mb-6" loading="lazy">
-          <h3 class="text-2xl font-bold mb-3">Keep Awake Pro</h3>
-          <p class="text-gray-600 mb-4">スリープ防止ツール</p>
-          <div class="text-3xl font-bold text-gray-400 mb-4">&yen;500</div>
-          <button class="btn-product-disabled" disabled>近日公開</button>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.3s">
+          <div class="product-card-inner">
+            <div class="product-status">
+              <span class="status-dot status-dot--upcoming"></span>
+              <span class="font-mono text-xs text-gray-500">近日公開</span>
+            </div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim">
+                <img src="assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Keep Awake Pro</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">スリープ防止ツール</p>
+              </div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+              <div>
+                <span class="font-mono text-xs text-gray-600 block">Price</span>
+                <span class="text-2xl font-bold text-white/40 font-mono">&yen;500</span>
+              </div>
+              <span class="btn-product-disabled font-mono text-xs">Coming Soon</span>
+            </div>
+          </div>
         </div>
 
         <!-- 製品4: Coming Soon -->
-        <div class="product-card bg-white rounded-2xl shadow-lg p-8 opacity-75">
-          <img src="assets/images/products/coming-soon.png" alt="Coming Soon" class="w-24 h-24 mb-6" loading="lazy">
-          <h3 class="text-2xl font-bold mb-3">次の製品をお楽しみに</h3>
-          <p class="text-gray-600 mb-4">新しいツールを開発中</p>
-          <div class="text-lg text-gray-400 mb-4">Coming Soon</div>
-          <button class="btn-product-disabled" disabled>開発中</button>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.4s">
+          <div class="product-card-inner">
+            <div class="product-status">
+              <span class="status-dot status-dot--dev"></span>
+              <span class="font-mono text-xs text-gray-500">開発中</span>
+            </div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim">
+                <img src="assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy">
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">次の製品をお楽しみに</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">新しいツールを開発中</p>
+              </div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+              <div>
+                <span class="font-mono text-xs text-gray-600 block">Price</span>
+                <span class="text-lg text-white/30 font-mono">TBD</span>
+              </div>
+              <span class="btn-product-disabled font-mono text-xs">In Development</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -126,35 +272,54 @@
   </section>
 
   <!-- 特徴 -->
-  <section id="features" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4">なぜ andAugment?</h2>
-      <p class="text-center text-gray-600 mb-12">選ばれる4つの理由</p>
+  <section id="features" class="py-24 md:py-32 relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Why Us</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">なぜ andAugment?</h2>
+        <p class="text-gray-400">選ばれる4つの理由</p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
 
-        <div class="feature-item text-center">
-          <div class="text-5xl mb-4">&#9889;</div>
-          <h3 class="text-xl font-bold mb-2">買い切り価格</h3>
-          <p class="text-gray-600">サブスクなし、永久ライセンス</p>
+        <div class="feature-card reveal" style="--reveal-delay: 0.1s">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">買い切り価格</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">サブスクなし、永久ライセンス</p>
         </div>
 
-        <div class="feature-item text-center">
-          <div class="text-5xl mb-4">&#127919;</div>
-          <h3 class="text-xl font-bold mb-2">実用性重視</h3>
-          <p class="text-gray-600">自分が使いたいものだけ開発</p>
+        <div class="feature-card reveal" style="--reveal-delay: 0.2s">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">実用性重視</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">自分が使いたいものだけ開発</p>
         </div>
 
-        <div class="feature-item text-center">
-          <div class="text-5xl mb-4">&#128295;</div>
-          <h3 class="text-xl font-bold mb-2">シンプル</h3>
-          <p class="text-gray-600">直感的で使いやすいUI</p>
+        <div class="feature-card reveal" style="--reveal-delay: 0.3s">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">シンプル</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">直感的で使いやすいUI</p>
         </div>
 
-        <div class="feature-item text-center">
-          <div class="text-5xl mb-4">&#128260;</div>
-          <h3 class="text-xl font-bold mb-2">継続アップデート</h3>
-          <p class="text-gray-600">無料で機能追加・改善</p>
+        <div class="feature-card reveal" style="--reveal-delay: 0.4s">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">継続アップデート</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">無料で機能追加・改善</p>
         </div>
 
       </div>
@@ -162,94 +327,115 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 max-w-3xl text-center">
-      <h2 class="text-4xl font-bold mb-8">About andAugment</h2>
-      <p class="text-lg text-gray-700 leading-relaxed mb-6">
-        andAugment は、日常の小さなストレスを自動化で解決するデジタルツールを開発・販売しています。
-      </p>
-      <p class="text-lg text-gray-700 leading-relaxed mb-6">
-        「自分が不便だな」と思って改善するために作ったソフトウェアを、誰かの役に立つなら販売する。
-      </p>
-      <p class="text-lg text-gray-700 leading-relaxed">
-        そんなシンプルな方針でツールを開発しています。
-      </p>
+  <section id="about" class="py-24 md:py-32 relative">
+    <div class="section-line" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="reveal">
+        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4 text-center">About</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">About andAugment</h2>
+      </div>
+
+      <div class="about-content reveal" style="--reveal-delay: 0.15s">
+        <div class="about-quote-mark" aria-hidden="true">&amp;</div>
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          andAugment は、日常の小さなストレスを自動化で解決するデジタルツールを開発・販売しています。
+        </p>
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          「自分が不便だな」と思って改善するために作ったソフトウェアを、誰かの役に立つなら販売する。
+        </p>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          そんなシンプルな方針でツールを開発しています。
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-20 bg-gradient-to-br from-blue-600 to-green-500 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">あなたの時間を増幅しませんか？</h2>
-      <p class="text-xl mb-8 opacity-90">ちょっとニッチだけど、ちょっと便利。</p>
-      <div class="space-x-4">
-        <a href="#products" class="btn-cta-white">製品を見る</a>
-        <a href="#contact" class="btn-cta-outline">お問い合わせ</a>
+  <section class="py-24 md:py-32 relative overflow-hidden">
+    <div class="cta-bg" aria-hidden="true"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">あなたの時間を<br class="sm:hidden">増幅しませんか？</h2>
+      <p class="text-lg text-gray-300 mb-10 font-mono">ちょっとニッチだけど、ちょっと便利。</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#products" class="btn-primary group">
+          <span>製品を見る</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost">お問い合わせ</a>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-white">
-    <div class="container mx-auto px-4 max-w-2xl text-center">
-      <h2 class="text-4xl font-bold mb-8">Contact</h2>
-      <p class="text-lg text-gray-700 mb-8">ご質問・お問い合わせはこちらから</p>
-
-      <div class="space-y-4">
-        <div class="contact-item p-6 bg-gray-50 rounded-xl">
-          <div class="text-2xl mb-2">&#128038;</div>
-          <h3 class="font-bold mb-2">X (Twitter)</h3>
-          <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">@andAugment</a>
-        </div>
-
-        <div class="contact-item p-6 bg-gray-50 rounded-xl">
-          <div class="text-2xl mb-2">&#128231;</div>
-          <h3 class="font-bold mb-2">Email</h3>
-          <a href="mailto:andaugment@gmail.com" class="text-blue-600 hover:underline">andaugment@gmail.com</a>
-        </div>
+  <section id="contact" class="py-24 md:py-32 relative">
+    <div class="section-line" aria-hidden="true"></div>
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Contact</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
+        <p class="text-gray-400 mb-12">ご質問・お問い合わせはこちらから</p>
       </div>
 
-      <p class="text-sm text-gray-500 mt-8">返信まで1-3営業日いただく場合がございます</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay: 0.15s">
+        <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
+          <svg class="w-6 h-6 text-accent-cyan mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">@andAugment</span>
+        </a>
+
+        <a href="mailto:andaugment@gmail.com" class="contact-card group">
+          <svg class="w-6 h-6 text-accent-cyan mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
+          </svg>
+          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">andaugment@gmail.com</span>
+        </a>
+      </div>
+
+      <p class="text-xs text-gray-600 mt-8 font-mono">返信まで1-3営業日いただく場合がございます</p>
     </div>
   </section>
 
   <!-- フッター -->
-  <footer class="bg-slate-900 text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+  <footer class="border-t border-white/5 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
         <!-- カラム1: ブランド -->
         <div>
-          <img src="assets/images/logo-white.png" alt="andAugment" class="h-12 mb-4">
-          <p class="text-gray-400">あなたの時間を増幅する</p>
+          <a href="#home" class="flex items-center gap-3 mb-4">
+            <img src="assets/images/logo-white.png" alt="andAugment" class="h-10">
+            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-cyan">&amp;</span>Augment</span>
+          </a>
+          <p class="text-sm text-gray-500 font-mono">あなたの時間を増幅する</p>
         </div>
 
         <!-- カラム2: リンク -->
         <div>
-          <h3 class="font-bold mb-4">Links</h3>
-          <ul class="space-y-2">
-            <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
-            <li><a href="#products" class="text-gray-400 hover:text-white transition">Products</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-            <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
-            <li><a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-sm text-gray-500 hover:text-white transition-colors">Home</a></li>
+            <li><a href="#products" class="text-sm text-gray-500 hover:text-white transition-colors">Products</a></li>
+            <li><a href="#about" class="text-sm text-gray-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="privacy.html" class="text-sm text-gray-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-sm text-gray-500 hover:text-white transition-colors">Terms of Service</a></li>
           </ul>
         </div>
 
         <!-- カラム3: コンタクト -->
         <div>
-          <h3 class="font-bold mb-4">Contact</h3>
-          <ul class="space-y-2">
-            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">X: @andAugment</a></li>
-            <li><a href="mailto:andaugment@gmail.com" class="text-gray-400 hover:text-white transition">andaugment@gmail.com</a></li>
+          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Contact</h3>
+          <ul class="space-y-3">
+            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500 hover:text-white transition-colors">X: @andAugment</a></li>
+            <li><a href="mailto:andaugment@gmail.com" class="text-sm text-gray-500 hover:text-white transition-colors">andaugment@gmail.com</a></li>
           </ul>
         </div>
 
       </div>
 
       <!-- コピーライト -->
-      <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-        <p>&copy; 2026 andAugment. All rights reserved.</p>
+      <div class="border-t border-white/5 pt-8 text-center">
+        <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. All rights reserved.</p>
       </div>
     </div>
   </footer>
