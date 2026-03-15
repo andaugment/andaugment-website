@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "andaugment-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "D:/Claude/andaugment-website", "-p", "8090", "-c-1"],
+      "port": 8090
+    }
+  ]
+}
