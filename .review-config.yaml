@@ -1,0 +1,6 @@
+test_command: "echo 'No tests for static site'"
+base_branch: main
+develop_branch: develop
+max_cycles: 3
+openai_model: auto
+max_diff_chars: 30000
