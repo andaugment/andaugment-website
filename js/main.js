@@ -105,8 +105,16 @@
 
   // --- Language switcher toggle ---
   document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.nextElementSibling.classList.toggle('hidden');
+    const dropdown = btn.closest('.lang-switcher').querySelector('.lang-switcher > div');
+    if (!dropdown) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.add('hidden');
     });
   });
 
