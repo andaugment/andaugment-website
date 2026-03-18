@@ -103,6 +103,13 @@
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
+  // --- Language switcher toggle ---
+  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.nextElementSibling.classList.toggle('hidden');
+    });
+  });
+
   // --- Magnetic hover on product cards (desktop only) ---
   if (window.matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('.product-card--active').forEach(card => {
