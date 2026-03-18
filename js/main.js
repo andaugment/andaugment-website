@@ -104,17 +104,30 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
   // --- Language switcher toggle ---
-  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-    const dropdown = btn.closest('.lang-switcher').querySelector('.lang-switcher > div');
-    if (!dropdown) return;
+  const langSwitchers = document.querySelectorAll('.lang-switcher');
+
+  langSwitchers.forEach(switcher => {
+    const btn = switcher.querySelector('[data-lang-toggle]');
+    const dropdown = switcher.querySelector('div');
+    if (!btn || !dropdown) return;
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
+      // Close other open dropdowns
+      langSwitchers.forEach(other => {
+        if (other !== switcher) {
+          const otherDropdown = other.querySelector('div');
+          if (otherDropdown) otherDropdown.classList.add('hidden');
+        }
+      });
       dropdown.classList.toggle('hidden');
     });
+  });
 
-    document.addEventListener('click', () => {
-      dropdown.classList.add('hidden');
+  document.addEventListener('click', () => {
+    langSwitchers.forEach(switcher => {
+      const dropdown = switcher.querySelector('div');
+      if (dropdown) dropdown.classList.add('hidden');
     });
   });
 
