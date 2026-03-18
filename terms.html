@@ -5,47 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>利用規約 | andAugment</title>
   <link rel="icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { surface: { 900: '#060a14', 800: '#0a0f1e', 700: '#0f1628', 600: '#141d34', 500: '#1a2540' }, accent: { cyan: '#22d3ee' } },
+        fontFamily: { mono: ['IBM Plex Mono', 'monospace'], body: ['DM Sans', 'sans-serif'] }
+      }}
+    }
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-surface-900 text-gray-200 font-body antialiased">
 
-  <!-- ヘッダー -->
-  <header class="bg-white shadow-sm">
-    <nav class="container mx-auto px-4 py-4">
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="andAugment" class="h-10">
+  <header class="border-b border-white/5">
+    <nav class="max-w-4xl mx-auto px-6 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/images/logo.png" alt="andAugment" class="h-9">
+        <span class="font-mono font-bold text-white text-lg"><span class="text-accent-cyan">&amp;</span>Augment</span>
       </a>
     </nav>
   </header>
 
-  <!-- コンテンツ -->
-  <main class="container mx-auto px-4 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-8">利用規約</h1>
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold text-white mb-10">利用規約</h1>
 
-    <div class="bg-white rounded-lg shadow p-8 space-y-6">
-
+    <div class="space-y-8 text-gray-300 leading-relaxed">
       <section>
-        <h2 class="text-2xl font-bold mb-4">1. 総則</h2>
-        <p class="text-gray-700 leading-relaxed">
-          本利用規約（以下「本規約」）は、andAugment（以下「当サイト」）が提供するサービスの利用条件を定めるものです。
-        </p>
+        <h2 class="text-xl font-bold text-white mb-3">1. 総則</h2>
+        <p>本利用規約（以下「本規約」）は、andAugment（以下「当サイト」）が提供するサービスの利用条件を定めるものです。</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">2. 利用条件</h2>
-        <p class="text-gray-700 leading-relaxed">
-          利用者は、本規約に同意したうえで当サイトのサービスを利用するものとします。
-        </p>
+        <h2 class="text-xl font-bold text-white mb-3">2. 利用条件</h2>
+        <p>利用者は、本規約に同意したうえで当サイトのサービスを利用するものとします。</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">3. 禁止事項</h2>
-        <p class="text-gray-700 leading-relaxed">
-          利用者は、以下の行為を行ってはなりません：
-        </p>
-        <ul class="list-disc list-inside mt-2 text-gray-700">
+        <h2 class="text-xl font-bold text-white mb-3">3. 禁止事項</h2>
+        <p>利用者は、以下の行為を行ってはなりません：</p>
+        <ul class="list-disc list-inside mt-2 text-gray-400">
           <li>法令または公序良俗に違反する行為</li>
           <li>犯罪行為に関連する行為</li>
           <li>当サイトのサーバーまたはネットワークの機能を破壊または妨害する行為</li>
@@ -58,49 +58,38 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">4. 免責事項</h2>
-        <p class="text-gray-700 leading-relaxed">
-          当サイトは、サービスの内容変更、中断、終了によって生じたいかなる損害についても、一切責任を負いません。
-        </p>
+        <h2 class="text-xl font-bold text-white mb-3">4. 免責事項</h2>
+        <p>当サイトは、サービスの内容変更、中断、終了によって生じたいかなる損害についても、一切責任を負いません。</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">5. 知的財産権</h2>
-        <p class="text-gray-700 leading-relaxed">
-          当サイトに掲載されているコンテンツの著作権または知的財産権は、当サイトまたはコンテンツ提供者に帰属しています。
-        </p>
+        <h2 class="text-xl font-bold text-white mb-3">5. 知的財産権</h2>
+        <p>当サイトに掲載されているコンテンツの著作権または知的財産権は、当サイトまたはコンテンツ提供者に帰属しています。</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">6. 準拠法・管轄裁判所</h2>
-        <p class="text-gray-700 leading-relaxed">
-          本規約の解釈にあたっては、日本法を準拠法とします。
-        </p>
+        <h2 class="text-xl font-bold text-white mb-3">6. 準拠法・管轄裁判所</h2>
+        <p>本規約の解釈にあたっては、日本法を準拠法とします。</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4">7. お問い合わせ</h2>
-        <p class="text-gray-700 leading-relaxed">
-          本規約に関するお問い合わせは、以下までご連絡ください：<br>
-          Email: <a href="mailto:andaugment@gmail.com" class="text-blue-600 hover:underline">andaugment@gmail.com</a>
+        <h2 class="text-xl font-bold text-white mb-3">7. お問い合わせ</h2>
+        <p>本規約に関するお問い合わせは、以下までご連絡ください：<br>
+          Email: <a href="mailto:andaugment@gmail.com" class="text-accent-cyan hover:underline">andaugment@gmail.com</a>
         </p>
       </section>
 
-      <section>
-        <p class="text-sm text-gray-500 mt-8">最終更新日: 2026年3月11日</p>
-      </section>
-
+      <p class="text-sm text-gray-600 font-mono mt-12">最終更新日: 2026年3月11日</p>
     </div>
 
-    <div class="text-center mt-8">
-      <a href="index.html" class="text-blue-600 hover:underline">&larr; トップページに戻る</a>
+    <div class="text-center mt-12">
+      <a href="index.html" class="text-accent-cyan hover:underline font-mono text-sm">&larr; トップページに戻る</a>
     </div>
   </main>
 
-  <!-- フッター -->
-  <footer class="bg-slate-900 text-white py-8 mt-12">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-400">&copy; 2026 andAugment. All rights reserved.</p>
+  <footer class="border-t border-white/5 py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. All rights reserved.</p>
     </div>
   </footer>
 
