@@ -91,7 +91,8 @@
     "offers": {
       "@type": "Offer",
       "price": "19.99",
-      "priceCurrency": "USD"
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
     },
     "description": "Videodateien in einen Ordner legen — Titel, Beschreibung und Datenschutzeinstellungen werden automatisch konfiguriert und auf YouTube hochgeladen",
     "publisher": {
@@ -126,7 +127,7 @@
       </ul>
       <!-- Language switcher -->
       <div class="lang-switcher relative hidden md:block">
-        <button class="font-mono text-xs text-gray-400 hover:text-accent-cyan transition-colors px-2 py-1 border border-white/10 rounded" onclick="this.nextElementSibling.classList.toggle('hidden')">DE &#9662;</button>
+        <button class="font-mono text-xs text-gray-400 hover:text-accent-cyan transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>DE &#9662;</button>
         <div class="hidden absolute right-0 top-full mt-1 bg-surface-700 border border-white/10 rounded-lg shadow-xl py-1 min-w-[120px] z-50">
           <a href="../" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">JA - Japanese</a>
           <a href="../en/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">EN - English</a>
@@ -310,6 +311,28 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Video -->
+  <section id="demo" class="py-24 md:py-32 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12 reveal">
+        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">How It Works</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Einfach in den Ordner legen</h2>
+        <p class="text-gray-400 max-w-md mx-auto">Video Auto Uploader in 30 Sekunden erklärt</p>
+      </div>
+      <div class="reveal" style="--reveal-delay: 0.2s">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 0 60px rgba(59,130,246,0.1);">
+          <video
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            controls
+            preload="metadata"
+          >
+            <source src="../assets/videos/vau-promo-en.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
