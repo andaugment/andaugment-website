@@ -108,26 +108,35 @@
 
   langSwitchers.forEach(switcher => {
     const btn = switcher.querySelector('[data-lang-toggle]');
-    const dropdown = switcher.querySelector('div');
+    const dropdown = switcher.querySelector('.lang-dropdown');
     if (!btn || !dropdown) return;
+
+    btn.setAttribute('aria-expanded', 'false');
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      // Close other open dropdowns
+      const isOpen = !dropdown.classList.contains('hidden');
+      // Close all dropdowns first
       langSwitchers.forEach(other => {
-        if (other !== switcher) {
-          const otherDropdown = other.querySelector('div');
-          if (otherDropdown) otherDropdown.classList.add('hidden');
-        }
+        const d = other.querySelector('.lang-dropdown');
+        const b = other.querySelector('[data-lang-toggle]');
+        if (d) d.classList.add('hidden');
+        if (b) b.setAttribute('aria-expanded', 'false');
       });
-      dropdown.classList.toggle('hidden');
+      // Toggle current
+      if (!isOpen) {
+        dropdown.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
   document.addEventListener('click', () => {
     langSwitchers.forEach(switcher => {
-      const dropdown = switcher.querySelector('div');
+      const dropdown = switcher.querySelector('.lang-dropdown');
+      const btn = switcher.querySelector('[data-lang-toggle]');
       if (dropdown) dropdown.classList.add('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   });
 
