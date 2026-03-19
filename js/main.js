@@ -92,7 +92,7 @@
         navLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === '#' + id) {
-            link.style.color = '#22d3ee';
+            link.style.color = '#22C55E';
           } else {
             link.style.color = '';
           }
