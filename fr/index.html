@@ -46,7 +46,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -55,10 +55,10 @@
       theme: {
         extend: {
           colors: {
-            surface: { 900: '#060a14', 800: '#0a0f1e', 700: '#0f1628', 600: '#141d34', 500: '#1a2540' },
-            accent: { blue: '#3b82f6', cyan: '#22d3ee', green: '#10b981', glow: '#60a5fa' }
+            surface: { 900: '#0F172A', 800: '#1E293B', 700: '#334155', 600: '#475569', 500: '#64748B' },
+            accent: { blue: '#3b82f6', green: '#22C55E', emerald: '#10B981', glow: '#4ADE80' }
           },
-          fontFamily: { mono: ['IBM Plex Mono', 'monospace'], body: ['DM Sans', 'sans-serif'] }
+          fontFamily: { mono: ['IBM Plex Mono', 'monospace'], sans: ['Plus Jakarta Sans', 'sans-serif'], body: ['Plus Jakarta Sans', 'sans-serif'] }
         }
       }
     }
@@ -104,7 +104,7 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-surface-900 text-gray-200 font-body antialiased">
+<body class="bg-surface-900 text-gray-200 font-sans antialiased">
 
   <div class="grid-overlay" aria-hidden="true"></div>
 
@@ -115,7 +115,7 @@
         <a href="#home" class="flex items-center gap-3 group">
           <img src="../assets/images/logo.png" alt="andAugment" class="h-9 transition-transform duration-300 group-hover:scale-105">
           <span class="font-mono font-bold text-white text-lg tracking-tight hidden sm:inline">
-            <span class="text-accent-cyan">&amp;</span>Augment
+            <span class="text-accent-green">&amp;</span>Augment
           </span>
         </a>
       </div>
@@ -127,7 +127,7 @@
       </ul>
       <!-- Language switcher -->
       <div class="lang-switcher relative hidden md:block">
-        <button class="font-mono text-xs text-gray-400 hover:text-accent-cyan transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>FR &#9662;</button>
+        <button class="font-mono text-xs text-gray-400 hover:text-accent-green transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>FR &#9662;</button>
         <div class="hidden absolute right-0 top-full mt-1 bg-surface-700 border border-white/10 rounded-lg shadow-xl py-1 min-w-[120px] z-50">
           <a href="../" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">JA - Japanese</a>
           <a href="../en/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">EN - English</a>
@@ -136,7 +136,7 @@
           <a href="../ko/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">KO - Korean</a>
           <a href="../es/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ES - Spanish</a>
           <a href="../pt/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">PT - Portuguese</a>
-          <a href="../fr/" class="block px-3 py-1.5 text-xs font-mono text-accent-cyan">FR - French</a>
+          <a href="../fr/" class="block px-3 py-1.5 text-xs font-mono text-accent-green">FR - French</a>
           <a href="../de/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">DE - German</a>
         </div>
       </div>
@@ -159,19 +159,19 @@
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
       <div class="hero-ampersand" aria-hidden="true">&amp;</div>
       <div class="hero-content">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 mb-8 hero-badge">
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-green/20 bg-accent-green/5 mb-8 hero-badge">
           <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
-          <span class="font-mono text-xs text-accent-cyan tracking-wider uppercase">Outils d'Automatisation pour Windows</span>
+          <span class="font-mono text-xs text-accent-green tracking-wider uppercase">Outils d'Automatisation pour Windows</span>
         </div>
 
-        <h1 class="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 leading-[0.95] tracking-tight">
-          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-cyan hero-title-line" style="--delay: 1">Augment</span>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold text-white mb-6 leading-[0.95] tracking-tight">
+          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-green hero-title-line" style="--delay: 1">Augment</span>
         </h1>
 
-        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-medium hero-fade" style="--delay: 2">
+        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-semibold hero-fade" style="--delay: 2">
           Amplifiez Votre Temps
         </p>
-        <p class="text-base sm:text-lg text-gray-400 mb-10 font-mono hero-fade" style="--delay: 3">
+        <p class="text-base sm:text-lg text-gray-400 mb-12 font-mono hero-fade" style="--delay: 3">
           Un peu de niche, mais tres pratique.
         </p>
 
@@ -197,7 +197,7 @@
     <div class="section-line" aria-hidden="true"></div>
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Produits</span>
+        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Produits</span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Nos Produits</h2>
         <p class="text-gray-400 max-w-md mx-auto">Des outils qui vous font gagner du temps</p>
       </div>
@@ -319,7 +319,7 @@
   <section id="demo" class="py-24 md:py-32 relative">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
-        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">How It Works</span>
+        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">How It Works</span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Déposez-le dans un dossier</h2>
         <p class="text-gray-400 max-w-md mx-auto">Découvrez Video Auto Uploader en action — en 30 secondes</p>
       </div>
@@ -342,7 +342,7 @@
   <section id="features" class="py-24 md:py-32 relative">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Pourquoi Nous</span>
+        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Pourquoi Nous</span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Pourquoi andAugment ?</h2>
         <p class="text-gray-400">4 raisons de nous choisir</p>
       </div>
@@ -385,7 +385,7 @@
     <div class="section-line" aria-hidden="true"></div>
     <div class="max-w-3xl mx-auto px-6">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4 text-center">A Propos</span>
+        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4 text-center">A Propos</span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">A Propos d'andAugment</h2>
       </div>
       <div class="about-content reveal" style="--reveal-delay: 0.15s">
@@ -424,20 +424,20 @@
     <div class="section-line" aria-hidden="true"></div>
     <div class="max-w-2xl mx-auto px-6 text-center">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-cyan tracking-[0.3em] uppercase block mb-4">Contact</span>
+        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Contact</span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
         <p class="text-gray-400 mb-12">Des questions ? Contactez-nous</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay: 0.15s">
         <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-cyan mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
           <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">@andAugment</span>
         </a>
         <a href="mailto:andaugment@gmail.com" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-cyan mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
           </svg>
           <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">andaugment@gmail.com</span>
@@ -454,7 +454,7 @@
         <div>
           <a href="#home" class="flex items-center gap-3 mb-4">
             <img src="../assets/images/logo-white.png" alt="andAugment" class="h-10">
-            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-cyan">&amp;</span>Augment</span>
+            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-green">&amp;</span>Augment</span>
           </a>
           <p class="text-sm text-gray-500 font-mono">Amplifiez Votre Temps</p>
         </div>
