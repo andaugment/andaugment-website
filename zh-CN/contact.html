@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 | andAugment</title>
+  <meta name="description" content="联系andAugment，咨询产品问题、Bug报告、功能请求和技术支持。">
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { surface: { 900: '#0F172A', 800: '#1E293B', 700: '#334155', 600: '#475569', 500: '#64748B' }, accent: { green: '#22C55E', blue: '#3B82F6' } },
+        fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], mono: ['IBM Plex Mono', 'monospace'], body: ['Plus Jakarta Sans', 'sans-serif'] }
+      }}
+    }
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-surface-900 text-gray-200 font-sans antialiased">
+
+  <header class="border-b border-white/5">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="../assets/images/logo.png" alt="andAugment" class="h-9">
+        <span class="font-mono font-bold text-white text-lg"><span class="text-accent-green">&amp;</span>Augment</span>
+      </a>
+      <a href="../contact.html" class="font-mono text-xs text-gray-400 hover:text-accent-green transition-colors px-2 py-1 border border-white/10 rounded">JA</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Contact</span>
+      <h1 class="text-4xl font-bold text-white mb-4">联系我们</h1>
+      <p class="text-gray-400">问题咨询、Bug报告、功能请求——我们随时为您提供帮助。</p>
+    </div>
+
+    <form id="contactForm" class="space-y-6">
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">产品 <span class="text-accent-green">*</span></label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <label><input type="radio" name="product" value="Video Auto Uploader for YouTube" class="sr-only peer" required>
+            <div class="peer-checked:border-accent-green peer-checked:bg-accent-green/10 border border-white/10 rounded-lg p-3 text-center cursor-pointer hover:border-white/30 transition-all">
+              <span class="text-2xl block mb-1">&#x1F3AC;</span><span class="text-xs font-mono text-gray-400 peer-checked:text-accent-green">VAU</span>
+            </div>
+          </label>
+          <label><input type="radio" name="product" value="Keep Awake Pro" class="sr-only peer">
+            <div class="peer-checked:border-accent-green peer-checked:bg-accent-green/10 border border-white/10 rounded-lg p-3 text-center cursor-pointer hover:border-white/30 transition-all">
+              <span class="text-2xl block mb-1">&#x2615;</span><span class="text-xs font-mono text-gray-400 peer-checked:text-accent-green">KAP</span>
+            </div>
+          </label>
+          <label><input type="radio" name="product" value="Yomuyomu" class="sr-only peer">
+            <div class="peer-checked:border-accent-green peer-checked:bg-accent-green/10 border border-white/10 rounded-lg p-3 text-center cursor-pointer hover:border-white/30 transition-all">
+              <span class="text-2xl block mb-1">&#x1F4D6;</span><span class="text-xs font-mono text-gray-400 peer-checked:text-accent-green">Yomuyomu</span>
+            </div>
+          </label>
+          <label><input type="radio" name="product" value="Other" class="sr-only peer">
+            <div class="peer-checked:border-accent-green peer-checked:bg-accent-green/10 border border-white/10 rounded-lg p-3 text-center cursor-pointer hover:border-white/30 transition-all">
+              <span class="text-2xl block mb-1">&#x2753;</span><span class="text-xs font-mono text-gray-400 peer-checked:text-accent-green">其他</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">分类 <span class="text-accent-green">*</span></label>
+        <select id="category" required class="w-full bg-surface-800 border border-white/10 rounded-lg px-4 py-3 text-gray-200 text-sm focus:border-accent-green focus:ring-1 focus:ring-accent-green/30 outline-none transition-all">
+          <option value="" disabled selected>选择分类</option>
+          <option value="Bug报告">Bug报告</option>
+          <option value="功能请求">功能请求</option>
+          <option value="购买/许可证">购买/许可证</option>
+          <option value="使用方法">使用方法</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">姓名（可选）</label>
+        <input type="text" id="name" placeholder="您的姓名" class="w-full bg-surface-800 border border-white/10 rounded-lg px-4 py-3 text-gray-200 text-sm placeholder-gray-600 focus:border-accent-green focus:ring-1 focus:ring-accent-green/30 outline-none transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">电子邮箱 <span class="text-accent-green">*</span></label>
+        <input type="email" id="email" required placeholder="your@email.com" class="w-full bg-surface-800 border border-white/10 rounded-lg px-4 py-3 text-gray-200 text-sm placeholder-gray-600 focus:border-accent-green focus:ring-1 focus:ring-accent-green/30 outline-none transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">消息内容 <span class="text-accent-green">*</span></label>
+        <textarea id="message" required rows="6" placeholder="如需报告Bug，请包含：复现步骤、错误信息和操作系统环境。" class="w-full bg-surface-800 border border-white/10 rounded-lg px-4 py-3 text-gray-200 text-sm placeholder-gray-600 focus:border-accent-green focus:ring-1 focus:ring-accent-green/30 outline-none transition-all resize-y"></textarea>
+      </div>
+
+      <div class="flex flex-col items-center gap-4">
+        <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-accent-green text-surface-900 font-bold rounded-lg hover:bg-accent-green/90 transition-all duration-200 text-sm">
+          通过邮件应用发送
+        </button>
+        <p class="text-xs text-gray-600 text-center">您的邮件应用将打开，请在发送前确认内容。</p>
+      </div>
+    </form>
+
+    <div class="mt-16 border-t border-white/5 pt-12">
+      <h2 class="text-lg font-bold text-white mb-6 text-center">更喜欢直接联系？</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="mailto:andaugment@gmail.com" class="flex items-center gap-4 p-4 border border-white/10 rounded-xl hover:border-accent-green/30 hover:bg-accent-green/5 transition-all group">
+          <div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </div>
+          <div><span class="text-sm font-semibold text-white block">Email</span><span class="text-xs text-gray-500 font-mono">andaugment@gmail.com</span></div>
+        </a>
+        <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 border border-white/10 rounded-xl hover:border-accent-green/30 hover:bg-accent-green/5 transition-all group">
+          <div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-accent-green" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          <div><span class="text-sm font-semibold text-white block">X (Twitter)</span><span class="text-xs text-gray-500 font-mono">@andAugment</span></div>
+        </a>
+      </div>
+      <p class="text-xs text-gray-600 mt-6 text-center font-mono">我们通常在1-3个工作日内回复</p>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="index.html" class="text-accent-green hover:underline font-mono text-sm">&larr; 返回首页</a>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var product = document.querySelector('input[name="product"]:checked');
+      var category = document.getElementById('category').value;
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+      if (!product) { alert('请选择一个产品'); return; }
+      var subject = '[' + product.value + '] ' + category;
+      var body = '产品: ' + product.value + '\n分类: ' + category + '\n' + (name ? '姓名: ' + name + '\n' : '') + '回复至: ' + email + '\n\n---\n\n' + message;
+      window.location.href = 'mailto:andaugment@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+
+</body>
+</html>
