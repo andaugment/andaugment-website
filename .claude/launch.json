@@ -4,7 +4,7 @@
     {
       "name": "andaugment-site",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "D:/Claude/andaugment-website", "-p", "8090", "-c-1"],
+      "runtimeArgs": ["http-server", "E:/Claude/projects/andaugment-website", "-p", "8090", "-c-1"],
       "port": 8090
     }
   ]
