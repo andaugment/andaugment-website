@@ -55,10 +55,24 @@
       theme: {
         extend: {
           colors: {
-            surface: { 900: '#0F172A', 800: '#1E293B', 700: '#334155', 600: '#475569', 500: '#64748B' },
-            accent: { blue: '#3B82F6', green: '#22C55E', emerald: '#10B981', glow: '#4ADE80' }
+            surface: {
+              50:  '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              600: '#475569',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A',
+            },
           },
-          fontFamily: { mono: ['IBM Plex Mono', 'monospace'], sans: ['Plus Jakarta Sans', 'sans-serif'], body: ['Plus Jakarta Sans', 'sans-serif'] }
+          fontFamily: {
+            mono: ['IBM Plex Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
         }
       }
     }
@@ -104,18 +118,16 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-surface-900 text-gray-200 font-sans antialiased">
-
-  <div class="grid-overlay" aria-hidden="true"></div>
+<body class="font-sans antialiased">
 
   <!-- Header -->
   <header class="fixed top-0 w-full z-50 header-glass">
     <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="logo">
         <a href="#home" class="flex items-center gap-3 group">
-          <img src="../assets/images/logo.png" alt="andAugment" class="h-9 transition-transform duration-300 group-hover:scale-105">
-          <span class="font-mono font-bold text-white text-lg tracking-tight hidden sm:inline">
-            <span class="text-accent-green">&amp;</span>Augment
+          <img src="../assets/images/logo.png" alt="andAugment" class="h-8 transition-transform duration-300 group-hover:scale-105">
+          <span class="font-bold text-slate-900 text-lg tracking-tight hidden sm:inline">
+            <span class="text-blue-600">&amp;</span>Augment
           </span>
         </a>
       </div>
@@ -127,20 +139,20 @@
       </ul>
       <!-- Language switcher -->
       <div class="lang-switcher relative hidden md:block">
-        <button class="font-mono text-xs text-gray-400 hover:text-accent-green transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>EN &#9662;</button>
-        <div class="hidden absolute right-0 top-full mt-1 bg-surface-700 border border-white/10 rounded-lg shadow-xl py-1 min-w-[120px] z-50">
-          <a href="../" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">JA - Japanese</a>
-          <a href="../en/" class="block px-3 py-1.5 text-xs font-mono text-accent-green">EN - English</a>
-          <a href="../zh-CN/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ZH - Chinese</a>
-          <a href="../zh-TW/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ZH - Traditional</a>
-          <a href="../ko/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">KO - Korean</a>
-          <a href="../es/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ES - Spanish</a>
-          <a href="../pt/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">PT - Portuguese</a>
-          <a href="../fr/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">FR - French</a>
-          <a href="../de/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">DE - German</a>
+        <button class="text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors px-3 py-1.5 border border-slate-200 rounded-lg hover:border-slate-300 bg-white" data-lang-toggle>EN &#9662;</button>
+        <div class="hidden absolute right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 min-w-[140px] z-50">
+          <a href="../" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">JA - 日本語</a>
+          <a href="../en/" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">EN - English</a>
+          <a href="../zh-CN/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">ZH - 简体中文</a>
+          <a href="../zh-TW/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">ZH - 繁體中文</a>
+          <a href="../ko/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">KO - 한국어</a>
+          <a href="../es/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">ES - Español</a>
+          <a href="../pt/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">PT - Português</a>
+          <a href="../fr/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">FR - Français</a>
+          <a href="../de/" class="block px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">DE - Deutsch</a>
         </div>
       </div>
-      <button class="hamburger md:hidden text-gray-300 hover:text-white transition-colors" aria-label="Menu">
+      <button class="hamburger md:hidden text-slate-500 hover:text-slate-900 transition-colors" aria-label="Menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
@@ -150,29 +162,25 @@
 
   <!-- Hero -->
   <section id="home" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="hero-bg-elements" aria-hidden="true">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-circuit-lines"></div>
-    </div>
+    <div class="hero-bg-elements" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <div class="hero-ampersand" aria-hidden="true">&amp;</div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
       <div class="hero-content">
-        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-green/20 bg-accent-green/5 mb-8 hero-badge">
-          <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
-          <span class="font-mono text-xs text-accent-green tracking-wider uppercase">Automation Tools for Windows</span>
+        <!-- Category badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white shadow-sm mb-8 hero-badge">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+          <span class="text-xs font-semibold text-slate-600 tracking-wide">Windows Automation Tools</span>
         </div>
 
-        <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold text-white mb-6 leading-[0.95] tracking-tight">
-          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-green hero-title-line" style="--delay: 1">Augment</span>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-[0.95] tracking-tight">
+          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-blue-600 hero-title-line" style="--delay: 1">Augment</span>
         </h1>
 
-        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-semibold hero-fade" style="--delay: 2">
+        <p class="text-xl sm:text-2xl text-slate-800 mb-3 font-semibold hero-fade" style="--delay: 2">
           Augment Your Time
         </p>
-        <p class="text-base sm:text-lg text-gray-400 mb-12 font-mono hero-fade" style="--delay: 3">
-          A little niche, but a little useful.
+        <p class="text-base sm:text-lg text-slate-500 mb-10 hero-fade" style="--delay: 3">
+          A little niche, but genuinely useful. Windows tools that automate your daily repetitive tasks.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-fade" style="--delay: 4">
@@ -182,24 +190,25 @@
           </a>
           <a href="#contact" class="btn-ghost">Contact Us</a>
         </div>
-      </div>
-    </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-      <div class="w-5 h-8 rounded-full border-2 border-gray-500/40 flex justify-center pt-1.5">
-        <div class="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+        <!-- Trust signals -->
+        <div class="trust-badges hero-fade" style="--delay: 5">
+          <span class="trust-badge">One-Time Purchase</span>
+          <span class="trust-badge">Permanent License</span>
+          <span class="trust-badge">Free Updates</span>
+          <span class="trust-badge">Windows 10/11</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Products -->
-  <section id="products" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <section id="products" class="py-24 md:py-32 relative bg-slate-50">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Products</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Product Lineup</h2>
-        <p class="text-gray-400 max-w-md mx-auto">Tools that save your time</p>
+        <span class="text-xs font-bold text-blue-600 tracking-widest uppercase block mb-3">Products</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">Product Lineup</h2>
+        <p class="text-slate-500 max-w-md mx-auto">Windows tools that save your time</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -209,21 +218,21 @@
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--live"></span>
-              <span class="font-mono text-xs text-accent-green">Available</span>
+              <span class="text-xs font-semibold text-emerald-600">Available</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap">
                 <img src="../assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white mb-2 leading-tight">Video Auto Uploader for YouTube</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Just drop video files into a folder. Title, description, and privacy settings are automatically set and uploaded to YouTube. Free yourself from repetitive manual uploads.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 leading-tight">Video Auto Uploader for YouTube</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Just drop video files into a folder. Title, description, and privacy settings are automatically configured and uploaded to YouTube. Free yourself from repetitive manual uploads.</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-slate-100">
               <div>
-                <span class="font-mono text-xs text-gray-500 block">Price</span>
-                <span class="text-2xl font-bold text-white font-mono">$19.99</span>
+                <span class="text-xs text-slate-400 block mb-0.5">One-time price</span>
+                <span class="text-2xl font-bold text-slate-900 font-mono">$19.99</span>
               </div>
               <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">
                 Buy Now
@@ -238,23 +247,23 @@
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">Coming Soon</span>
+              <span class="text-xs font-medium text-slate-400">Coming Soon</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Multi-Store Auto Publisher</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">BOOTH, Gumroad, LemonSqueezy — publish to multiple marketplaces with a single action. Expand your reach with zero extra effort.</p>
+                <h3 class="text-xl font-bold text-slate-400 mb-2 leading-tight">Multi-Store Auto Publisher</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">BOOTH, Gumroad, LemonSqueezy — publish to multiple marketplaces with a single action. Expand your reach with zero extra effort.</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-slate-100">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$34.99</span>
+                <span class="text-xs text-slate-300 block mb-0.5">One-time price</span>
+                <span class="text-2xl font-bold text-slate-300 font-mono">$34.99</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">Coming Soon</span>
+              <span class="btn-product-disabled">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -264,23 +273,23 @@
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">Coming Soon</span>
+              <span class="text-xs font-medium text-slate-400">Coming Soon</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Keep Awake Pro</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">Ever had your PC sleep during a long work session? One click keeps your computer awake. Stay focused without interruptions.</p>
+                <h3 class="text-xl font-bold text-slate-400 mb-2 leading-tight">Keep Awake Pro</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Ever had your PC sleep during a long work session? One click keeps your computer awake. Stay focused without interruptions.</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-slate-100">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$3.99</span>
+                <span class="text-xs text-slate-300 block mb-0.5">One-time price</span>
+                <span class="text-2xl font-bold text-slate-300 font-mono">$3.99</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">Coming Soon</span>
+              <span class="btn-product-disabled">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -290,23 +299,23 @@
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--dev"></span>
-              <span class="font-mono text-xs text-gray-500">In Development</span>
+              <span class="text-xs font-medium text-amber-500">In Development</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Stay Tuned for More</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">Turning 'I wish this existed' into reality. More tools are on the way.</p>
+                <h3 class="text-xl font-bold text-slate-400 mb-2 leading-tight">Stay Tuned for More</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">Turning "I wish this existed" into reality. More tools are on the way.</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4 border-t border-slate-100">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-lg text-white/30 font-mono">TBD</span>
+                <span class="text-xs text-slate-300 block mb-0.5">Price</span>
+                <span class="text-lg text-slate-300 font-mono">TBD</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">In Development</span>
+              <span class="btn-product-disabled">In Development</span>
             </div>
           </div>
         </div>
@@ -316,15 +325,15 @@
   </section>
 
   <!-- Demo Video -->
-  <section id="demo" class="py-24 md:py-32 relative">
+  <section id="demo" class="py-24 md:py-32 relative bg-white">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">How It Works</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Just Drop It in a Folder</h2>
-        <p class="text-gray-400 max-w-md mx-auto">See Video Auto Uploader in action — in 30 seconds</p>
+        <span class="text-xs font-bold text-blue-600 tracking-widest uppercase block mb-3">How It Works</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">Just Drop It in a Folder</h2>
+        <p class="text-slate-500 max-w-md mx-auto">See Video Auto Uploader in action — in 30 seconds</p>
       </div>
       <div class="reveal" style="--reveal-delay: 0.2s">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 0 60px rgba(59,130,246,0.1);">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.10),0 0 0 1px rgba(0,0,0,0.06);">
           <video
             style="position:absolute;top:0;left:0;width:100%;height:100%;"
             controls
@@ -339,64 +348,62 @@
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-24 md:py-32 relative">
+  <section id="features" class="py-24 md:py-32 relative bg-slate-50">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Why Us</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Why andAugment?</h2>
-        <p class="text-gray-400">4 reasons to choose us</p>
+        <span class="text-xs font-bold text-blue-600 tracking-widest uppercase block mb-3">Why Us</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">Why andAugment?</h2>
+        <p class="text-slate-500">4 reasons to choose us</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
         <div class="feature-card reveal" style="--reveal-delay: 0.1s">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">One-Time Purchase</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">No monthly fees to worry about. Buy once and use it forever with a permanent license.</p>
+          <h3 class="text-base font-bold text-slate-900 mb-2">One-Time Purchase</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">No monthly fees to worry about. Buy once and use it forever with a permanent license.</p>
         </div>
         <div class="feature-card reveal" style="--reveal-delay: 0.2s">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Practical First</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Built by a developer to solve their own daily frustrations. That's why every tool is genuinely practical.</p>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Practical First</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Built by a developer to solve their own daily frustrations. That's why every tool is genuinely practical.</p>
         </div>
         <div class="feature-card reveal" style="--reveal-delay: 0.3s">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Simple</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">No manual needed. Install and start using it right away with intuitive controls.</p>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Simple</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">No manual needed. Install and start using it right away with intuitive controls.</p>
         </div>
         <div class="feature-card reveal" style="--reveal-delay: 0.4s">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Free Updates</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Free updates after purchase. New features and improvements delivered continuously.</p>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Free Updates</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Free updates after purchase. New features and improvements delivered continuously.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <section id="about" class="py-24 md:py-32 relative bg-white">
     <div class="max-w-3xl mx-auto px-6">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4 text-center">About</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">About andAugment</h2>
+        <span class="text-xs font-bold text-blue-600 tracking-widest uppercase block mb-3 text-center">About</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center">About andAugment</h2>
       </div>
       <div class="about-content reveal" style="--reveal-delay: 0.15s">
-        <div class="about-quote-mark" aria-hidden="true">&amp;</div>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
           It started with uploading tennis practice videos to YouTube. Selecting files, typing titles, choosing privacy settings, over and over. The repetition was tedious, so I built a tool to automate it.
         </p>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
           andAugment develops and sells tools that eliminate small daily frustrations through automation. The concept is simple: if it annoys me, I automate it.
         </p>
-        <p class="text-lg text-gray-300 leading-relaxed">
+        <p class="text-lg text-slate-600 leading-relaxed">
           No bloated features needed. A bit niche, but reliably time-saving — that's the kind of tool we'll keep building.
         </p>
       </div>
@@ -404,11 +411,11 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-24 md:py-32 relative overflow-hidden">
+  <section class="cta-section py-24 md:py-32 relative overflow-hidden">
     <div class="cta-bg" aria-hidden="true"></div>
     <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Ready to automate<br class="sm:hidden"> your repetitive tasks?</h2>
-      <p class="text-lg text-gray-300 mb-10">One-time purchase, zero commitment. Start saving time today.</p>
+      <p class="text-lg text-blue-100 mb-10">One-time purchase, zero commitment. Start saving time today.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#products" class="btn-primary group">
           <span>View Products</span>
@@ -420,64 +427,66 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <section id="contact" class="py-24 md:py-32 relative bg-white">
     <div class="max-w-2xl mx-auto px-6 text-center">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Contact</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
-        <p class="text-gray-400 mb-12">Questions? Reach out to us</p>
+        <span class="text-xs font-bold text-blue-600 tracking-widest uppercase block mb-3">Contact</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">Contact</h2>
+        <p class="text-slate-500 mb-12">Questions? Reach out to us</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay: 0.15s">
         <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-6 h-6 text-blue-600 mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">@andAugment</span>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">@andAugment</span>
+          <span class="text-xs text-slate-400 mt-1">X (Twitter)</span>
         </a>
         <a href="mailto:andaugment@gmail.com" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg class="w-6 h-6 text-blue-600 mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
           </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">andaugment@gmail.com</span>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">andaugment@gmail.com</span>
+          <span class="text-xs text-slate-400 mt-1">Email</span>
         </a>
       </div>
-      <p class="text-xs text-gray-600 mt-8 font-mono">We typically respond within 1-3 business days</p>
+      <p class="text-xs text-slate-400 mt-8">We typically respond within 1–3 business days</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/5 py-16">
+  <footer class="border-t border-slate-200 bg-slate-50 py-14">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
         <div>
           <a href="#home" class="flex items-center gap-3 mb-4">
-            <img src="../assets/images/logo-white.png" alt="andAugment" class="h-10">
-            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-green">&amp;</span>Augment</span>
+            <img src="../assets/images/logo.png" alt="andAugment" class="h-8">
+            <span class="font-bold text-slate-900 text-lg tracking-tight"><span class="text-blue-600">&amp;</span>Augment</span>
           </a>
-          <p class="text-sm text-gray-500 font-mono">Augment Your Time</p>
+          <p class="text-sm text-slate-500">Augment Your Time</p>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Links</h3>
-          <ul class="space-y-3">
-            <li><a href="#home" class="text-sm text-gray-500 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#products" class="text-sm text-gray-500 hover:text-white transition-colors">Products</a></li>
-            <li><a href="#about" class="text-sm text-gray-500 hover:text-white transition-colors">About</a></li>
-            <li><a href="privacy.html" class="text-sm text-gray-500 hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="terms.html" class="text-sm text-gray-500 hover:text-white transition-colors">Terms of Service</a></li>
+          <h3 class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-4">Links</h3>
+          <ul class="space-y-2.5">
+            <li><a href="#home" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Home</a></li>
+            <li><a href="#products" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Products</a></li>
+            <li><a href="#about" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">About</a></li>
+            <li><a href="contact.html" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Contact</a></li>
+            <li><a href="privacy.html" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Terms of Service</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Contact</h3>
-          <ul class="space-y-3">
-            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500 hover:text-white transition-colors">X: @andAugment</a></li>
-            <li><a href="mailto:andaugment@gmail.com" class="text-sm text-gray-500 hover:text-white transition-colors">andaugment@gmail.com</a></li>
+          <h3 class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-4">Contact</h3>
+          <ul class="space-y-2.5">
+            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">X: @andAugment</a></li>
+            <li><a href="mailto:andaugment@gmail.com" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">andaugment@gmail.com</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/5 pt-8 text-center">
-        <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. All rights reserved.</p>
+      <div class="border-t border-slate-200 pt-8 text-center">
+        <p class="text-xs text-slate-400">&copy; 2026 andAugment. All rights reserved.</p>
       </div>
     </div>
   </footer>
