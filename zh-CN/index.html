@@ -3,30 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="andAugment - 自动化重复性工作的Windows工具。YouTube自动上传、多平台一键发布等。买断制·永久授权·免费更新。">
-  <meta name="keywords" content="andAugment, 工具, 自动化, Windows, 软件, 生产力, YouTube, 上传">
+  <meta name="description" content="andAugment - 只需把视频文件拖入文件夹，即可自动上传至YouTube。Windows自动化工具。买断制·永久授权·30天退款保证。">
+  <meta name="keywords" content="andAugment, YouTube auto upload, Windows automation, video upload, productivity tools">
   <meta name="author" content="andAugment">
   <meta name="robots" content="index, follow">
-
-  <title>andAugment - 增幅你的时间 | 数字工具与自动化软件</title>
-
+  <title>andAugment - 视频自动上传到YouTube | Windows自动化工具</title>
   <!-- OGP -->
-  <meta property="og:title" content="andAugment - 增幅你的时间">
-  <meta property="og:description" content="自动化重复性工作的Windows工具。买断制·永久授权·免费更新。">
+  <meta property="og:title" content="andAugment - Augment Your Time">
+  <meta property="og:description" content="Windows automation tools. One-time purchase, permanent license, 30-day money-back guarantee.">
   <meta property="og:image" content="https://andaugment.com/assets/images/ogp.jpg">
   <meta property="og:url" content="https://andaugment.com/zh-CN/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="andAugment">
   <meta property="og:locale" content="zh_CN">
-
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@andAugment">
-  <meta name="twitter:creator" content="@andAugment">
-  <meta name="twitter:title" content="andAugment - 增幅你的时间">
-  <meta name="twitter:description" content="自动化重复性工作的Windows工具。买断制·永久授权·免费更新。">
+  <meta name="twitter:title" content="andAugment - Augment Your Time">
+  <meta name="twitter:description" content="Windows automation tools. One-time purchase, permanent license, 30-day money-back guarantee.">
   <meta name="twitter:image" content="https://andaugment.com/assets/images/ogp.jpg">
-
   <!-- hreflang -->
   <link rel="alternate" hreflang="ja" href="https://andaugment.com/">
   <link rel="alternate" hreflang="en" href="https://andaugment.com/en/">
@@ -38,49 +33,27 @@
   <link rel="alternate" hreflang="fr" href="https://andaugment.com/fr/">
   <link rel="alternate" hreflang="de" href="https://andaugment.com/de/">
   <link rel="alternate" hreflang="x-default" href="https://andaugment.com/en/">
-
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            surface: { 900: '#0F172A', 800: '#1E293B', 700: '#334155', 600: '#475569', 500: '#64748B' },
-            accent: { blue: '#3b82f6', green: '#22C55E', emerald: '#10B981', glow: '#4ADE80' }
-          },
-          fontFamily: { mono: ['IBM Plex Mono', 'monospace'], sans: ['Plus Jakarta Sans', 'sans-serif'], body: ['Plus Jakarta Sans', 'sans-serif'] }
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { brand: { blue: '#0669FF', dark: '#0D1117' } }
         }
       }
     }
   </script>
-
   <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "andAugment",
-    "url": "https://andaugment.com",
-    "logo": "https://andaugment.com/assets/images/logo.png",
-    "description": "开发和销售自动化重复性工作的Windows工具",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "andaugment@gmail.com",
-      "contactType": "customer support"
-    },
-    "sameAs": ["https://twitter.com/andAugment"]
-  }
-  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -94,243 +67,316 @@
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
     },
-    "description": "只需将视频文件放入文件夹，即可自动上传至YouTube",
-    "publisher": {
-      "@type": "Organization",
-      "name": "andAugment"
-    }
+    "description": "Just drop video files into a folder to auto-upload to YouTube",
+    "publisher": { "@type": "Organization", "name": "andAugment", "url": "https://andaugment.com" }
   }
   </script>
-
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-surface-900 text-gray-200 font-sans antialiased">
+<body class="font-sans antialiased">
 
-  <div class="grid-overlay" aria-hidden="true"></div>
-
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 header-glass">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="logo">
-        <a href="#home" class="flex items-center gap-3 group">
-          <img src="../assets/images/logo.png" alt="andAugment" class="h-9 transition-transform duration-300 group-hover:scale-105">
-          <span class="font-mono font-bold text-white text-lg tracking-tight hidden sm:inline">
-            <span class="text-accent-green">&amp;</span>Augment
-          </span>
-        </a>
-      </div>
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <nav class="max-w-6xl mx-auto px-6 py-3.5 flex justify-between items-center">
+      <a href="#home" class="flex items-center gap-2.5 group flex-shrink-0">
+        <img src="../assets/images/logo.png" alt="andAugment" class="h-7 transition-transform duration-300 group-hover:scale-105">
+        <span class="font-bold text-gray-900 text-base tracking-tight hidden sm:inline">
+          <span style="color:#0669FF">&amp;</span>Augment
+        </span>
+      </a>
       <ul class="nav-menu hidden md:flex items-center gap-1">
-        <li><a href="#home" class="nav-link">首页</a></li>
         <li><a href="#products" class="nav-link">产品</a></li>
+        <li><a href="#how-it-works" class="nav-link">使用方法</a></li>
         <li><a href="#about" class="nav-link">关于</a></li>
-        <li><a href="#contact" class="nav-link">联系</a></li>
+        <li><a href="#faq" class="nav-link">常见问题</a></li>
+        <li><a href="#contact" class="nav-link">联系我们</a></li>
       </ul>
-      <!-- Language switcher -->
-      <div class="lang-switcher relative hidden md:block">
-        <button class="font-mono text-xs text-gray-400 hover:text-accent-green transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>ZH &#9662;</button>
-        <div class="hidden absolute right-0 top-full mt-1 bg-surface-700 border border-white/10 rounded-lg shadow-xl py-1 min-w-[120px] z-50">
-          <a href="../" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">JA - Japanese</a>
-          <a href="../en/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">EN - English</a>
-          <a href="../zh-CN/" class="block px-3 py-1.5 text-xs font-mono text-accent-green">ZH - Chinese</a>
-          <a href="../zh-TW/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ZH - Traditional</a>
-          <a href="../ko/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">KO - Korean</a>
-          <a href="../es/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ES - Spanish</a>
-          <a href="../pt/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">PT - Portuguese</a>
-          <a href="../fr/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">FR - French</a>
-          <a href="../de/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">DE - German</a>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <div class="lang-switcher relative hidden md:block">
+          <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors px-2.5 py-1.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300" data-lang-toggle>ZH ▾</button>
+          <div class="hidden absolute right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg py-1.5 min-w-[150px] z-50">
+            <a href="../" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇯🇵 日本語</a>
+            <a href="../en/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇺🇸 English</a>
+            <a href="../zh-CN/" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">🇨🇳 简体中文</a>
+            <a href="../zh-TW/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇹🇼 繁體中文</a>
+            <a href="../ko/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇰🇷 한국어</a>
+            <a href="../es/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇪🇸 Español</a>
+            <a href="../pt/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇧🇷 Português</a>
+            <a href="../fr/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇫🇷 Français</a>
+            <a href="../de/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇩🇪 Deutsch</a>
+          </div>
         </div>
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-nav-cta hidden sm:inline-flex">
+          <span>立即购买</span>
+          <span class="price-label text-blue-200 text-xs font-normal">$19.99</span>
+        </a>
+        <button class="hamburger md:hidden text-gray-500 hover:text-gray-900 transition-colors p-1" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
-      <button class="hamburger md:hidden text-gray-300 hover:text-white transition-colors" aria-label="菜单">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="hero-bg-elements" aria-hidden="true">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-circuit-lines"></div>
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <div class="hero-ampersand" aria-hidden="true">&amp;</div>
-      <div class="hero-content">
-        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-green/20 bg-accent-green/5 mb-8 hero-badge">
-          <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
-          <span class="font-mono text-xs text-accent-green tracking-wider uppercase">Windows 自动化工具</span>
-        </div>
-
-        <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold text-white mb-6 leading-[0.95] tracking-tight">
-          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-green hero-title-line" style="--delay: 1">Augment</span>
-        </h1>
-
-        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-semibold hero-fade" style="--delay: 2">
-          增幅你的时间
-        </p>
-        <p class="text-base sm:text-lg text-gray-400 mb-12 font-mono hero-fade" style="--delay: 3">
-          虽然小众，但很实用。
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-fade" style="--delay: 4">
-          <a href="#products" class="btn-primary group">
-            <span>查看产品</span>
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#contact" class="btn-ghost">联系我们</a>
-        </div>
+  <!-- HERO -->
+  <section id="home" class="hero-section text-center">
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="hero-eyebrow hero-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Windows 10 / 11 兼容 · 买断制
       </div>
-    </div>
-
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-      <div class="w-5 h-8 rounded-full border-2 border-gray-500/40 flex justify-center pt-1.5">
-        <div class="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+      <h1 class="hero-title">
+        <span class="hero-title-line block" style="--delay:0">把文件拖到文件夹。</span>
+        <span class="hero-title-line block" style="--delay:1">它会自动上传到 <em>YouTube</em>。</span>
+      </h1>
+      <p class="hero-desc hero-fade" style="--delay:2">
+        Video Auto Uploader 监控文件夹，自动将视频上传至YouTube——包括标题、描述和隐私设置。从今天起，告别手动上传。
+      </p>
+      <div class="hero-cta-group hero-fade" style="--delay:3">
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>以 $19.99 购买</span>
+        </a>
+        <a href="#demo" class="btn-ghost">
+          观看演示
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+      <div class="hero-guarantee hero-fade" style="--delay:4">
+        <span class="hero-guarantee-item">
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+          30天退款保证
+        </span>
+        <span class="hero-guarantee-item">
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+          永久授权
+        </span>
+        <span class="hero-guarantee-item">
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+          免费更新
+        </span>
+        <span class="hero-guarantee-item">
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+          无订阅费
+        </span>
+      </div>
+      <div class="app-window-wrap hero-fade" style="--delay:5">
+        <div class="app-window">
+          <div class="window-bar">
+            <span class="window-dot dot-r"></span>
+            <span class="window-dot dot-y"></span>
+            <span class="window-dot dot-g"></span>
+            <span class="window-title-bar">Video Auto Uploader for YouTube</span>
+          </div>
+          <img src="../assets/images/demo-poster-en.jpg" alt="Video Auto Uploader screenshot" loading="eager">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner max-w-5xl mx-auto">
+      <span class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        30天退款保证
+      </span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Windows 10 / 11 测试通过
+      </span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        通过BOOTH安全结账
+      </span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        永不订阅
+      </span>
+    </div>
+  </div>
+
+  <!-- VALUE PROPS -->
+  <section class="py-20 md:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Products</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">产品阵容</h2>
-        <p class="text-gray-400 max-w-md mx-auto">节省你的时间的工具</p>
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">为什么选择 andAugment</span>
+        <h2 class="section-title">4个选择我们的理由</h2>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal" style="--reveal-delay:0.1s">
+        <div class="value-card">
+          <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="value-title">无月费</div>
+          <div class="value-desc">买断一次，终身使用。无订阅，无续费。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="value-title">30天保证</div>
+          <div class="value-desc">不满意？30天内全额退款，无需理由。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="value-title">免费更新</div>
+          <div class="value-desc">所有功能更新和改进，永久免费提供。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="value-title">5分钟启动</div>
+          <div class="value-desc">从下载到首次自动上传，不到5分钟。</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PRODUCTS -->
+  <section id="products" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">产品</span>
+        <h2 class="section-title">产品阵容</h2>
+        <p class="section-desc">消除重复工作的Windows工具</p>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-
-        <!-- Product 1: Video Auto Uploader -->
-        <div class="product-card product-card--active reveal" style="--reveal-delay: 0.1s">
+        <!-- Product 1 -->
+        <div class="product-card product-card--active reveal" style="--reveal-delay:0.1s">
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--live"></span>
-              <span class="font-mono text-xs text-accent-green">发售中</span>
+              <span class="text-xs font-semibold" style="color:#16A34A">现已上线</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap">
                 <img src="../assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white mb-2 leading-tight">Video Auto Uploader for YouTube</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">只需将视频文件放入文件夹，标题、描述、隐私设置全部自动完成并上传至YouTube。告别重复的手动操作。</p>
+                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#1A1A1A">Video Auto Uploader for YouTube</h3>
+                <p class="text-sm leading-relaxed" style="color:#555555">把视频文件拖入文件夹。标题、描述、隐私设置——全部自动配置并上传至YouTube。</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <ul class="mb-5 space-y-2">
+              <li class="text-sm flex items-center gap-2" style="color:#555555">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                文件夹监控全自动上传
+              </li>
+              <li class="text-sm flex items-center gap-2" style="color:#555555">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                标题和描述模板
+              </li>
+              <li class="text-sm flex items-center gap-2" style="color:#555555">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                公开、不公开或私密——自动设置
+              </li>
+            </ul>
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB">
               <div>
-                <span class="font-mono text-xs text-gray-500 block">Price</span>
-                <span class="text-2xl font-bold text-white font-mono">$19.99</span>
+                <span class="text-xs mb-0.5 block" style="color:#8A8A8A">买断制</span>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-2xl font-bold font-mono" style="color:#1A1A1A">$19.99</span>
+                  <span class="text-xs" style="color:#8A8A8A">USD</span>
+                </div>
               </div>
               <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">
                 立即购买
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
+            <p class="text-xs mt-2 text-center" style="color:#8A8A8A">✓ 30天退款保证 · 安全结账</p>
           </div>
         </div>
-
-        <!-- Product 2: Multi-Store Auto Publisher -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.2s">
+        <!-- Product 2 -->
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.2s">
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">即将上线</span>
+              <span class="text-xs font-medium" style="color:#8A8A8A">即将推出</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Multi-Store Auto Publisher</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">BOOTH、Gumroad、LemonSqueezy——一次操作，同步发布到多个海外平台。零额外工作量，轻松拓展销路。</p>
+                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Multi-Store Auto Publisher</h3>
+                <p class="text-sm leading-relaxed" style="color:#9AA5B4">BOOTH、Gumroad、LemonSqueezy——一键发布到所有平台。</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$34.99</span>
+                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">买断制</span>
+                <span class="text-2xl font-bold font-mono" style="color:#C8C8C6">$34.99</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">即将上线</span>
+              <span class="btn-product-disabled">即将推出</span>
             </div>
           </div>
         </div>
-
-        <!-- Product 3: Keep Awake Pro -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.3s">
+        <!-- Product 3 -->
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.3s">
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">即将上线</span>
+              <span class="text-xs font-medium" style="color:#8A8A8A">即将推出</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Keep Awake Pro</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">长时间工作时电脑突然休眠？一键防止休眠，让您的专注不被打断。</p>
+                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Keep Awake Pro</h3>
+                <p class="text-sm leading-relaxed" style="color:#9AA5B4">一键保持PC不休眠。适合长时间下载、渲染或工作。</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$3.99</span>
+                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">买断制</span>
+                <span class="text-2xl font-bold font-mono" style="color:#C8C8C6">$3.99</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">即将上线</span>
+              <span class="btn-product-disabled">即将推出</span>
             </div>
           </div>
         </div>
-
-        <!-- Product 4: Coming Soon -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.4s">
+        <!-- Product 4 -->
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.4s">
           <div class="product-card-inner">
             <div class="product-status">
               <span class="status-dot status-dot--dev"></span>
-              <span class="font-mono text-xs text-gray-500">开发中</span>
+              <span class="text-xs font-medium" style="color:#D97706">开发中</span>
             </div>
             <div class="flex items-start gap-5 mb-5">
               <div class="product-icon-wrap product-icon-wrap--dim">
                 <img src="../assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy">
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">敬请期待更多产品</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">把「要是有这样的工具就好了」变成现实。更多工具正在开发中。</p>
+                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">敬请期待更多产品</h3>
+                <p class="text-sm leading-relaxed" style="color:#9AA5B4">将「要是有这个就好了」变为现实。更多Windows工具即将到来。</p>
               </div>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB">
               <div>
-                <span class="font-mono text-xs text-gray-600 block">Price</span>
-                <span class="text-lg text-white/30 font-mono">TBD</span>
+                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">价格</span>
+                <span class="text-lg font-mono" style="color:#C8C8C6">待定</span>
               </div>
-              <span class="btn-product-disabled font-mono text-xs">开发中</span>
+              <span class="btn-product-disabled">开发中</span>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Demo Video -->
-  <section id="demo" class="py-24 md:py-32 relative">
+  <!-- DEMO VIDEO -->
+  <section id="demo" class="py-20 md:py-28 bg-white">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">How It Works</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">只需放入文件夹</h2>
-        <p class="text-gray-400 max-w-md mx-auto">30秒了解 Video Auto Uploader</p>
+        <span class="section-label">使用方法</span>
+        <h2 class="section-title">30秒了解全貌</h2>
+        <p class="section-desc">观看产品实际操作</p>
       </div>
-      <div class="reveal" style="--reveal-delay: 0.2s">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 0 60px rgba(59,130,246,0.1);">
-          <video
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-            controls
-            preload="metadata"
-            poster="../assets/images/demo-poster-en.jpg"
-          >
+      <div class="reveal" style="--reveal-delay:0.15s">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.12),0 0 0 1px rgba(0,0,0,0.07);">
+          <video style="position:absolute;top:0;left:0;width:100%;height:100%;" controls preload="metadata" poster="../assets/images/demo-poster-en.jpg">
             <source src="../assets/videos/vau-promo-en.mp4" type="video/mp4">
           </video>
         </div>
@@ -338,150 +384,221 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="py-24 md:py-32 relative">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Why Us</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">为什么选择 andAugment？</h2>
-        <p class="text-gray-400">选择我们的4个理由</p>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">3个步骤</span>
+        <h2 class="section-title">3步即可开始使用</h2>
+        <p class="section-desc">无需复杂设置。从下载到首次自动上传，不到5分钟。</p>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        <div class="feature-card reveal" style="--reveal-delay: 0.1s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">买断制</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">无需担心月费。一次购买，永久使用。</p>
+      <div class="steps-grid reveal" style="--reveal-delay:0.1s">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="step-title">安装</div>
+          <div class="step-desc">从BOOTH下载并运行。几秒完成设置。</div>
         </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.2s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">实用至上</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">开发者为解决自身日常不便而打造的工具，所以每款都切实好用。</p>
+        <div class="step-arrow">→</div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
+          <div class="step-title">设置文件夹</div>
+          <div class="step-desc">选择一个要监控的文件夹。一次性设置好标题模板。</div>
         </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.3s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">简约</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">无需说明书，安装即用，直觉操作。</p>
-        </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.4s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">持续更新</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">购买后持续免费更新，不断为您带来新功能和改进。</p>
+        <div class="step-arrow">→</div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <div class="step-title">拖入即完成</div>
+          <div class="step-desc">将视频拖入文件夹。它们会自动上传至YouTube。</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <!-- ABOUT DEVELOPER -->
+  <section id="about" class="py-20 md:py-28 bg-white">
     <div class="max-w-3xl mx-auto px-6">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4 text-center">About</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">关于 andAugment</h2>
+        <span class="section-label text-center block">关于</span>
+        <h2 class="section-title text-center">开发者介绍</h2>
       </div>
-      <div class="about-content reveal" style="--reveal-delay: 0.15s">
-        <div class="about-quote-mark" aria-hidden="true">&amp;</div>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-          一切始于把网球练习视频上传到YouTube这件小事。每次都要选文件、输标题、设公开权限……同样的操作反反复复，实在太麻烦了，于是做了一个自动化工具。
+      <div class="about-content reveal" style="--reveal-delay:0.15s">
+        <p class="text-lg mb-6 leading-relaxed" style="color:#555555">
+          起因是将网球练习视频上传到YouTube。选择文件、输入标题、选择隐私设置，一遍又一遍。这种重复让我厌烦，于是我开发了一个工具来自动化这个过程。
         </p>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-          andAugment 的理念是「把自己觉得不方便的事情，用自动化来解决」，专注于开发和销售消除日常小烦恼的工具。
+        <p class="text-lg mb-6 leading-relaxed" style="color:#555555">
+          <strong style="color:#1A1A1A">andAugment</strong> 开发Windows工具，通过自动化消除日常的小烦恼。原则很简单：让我烦恼的事，我就自动化——然后把解决方案分享出去。
         </p>
-        <p class="text-lg text-gray-300 leading-relaxed">
-          不需要大而全的功能。虽然有点小众，但确实能帮你节省时间——我们会一直做这样的工具。
+        <p class="text-lg leading-relaxed" style="color:#555555">
+          功能列表不臃肿。有点小众，但真正省时——这就是我会持续开发的工具类型。
         </p>
+        <div class="developer-card mt-8">
+          <div class="developer-avatar">&</div>
+          <div>
+            <div class="developer-name">andAugment</div>
+            <div class="developer-role">独立软件开发者 · Windows自动化工具</div>
+            <div class="developer-bio">我发布的每款产品都是我个人需要的。我自己处理所有支持——购买前的咨询和售后帮助。欢迎随时联系。</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 md:py-32 relative overflow-hidden">
+  <!-- FAQ -->
+  <section id="faq" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">常见问题</span>
+        <h2 class="section-title">常见问题解答</h2>
+        <p class="section-desc">购买前您需要了解的一切</p>
+      </div>
+      <div class="bg-white rounded-2xl border reveal" style="border-color:#E5E5E3;overflow:hidden;--reveal-delay:0.1s">
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            支持Windows 10和11吗？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">是的，已在Windows 10和11（64位）上测试确认。安装只需几秒，所需的.NET运行时会自动安装。</div>
+        </div>
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            有月费吗？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">没有。这是买断制产品。一次购买，永久使用。无订阅，无续费，没有任何循环费用。</div>
+        </div>
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            退款政策是什么？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">购买后30天内全额退款，无需理由。只需发邮件或在X上私信，我会及时处理。</div>
+        </div>
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            更新是免费的吗？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">是的，所有更新永久免费。Bug修复、新功能、Windows兼容性更新——全部包含。</div>
+        </div>
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            可以在新电脑上使用吗？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">可以，您可以在新电脑上重新安装。保存好购买凭证。如遇到任何问题，联系我，我会帮您解决。</div>
+        </div>
+        <div class="faq-item px-6">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            会收集数据吗？
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">不收集遥测数据，不追踪，不收集数据。软件在您的PC上本地运行。唯一的外部连接是上传视频时调用YouTube API。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta-section py-24 md:py-32 relative overflow-hidden">
     <div class="cta-bg" aria-hidden="true"></div>
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">那些重复性工作，<br class="sm:hidden">让自动化来解决？</h2>
-      <p class="text-lg text-gray-300 mb-10">买断制，零负担。今天就开始节省时间。</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#products" class="btn-primary group">
-          <span>查看产品</span>
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" style="letter-spacing:-0.03em">
+        告别手动上传。<br>今天就自动化。
+      </h2>
+      <p class="text-lg mb-10" style="color:rgba(255,255,255,0.65)">买断制。30天退款保证。零风险。</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary group">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>以 $19.99 购买</span>
         </a>
         <a href="#contact" class="btn-ghost">联系我们</a>
       </div>
+      <p class="cta-guarantee" style="color:rgba(255,255,255,0.45)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        30天退款保证 · 永久授权 · 无订阅费
+      </p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 md:py-28 bg-white">
     <div class="max-w-2xl mx-auto px-6 text-center">
       <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Contact</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">联系我们</h2>
-        <p class="text-gray-400 mb-12">有问题？联系我们</p>
+        <span class="section-label">联系我们</span>
+        <h2 class="section-title">联系方式</h2>
+        <p class="section-desc mb-12">购买前有疑问？技术问题？功能建议？我会阅读每一条消息。</p>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay: 0.15s">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay:0.15s">
         <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#0669FF" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">@andAugment</span>
+          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">@andAugment</span>
+          <span class="text-xs" style="color:#8A8A8A">X (Twitter) — 回复最快</span>
         </a>
         <a href="mailto:andaugment@gmail.com" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#0669FF" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
           </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">andaugment@gmail.com</span>
+          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">andaugment@gmail.com</span>
+          <span class="text-xs" style="color:#8A8A8A">邮件 — 1-3个工作日内回复</span>
         </a>
       </div>
-      <p class="text-xs text-gray-600 mt-8 font-mono">通常在1-3个工作日内回复</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-16">
+  <!-- FOOTER -->
+  <footer style="background:#F7F7F5;border-top:1px solid #E5E5E3;" class="py-12">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-        <div>
-          <a href="#home" class="flex items-center gap-3 mb-4">
-            <img src="../assets/images/logo-white.png" alt="andAugment" class="h-10">
-            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-green">&amp;</span>Augment</span>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <a href="#home" class="flex items-center gap-2 mb-3">
+            <img src="../assets/images/logo.png" alt="andAugment" class="h-7">
+            <span class="font-bold text-gray-900 text-base"><span style="color:#0669FF">&amp;</span>Augment</span>
           </a>
-          <p class="text-sm text-gray-500 font-mono">增幅你的时间</p>
+          <p class="text-sm mb-3" style="color:#555555">由一位厌倦了手动操作的独立开发者开发的Windows自动化工具。</p>
+          <p class="text-xs" style="color:#8A8A8A">
+            <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color:#0669FF">@andAugment</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:andaugment@gmail.com" class="hover:underline" style="color:#0669FF">andaugment@gmail.com</a>
+          </p>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Links</h3>
-          <ul class="space-y-3">
-            <li><a href="#home" class="text-sm text-gray-500 hover:text-white transition-colors">首页</a></li>
-            <li><a href="#products" class="text-sm text-gray-500 hover:text-white transition-colors">产品</a></li>
-            <li><a href="#about" class="text-sm text-gray-500 hover:text-white transition-colors">关于</a></li>
-            <li><a href="privacy.html" class="text-sm text-gray-500 hover:text-white transition-colors">隐私政策</a></li>
-            <li><a href="terms.html" class="text-sm text-gray-500 hover:text-white transition-colors">服务条款</a></li>
+          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">产品</h3>
+          <ul class="space-y-2">
+            <li><a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="text-sm transition-colors hover:underline" style="color:#555555">Video Auto Uploader</a></li>
+            <li><span class="text-sm" style="color:#ABABAB">Multi-Store Publisher</span></li>
+            <li><span class="text-sm" style="color:#ABABAB">Keep Awake Pro</span></li>
           </ul>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Contact</h3>
-          <ul class="space-y-3">
-            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500 hover:text-white transition-colors">X: @andAugment</a></li>
-            <li><a href="mailto:andaugment@gmail.com" class="text-sm text-gray-500 hover:text-white transition-colors">andaugment@gmail.com</a></li>
+          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">公司</h3>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-sm transition-colors hover:underline" style="color:#555555">关于</a></li>
+            <li><a href="contact.html" class="text-sm transition-colors hover:underline" style="color:#555555">联系我们</a></li>
+            <li><a href="privacy.html" class="text-sm transition-colors hover:underline" style="color:#555555">隐私政策</a></li>
+            <li><a href="terms.html" class="text-sm transition-colors hover:underline" style="color:#555555">服务条款</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/5 pt-8 text-center">
-        <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. All rights reserved.</p>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6" style="border-top:1px solid #E5E5E3">
+        <p class="text-xs" style="color:#ABABAB">&copy; 2026 andAugment. 保留所有权利。</p>
+        <p class="text-xs" style="color:#ABABAB">日本制造 · Windows 10/11</p>
       </div>
     </div>
   </footer>
 
+  <script>
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>

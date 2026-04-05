@@ -3,31 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="andAugment - Outils d'automatisation pour Windows qui eliminent les taches repetitives. Upload automatique YouTube, publication multi-boutiques et plus. Achat unique, licence permanente, mises a jour gratuites.">
-  <meta name="keywords" content="andAugment, outils, automatisation, Windows, logiciel, productivite, YouTube, telechargement">
+  <meta name="description" content="andAugment - Glissez des vidéos dans un dossier et elles s'uploadent sur YouTube automatiquement. Outils d'automatisation Windows. Achat unique, licence permanente, garantie 30 jours.">
+  <meta name="keywords" content="andAugment, YouTube auto upload, Windows automation, video upload, productivity tools">
   <meta name="author" content="andAugment">
   <meta name="robots" content="index, follow">
-
-  <title>andAugment - Amplifiez Votre Temps | Outils Numeriques et Logiciels d'Automatisation</title>
-
-  <!-- OGP -->
+  <title>andAugment - Upload YouTube automatique en glissant un fichier | Outils Windows</title>
   <meta property="og:title" content="andAugment - Amplifiez Votre Temps">
-  <meta property="og:description" content="Outils d'automatisation pour Windows qui eliminent les taches repetitives. Achat unique, licence permanente, mises a jour gratuites.">
+  <meta property="og:description" content="Outils d'automatisation Windows. Achat unique, licence permanente, garantie 30 jours.">
   <meta property="og:image" content="https://andaugment.com/assets/images/ogp.jpg">
   <meta property="og:url" content="https://andaugment.com/fr/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="andAugment">
   <meta property="og:locale" content="fr_FR">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@andAugment">
-  <meta name="twitter:creator" content="@andAugment">
   <meta name="twitter:title" content="andAugment - Amplifiez Votre Temps">
-  <meta name="twitter:description" content="Outils d'automatisation pour Windows qui eliminent les taches repetitives. Achat unique, licence permanente, mises a jour gratuites.">
+  <meta name="twitter:description" content="Outils d'automatisation Windows. Achat unique, licence permanente, garantie 30 jours.">
   <meta name="twitter:image" content="https://andaugment.com/assets/images/ogp.jpg">
-
-  <!-- hreflang -->
   <link rel="alternate" hreflang="ja" href="https://andaugment.com/">
   <link rel="alternate" hreflang="en" href="https://andaugment.com/en/">
   <link rel="alternate" hreflang="zh-Hans" href="https://andaugment.com/zh-CN/">
@@ -38,48 +30,22 @@
   <link rel="alternate" hreflang="fr" href="https://andaugment.com/fr/">
   <link rel="alternate" hreflang="de" href="https://andaugment.com/de/">
   <link rel="alternate" hreflang="x-default" href="https://andaugment.com/en/">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            surface: { 900: '#0F172A', 800: '#1E293B', 700: '#334155', 600: '#475569', 500: '#64748B' },
-            accent: { blue: '#3b82f6', green: '#22C55E', emerald: '#10B981', glow: '#4ADE80' }
-          },
-          fontFamily: { mono: ['IBM Plex Mono', 'monospace'], sans: ['Plus Jakarta Sans', 'sans-serif'], body: ['Plus Jakarta Sans', 'sans-serif'] }
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { brand: { blue: '#0669FF', dark: '#0D1117' } }
         }
       }
     }
-  </script>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "andAugment",
-    "url": "https://andaugment.com",
-    "logo": "https://andaugment.com/assets/images/logo.png",
-    "description": "Outils d'automatisation pour Windows qui eliminent les taches repetitives",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "andaugment@gmail.com",
-      "contactType": "customer support"
-    },
-    "sameAs": ["https://twitter.com/andAugment"]
-  }
   </script>
   <script type="application/ld+json">
   {
@@ -88,249 +54,186 @@
     "name": "Video Auto Uploader for YouTube",
     "operatingSystem": "Windows",
     "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "19.99",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "description": "Deposez des fichiers video dans un dossier et ils sont automatiquement telecharges sur YouTube avec titre, description et parametres de confidentialite",
-    "publisher": {
-      "@type": "Organization",
-      "name": "andAugment"
-    }
+    "offers": { "@type": "Offer", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+    "description": "Just drop video files into a folder to auto-upload to YouTube",
+    "publisher": { "@type": "Organization", "name": "andAugment", "url": "https://andaugment.com" }
   }
   </script>
-
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-surface-900 text-gray-200 font-sans antialiased">
-
-  <div class="grid-overlay" aria-hidden="true"></div>
-
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 header-glass">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="logo">
-        <a href="#home" class="flex items-center gap-3 group">
-          <img src="../assets/images/logo.png" alt="andAugment" class="h-9 transition-transform duration-300 group-hover:scale-105">
-          <span class="font-mono font-bold text-white text-lg tracking-tight hidden sm:inline">
-            <span class="text-accent-green">&amp;</span>Augment
-          </span>
-        </a>
-      </div>
+<body class="font-sans antialiased">
+  <header class="site-header" id="site-header">
+    <nav class="max-w-6xl mx-auto px-6 py-3.5 flex justify-between items-center">
+      <a href="#home" class="flex items-center gap-2.5 group flex-shrink-0">
+        <img src="../assets/images/logo.png" alt="andAugment" class="h-7 transition-transform duration-300 group-hover:scale-105">
+        <span class="font-bold text-gray-900 text-base tracking-tight hidden sm:inline"><span style="color:#0669FF">&amp;</span>Augment</span>
+      </a>
       <ul class="nav-menu hidden md:flex items-center gap-1">
-        <li><a href="#home" class="nav-link">Accueil</a></li>
         <li><a href="#products" class="nav-link">Produits</a></li>
-        <li><a href="#about" class="nav-link">A Propos</a></li>
+        <li><a href="#how-it-works" class="nav-link">Comment ça marche</a></li>
+        <li><a href="#about" class="nav-link">À propos</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <!-- Language switcher -->
-      <div class="lang-switcher relative hidden md:block">
-        <button class="font-mono text-xs text-gray-400 hover:text-accent-green transition-colors px-2 py-1 border border-white/10 rounded" data-lang-toggle>FR &#9662;</button>
-        <div class="hidden absolute right-0 top-full mt-1 bg-surface-700 border border-white/10 rounded-lg shadow-xl py-1 min-w-[120px] z-50">
-          <a href="../" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">JA - Japanese</a>
-          <a href="../en/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">EN - English</a>
-          <a href="../zh-CN/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ZH - Chinese</a>
-          <a href="../zh-TW/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ZH - Traditional</a>
-          <a href="../ko/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">KO - Korean</a>
-          <a href="../es/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">ES - Spanish</a>
-          <a href="../pt/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">PT - Portuguese</a>
-          <a href="../fr/" class="block px-3 py-1.5 text-xs font-mono text-accent-green">FR - French</a>
-          <a href="../de/" class="block px-3 py-1.5 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5">DE - German</a>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <div class="lang-switcher relative hidden md:block">
+          <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors px-2.5 py-1.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300" data-lang-toggle>FR ▾</button>
+          <div class="hidden absolute right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg py-1.5 min-w-[150px] z-50">
+            <a href="../" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇯🇵 日本語</a>
+            <a href="../en/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇺🇸 English</a>
+            <a href="../zh-CN/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇨🇳 简体中文</a>
+            <a href="../zh-TW/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇹🇼 繁體中文</a>
+            <a href="../ko/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇰🇷 한국어</a>
+            <a href="../es/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇪🇸 Español</a>
+            <a href="../pt/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇧🇷 Português</a>
+            <a href="../fr/" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">🇫🇷 Français</a>
+            <a href="../de/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇩🇪 Deutsch</a>
+          </div>
         </div>
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-nav-cta hidden sm:inline-flex">
+          <span>Acheter Maintenant</span>
+          <span class="price-label text-blue-200 text-xs font-normal">$19.99</span>
+        </a>
+        <button class="hamburger md:hidden text-gray-500 hover:text-gray-900 transition-colors p-1" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
-      <button class="hamburger md:hidden text-gray-300 hover:text-white transition-colors" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="hero-bg-elements" aria-hidden="true">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-circuit-lines"></div>
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <div class="hero-ampersand" aria-hidden="true">&amp;</div>
-      <div class="hero-content">
-        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-green/20 bg-accent-green/5 mb-8 hero-badge">
-          <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
-          <span class="font-mono text-xs text-accent-green tracking-wider uppercase">Outils d'Automatisation pour Windows</span>
-        </div>
-
-        <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold text-white mb-6 leading-[0.95] tracking-tight">
-          <span class="hero-title-line" style="--delay: 0">and</span><span class="text-accent-green hero-title-line" style="--delay: 1">Augment</span>
-        </h1>
-
-        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-3 font-semibold hero-fade" style="--delay: 2">
-          Amplifiez Votre Temps
-        </p>
-        <p class="text-base sm:text-lg text-gray-400 mb-12 font-mono hero-fade" style="--delay: 3">
-          Un peu de niche, mais tres pratique.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-fade" style="--delay: 4">
-          <a href="#products" class="btn-primary group">
-            <span>Voir les Produits</span>
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#contact" class="btn-ghost">Nous Contacter</a>
-        </div>
+  <section id="home" class="hero-section text-center">
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="hero-eyebrow hero-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Compatible Windows 10 / 11 · Achat Unique
       </div>
-    </div>
-
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-      <div class="w-5 h-8 rounded-full border-2 border-gray-500/40 flex justify-center pt-1.5">
-        <div class="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+      <h1 class="hero-title">
+        <span class="hero-title-line block" style="--delay:0">Déposez un fichier dans un dossier.</span>
+        <span class="hero-title-line block" style="--delay:1">Il s'uploade sur <em>YouTube automatiquement.</em></span>
+      </h1>
+      <p class="hero-desc hero-fade" style="--delay:2">Video Auto Uploader surveille un dossier et uploade automatiquement vos vidéos sur YouTube — titre, description et confidentialité inclus. Arrêtez de le faire manuellement dès aujourd'hui.</p>
+      <div class="hero-cta-group hero-fade" style="--delay:3">
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Acheter pour $19.99</span>
+        </a>
+        <a href="#demo" class="btn-ghost">Voir la démo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      </div>
+      <div class="hero-guarantee hero-fade" style="--delay:4">
+        <span class="hero-guarantee-item"><span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>Garantie Remboursement 30 Jours</span>
+        <span class="hero-guarantee-item"><span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>Licence Permanente</span>
+        <span class="hero-guarantee-item"><span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>Mises à Jour Gratuites</span>
+        <span class="hero-guarantee-item"><span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>Sans Abonnement</span>
+      </div>
+      <div class="app-window-wrap hero-fade" style="--delay:5">
+        <div class="app-window">
+          <div class="window-bar">
+            <span class="window-dot dot-r"></span><span class="window-dot dot-y"></span><span class="window-dot dot-g"></span>
+            <span class="window-title-bar">Video Auto Uploader for YouTube</span>
+          </div>
+          <img src="../assets/images/demo-poster-en.jpg" alt="Video Auto Uploader screenshot" loading="eager">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <div class="trust-bar">
+    <div class="trust-bar-inner max-w-5xl mx-auto">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Garantie Remboursement 30 Jours</span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Testé sur Windows 10 / 11</span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Paiement sécurisé via BOOTH</span>
+      <span class="trust-divider">|</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Jamais d'abonnement</span>
+    </div>
+  </div>
+
+  <section class="py-20 md:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Produits</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Nos Produits</h2>
-        <p class="text-gray-400 max-w-md mx-auto">Des outils qui vous font gagner du temps</p>
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">Pourquoi andAugment</span>
+        <h2 class="section-title">4 Raisons de Nous Choisir</h2>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-
-        <!-- Product 1: Video Auto Uploader -->
-        <div class="product-card product-card--active reveal" style="--reveal-delay: 0.1s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--live"></span>
-              <span class="font-mono text-xs text-accent-green">Disponible</span>
-            </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap">
-                <img src="../assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white mb-2 leading-tight">Video Auto Uploader pour YouTube</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Deposez des fichiers video dans un dossier — titre, description et parametres de confidentialite sont automatiquement configures et telecharges sur YouTube. Liberez-vous des envois manuels repetitifs.</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
-              <div>
-                <span class="font-mono text-xs text-gray-500 block">Prix</span>
-                <span class="text-2xl font-bold text-white font-mono">$19.99</span>
-              </div>
-              <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">
-                Acheter
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 2: Multi-Store Auto Publisher -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.2s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">Bientot Disponible</span>
-            </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="../assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Multi-Store Auto Publisher</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">BOOTH, Gumroad, LemonSqueezy — publiez sur plusieurs marketplaces en une seule action. Elargissez votre portee sans effort supplementaire.</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
-              <div>
-                <span class="font-mono text-xs text-gray-600 block">Prix</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$34.99</span>
-              </div>
-              <span class="btn-product-disabled font-mono text-xs">Bientot Disponible</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 3: Keep Awake Pro -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.3s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--upcoming"></span>
-              <span class="font-mono text-xs text-gray-500">Bientot Disponible</span>
-            </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="../assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">Keep Awake Pro</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">Votre PC s'est deja mis en veille pendant une longue session de travail ? Un clic le maintient eveille. Restez concentre.</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
-              <div>
-                <span class="font-mono text-xs text-gray-600 block">Prix</span>
-                <span class="text-2xl font-bold text-white/40 font-mono">$3.99</span>
-              </div>
-              <span class="btn-product-disabled font-mono text-xs">Bientot Disponible</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 4: Coming Soon -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay: 0.4s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--dev"></span>
-              <span class="font-mono text-xs text-gray-500">En Developpement</span>
-            </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="../assets/images/products/coming-soon.png" alt="Bientot Disponible" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-xl font-bold text-white/60 mb-2 leading-tight">D'autres Outils Arrivent</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">Transformer les "j'aurais aime que ca existe" en realite. D'autres outils arrivent bientot.</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
-              <div>
-                <span class="font-mono text-xs text-gray-600 block">Prix</span>
-                <span class="text-lg text-white/30 font-mono">A definir</span>
-              </div>
-              <span class="btn-product-disabled font-mono text-xs">En Developpement</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal" style="--reveal-delay:0.1s">
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="value-title">Sans Frais Mensuels</div><div class="value-desc">Achetez une fois, utilisez pour toujours. Sans abonnement ni renouvellement.</div></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="value-title">Garantie 30 Jours</div><div class="value-desc">Pas satisfait ? Remboursement complet sous 30 jours. Sans conditions.</div></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="value-title">Mises à Jour Gratuites</div><div class="value-desc">Toutes les mises à jour et améliorations de fonctionnalités, gratuitement.</div></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="value-title">Opérationnel en 5 min</div><div class="value-desc">Du téléchargement au premier upload automatique en moins de 5 minutes.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Demo Video -->
-  <section id="demo" class="py-24 md:py-32 relative">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-12 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">How It Works</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Déposez-le dans un dossier</h2>
-        <p class="text-gray-400 max-w-md mx-auto">Découvrez Video Auto Uploader en action — en 30 secondes</p>
+  <section id="products" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">Produits</span>
+        <h2 class="section-title">Gamme de Produits</h2>
+        <p class="section-desc">Outils Windows qui éliminent le travail répétitif</p>
       </div>
-      <div class="reveal" style="--reveal-delay: 0.2s">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 0 60px rgba(59,130,246,0.1);">
-          <video
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-            controls
-            preload="metadata"
-            poster="../assets/images/demo-poster-en.jpg"
-          >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="product-card product-card--active reveal" style="--reveal-delay:0.1s">
+          <div class="product-card-inner">
+            <div class="product-status"><span class="status-dot status-dot--live"></span><span class="text-xs font-semibold" style="color:#16A34A">Disponible Maintenant</span></div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap"><img src="../assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy"></div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#1A1A1A">Video Auto Uploader for YouTube</h3>
+                <p class="text-sm leading-relaxed" style="color:#555555">Déposez un fichier vidéo dans un dossier. Titre, description, confidentialité — tout configuré automatiquement et uploadé sur YouTube.</p>
+              </div>
+            </div>
+            <ul class="mb-5 space-y-2">
+              <li class="text-sm flex items-center gap-2" style="color:#555555"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Upload automatique avec surveillance du dossier</li>
+              <li class="text-sm flex items-center gap-2" style="color:#555555"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Modèles de titre et description</li>
+              <li class="text-sm flex items-center gap-2" style="color:#555555"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Public, non répertorié ou privé — configuré automatiquement</li>
+            </ul>
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB">
+              <div><span class="text-xs mb-0.5 block" style="color:#8A8A8A">Prix unique</span><div class="flex items-baseline gap-2"><span class="text-2xl font-bold font-mono" style="color:#1A1A1A">$19.99</span><span class="text-xs" style="color:#8A8A8A">USD</span></div></div>
+              <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">Acheter Maintenant <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <p class="text-xs mt-2 text-center" style="color:#8A8A8A">✓ Garantie remboursement 30 jours · Paiement sécurisé</p>
+          </div>
+        </div>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.2s">
+          <div class="product-card-inner">
+            <div class="product-status"><span class="status-dot status-dot--upcoming"></span><span class="text-xs font-medium" style="color:#8A8A8A">Bientôt Disponible</span></div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim"><img src="../assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy"></div>
+              <div class="flex-1 min-w-0"><h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Multi-Store Auto Publisher</h3><p class="text-sm leading-relaxed" style="color:#9AA5B4">BOOTH, Gumroad, LemonSqueezy — publiez sur toutes vos boutiques en un clic.</p></div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB"><div><span class="text-xs mb-0.5 block" style="color:#C8C8C6">Prix unique</span><span class="text-2xl font-bold font-mono" style="color:#C8C8C6">$34.99</span></div><span class="btn-product-disabled">Bientôt Disponible</span></div>
+          </div>
+        </div>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.3s">
+          <div class="product-card-inner">
+            <div class="product-status"><span class="status-dot status-dot--upcoming"></span><span class="text-xs font-medium" style="color:#8A8A8A">Bientôt Disponible</span></div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim"><img src="../assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy"></div>
+              <div class="flex-1 min-w-0"><h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Keep Awake Pro</h3><p class="text-sm leading-relaxed" style="color:#9AA5B4">Un clic garde votre PC éveillé. Parfait pour les téléchargements longs, rendus ou sessions de travail.</p></div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB"><div><span class="text-xs mb-0.5 block" style="color:#C8C8C6">Prix unique</span><span class="text-2xl font-bold font-mono" style="color:#C8C8C6">$3.99</span></div><span class="btn-product-disabled">Bientôt Disponible</span></div>
+          </div>
+        </div>
+        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.4s">
+          <div class="product-card-inner">
+            <div class="product-status"><span class="status-dot status-dot--dev"></span><span class="text-xs font-medium" style="color:#D97706">En Développement</span></div>
+            <div class="flex items-start gap-5 mb-5">
+              <div class="product-icon-wrap product-icon-wrap--dim"><img src="../assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy"></div>
+              <div class="flex-1 min-w-0"><h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Restez Connectés</h3><p class="text-sm leading-relaxed" style="color:#9AA5B4">Transformer "j'aurais voulu que ça existe" en réalité. Plus d'outils Windows à venir.</p></div>
+            </div>
+            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #EDEDEB"><div><span class="text-xs mb-0.5 block" style="color:#C8C8C6">Prix</span><span class="text-lg font-mono" style="color:#C8C8C6">À définir</span></div><span class="btn-product-disabled">En Développement</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="py-20 md:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12 reveal"><span class="section-label">Comment Ça Marche</span><h2 class="section-title">Voir en 30 Secondes</h2><p class="section-desc">Regardez le produit en action</p></div>
+      <div class="reveal" style="--reveal-delay:0.15s">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.12),0 0 0 1px rgba(0,0,0,0.07);">
+          <video style="position:absolute;top:0;left:0;width:100%;height:100%;" controls preload="metadata" poster="../assets/images/demo-poster-en.jpg">
             <source src="../assets/videos/vau-promo-en.mp4" type="video/mp4">
           </video>
         </div>
@@ -338,150 +241,124 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="py-24 md:py-32 relative">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Pourquoi Nous</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Pourquoi andAugment ?</h2>
-        <p class="text-gray-400">4 raisons de nous choisir</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        <div class="feature-card reveal" style="--reveal-delay: 0.1s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Achat Unique</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Pas de frais mensuels. Achetez une fois, utilisez pour toujours avec une licence permanente.</p>
-        </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.2s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Pratique Avant Tout</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Cree par un developpeur pour resoudre ses propres frustrations. C'est pourquoi c'est vraiment pratique.</p>
-        </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.3s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Simple</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Pas besoin de manuel. Installez et commencez a utiliser immediatement.</p>
-        </div>
-        <div class="feature-card reveal" style="--reveal-delay: 0.4s">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Mises a Jour Gratuites</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Mises a jour gratuites apres l'achat. Nouvelles fonctionnalites livrees en continu.</p>
-        </div>
+  <section id="how-it-works" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 reveal"><span class="section-label">3 Étapes</span><h2 class="section-title">Opérationnel en 3 Étapes</h2><p class="section-desc">Sans configuration complexe. Du téléchargement au premier upload automatique en moins de 5 minutes.</p></div>
+      <div class="steps-grid reveal" style="--reveal-delay:0.1s">
+        <div class="step-item"><div class="step-number">1</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><div class="step-title">Installer</div><div class="step-desc">Téléchargez depuis BOOTH et exécutez. Configuration complète en secondes.</div></div>
+        <div class="step-arrow">→</div>
+        <div class="step-item"><div class="step-number">2</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div><div class="step-title">Choisir un Dossier</div><div class="step-desc">Choisissez un dossier à surveiller. Configurez votre modèle de titre une seule fois.</div></div>
+        <div class="step-arrow">→</div>
+        <div class="step-item"><div class="step-number">3</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="step-title">Déposer &amp; C'est fait</div><div class="step-desc">Déposez les vidéos dans le dossier. Elles s'uploadent sur YouTube automatiquement.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <section id="about" class="py-20 md:py-28 bg-white">
     <div class="max-w-3xl mx-auto px-6">
-      <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4 text-center">A Propos</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">A Propos d'andAugment</h2>
-      </div>
-      <div class="about-content reveal" style="--reveal-delay: 0.15s">
-        <div class="about-quote-mark" aria-hidden="true">&amp;</div>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-          Tout a commence avec la tache de mettre en ligne des videos d'entrainement de tennis sur YouTube. Selectionner le fichier, saisir le titre, choisir les parametres de confidentialite... a chaque fois. Cette repetition etait fastidieuse, alors j'ai cree un outil d'automatisation.
-        </p>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-          andAugment repose sur le concept "automatiser ce qui nous derange au quotidien". Nous developpons et vendons des outils qui eliminent ces petits stress de tous les jours.
-        </p>
-        <p class="text-lg text-gray-300 leading-relaxed">
-          Pas besoin de fonctionnalites exagerees. Un peu niche, mais avec un gain de temps garanti. Nous continuerons a creer ce genre d'outils.
-        </p>
+      <div class="reveal"><span class="section-label text-center block">À Propos</span><h2 class="section-title text-center">Qui a Créé Ça</h2></div>
+      <div class="about-content reveal" style="--reveal-delay:0.15s">
+        <p class="text-lg mb-6 leading-relaxed" style="color:#555555">Tout a commencé avec l'upload de vidéos d'entraînement de tennis sur YouTube. Sélectionner des fichiers, taper des titres, choisir la confidentialité, encore et encore. Cette répétition était assez ennuyeuse pour créer un outil qui l'automatise.</p>
+        <p class="text-lg mb-6 leading-relaxed" style="color:#555555"><strong style="color:#1A1A1A">andAugment</strong> crée des outils Windows qui éliminent les petites frustrations quotidiennes par l'automatisation. La règle est simple : si ça m'ennuie, je l'automatise — et je partage ensuite la solution.</p>
+        <p class="text-lg leading-relaxed" style="color:#555555">Pas de liste de fonctionnalités gonflées. Un peu niche, mais vraiment gain de temps — c'est le type d'outil que je continuerai à créer.</p>
+        <div class="developer-card mt-8">
+          <div class="developer-avatar">&</div>
+          <div>
+            <div class="developer-name">andAugment</div>
+            <div class="developer-role">Développeur Logiciel Indépendant · Outils Windows d'Automatisation</div>
+            <div class="developer-bio">Chaque produit que je lance est quelque chose dont j'avais personnellement besoin. Je gère moi-même tout le support — questions avant achat et aide après. N'hésitez pas à me contacter.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 md:py-32 relative overflow-hidden">
+  <section id="faq" class="py-20 md:py-28" style="background:#F7F7F5;">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-14 reveal"><span class="section-label">FAQ</span><h2 class="section-title">Questions Fréquentes</h2><p class="section-desc">Tout ce que vous devez savoir avant d'acheter</p></div>
+      <div class="bg-white rounded-2xl border reveal" style="border-color:#E5E5E3;overflow:hidden;--reveal-delay:0.1s">
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Fonctionne-t-il sur Windows 10 et 11 ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Oui, testé et confirmé sur Windows 10 et 11 (64-bit). L'installation prend quelques secondes et le runtime .NET nécessaire est installé automatiquement.</div></div>
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Y a-t-il un abonnement mensuel ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Non. C'est un achat unique. Achetez une fois, utilisez-le pour toujours. Pas d'abonnement, pas de frais de renouvellement, rien de récurrent.</div></div>
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Quelle est votre politique de remboursement ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Remboursement complet dans les 30 jours suivant l'achat, sans conditions. Envoyez simplement un email ou un DM sur X et je le traiterai rapidement.</div></div>
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Les mises à jour sont-elles gratuites ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Oui, toutes les mises à jour sont gratuites pour toujours. Corrections de bugs, nouvelles fonctionnalités, mises à jour de compatibilité Windows — tout inclus.</div></div>
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Puis-je l'utiliser sur un nouveau PC ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Oui, vous pouvez le réinstaller sur un nouveau PC. Gardez votre reçu d'achat. Si vous rencontrez des problèmes, contactez-moi et je vous aiderai.</div></div>
+        <div class="faq-item px-6"><button class="faq-question" onclick="toggleFaq(this)">Collecte-t-il des données ?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer">Aucune télémétrie, aucun suivi, aucune collecte de données. Le logiciel s'exécute localement sur votre PC. La seule connexion externe est à l'API YouTube lors de l'upload de vos vidéos.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta-section py-24 md:py-32 relative overflow-hidden">
     <div class="cta-bg" aria-hidden="true"></div>
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Pret a automatiser<br class="sm:hidden"> vos taches repetitives ?</h2>
-      <p class="text-lg text-gray-300 mb-10">Achat unique, zero engagement. Commencez a gagner du temps des aujourd'hui.</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#products" class="btn-primary group">
-          <span>Voir les Produits</span>
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" style="letter-spacing:-0.03em">Arrêtez d'uploader manuellement.<br>Automatisez ça aujourd'hui.</h2>
+      <p class="text-lg mb-10" style="color:rgba(255,255,255,0.65)">Achat unique. Garantie remboursement 30 jours. Aucun risque.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary group"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Acheter pour $19.99</span></a>
         <a href="#contact" class="btn-ghost">Nous Contacter</a>
       </div>
+      <p class="cta-guarantee" style="color:rgba(255,255,255,0.45)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantie Remboursement 30 Jours · Licence Permanente · Sans Abonnement</p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-24 md:py-32 relative">
-    <div class="section-line" aria-hidden="true"></div>
+  <section id="contact" class="py-20 md:py-28 bg-white">
     <div class="max-w-2xl mx-auto px-6 text-center">
-      <div class="reveal">
-        <span class="font-mono text-xs text-accent-green tracking-[0.3em] uppercase block mb-4">Contact</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
-        <p class="text-gray-400 mb-12">Des questions ? Contactez-nous</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay: 0.15s">
+      <div class="reveal"><span class="section-label">Contact</span><h2 class="section-title">Nous Contacter</h2><p class="section-desc mb-12">Questions avant d'acheter ? Problèmes techniques ? Demandes de fonctionnalités ? Je lis chaque message.</p></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay:0.15s">
         <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">@andAugment</span>
+          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#0669FF" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">@andAugment</span>
+          <span class="text-xs" style="color:#8A8A8A">X (Twitter) — Réponse la plus rapide</span>
         </a>
         <a href="mailto:andaugment@gmail.com" class="contact-card group">
-          <svg class="w-6 h-6 text-accent-green mb-3 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
-          </svg>
-          <span class="font-mono text-sm text-gray-300 group-hover:text-white transition-colors">andaugment@gmail.com</span>
+          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#0669FF" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">andaugment@gmail.com</span>
+          <span class="text-xs" style="color:#8A8A8A">Email — Réponse sous 1–3 jours ouvrables</span>
         </a>
       </div>
-      <p class="text-xs text-gray-600 mt-8 font-mono">Nous repondons generalement sous 1 a 3 jours ouvrables</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-16">
+  <footer style="background:#F7F7F5;border-top:1px solid #E5E5E3;" class="py-12">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-        <div>
-          <a href="#home" class="flex items-center gap-3 mb-4">
-            <img src="../assets/images/logo-white.png" alt="andAugment" class="h-10">
-            <span class="font-mono font-bold text-white text-lg"><span class="text-accent-green">&amp;</span>Augment</span>
-          </a>
-          <p class="text-sm text-gray-500 font-mono">Amplifiez Votre Temps</p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <a href="#home" class="flex items-center gap-2 mb-3"><img src="../assets/images/logo.png" alt="andAugment" class="h-7"><span class="font-bold text-gray-900 text-base"><span style="color:#0669FF">&amp;</span>Augment</span></a>
+          <p class="text-sm mb-3" style="color:#555555">Outils d'automatisation Windows créés par un développeur indie qui en avait assez de faire les choses manuellement.</p>
+          <p class="text-xs" style="color:#8A8A8A"><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color:#0669FF">@andAugment</a>&nbsp;·&nbsp;<a href="mailto:andaugment@gmail.com" class="hover:underline" style="color:#0669FF">andaugment@gmail.com</a></p>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Liens</h3>
-          <ul class="space-y-3">
-            <li><a href="#home" class="text-sm text-gray-500 hover:text-white transition-colors">Accueil</a></li>
-            <li><a href="#products" class="text-sm text-gray-500 hover:text-white transition-colors">Produits</a></li>
-            <li><a href="#about" class="text-sm text-gray-500 hover:text-white transition-colors">A Propos</a></li>
-            <li><a href="privacy.html" class="text-sm text-gray-500 hover:text-white transition-colors">Politique de Confidentialite</a></li>
-            <li><a href="terms.html" class="text-sm text-gray-500 hover:text-white transition-colors">Conditions d'Utilisation</a></li>
+          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">Produits</h3>
+          <ul class="space-y-2">
+            <li><a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="text-sm transition-colors hover:underline" style="color:#555555">Video Auto Uploader</a></li>
+            <li><span class="text-sm" style="color:#ABABAB">Multi-Store Publisher</span></li>
+            <li><span class="text-sm" style="color:#ABABAB">Keep Awake Pro</span></li>
           </ul>
         </div>
         <div>
-          <h3 class="font-mono text-xs text-gray-400 tracking-[0.2em] uppercase mb-4">Contact</h3>
-          <ul class="space-y-3">
-            <li><a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500 hover:text-white transition-colors">X: @andAugment</a></li>
-            <li><a href="mailto:andaugment@gmail.com" class="text-sm text-gray-500 hover:text-white transition-colors">andaugment@gmail.com</a></li>
+          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">Entreprise</h3>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-sm transition-colors hover:underline" style="color:#555555">À Propos</a></li>
+            <li><a href="contact.html" class="text-sm transition-colors hover:underline" style="color:#555555">Contact</a></li>
+            <li><a href="privacy.html" class="text-sm transition-colors hover:underline" style="color:#555555">Politique de Confidentialité</a></li>
+            <li><a href="terms.html" class="text-sm transition-colors hover:underline" style="color:#555555">Conditions d'Utilisation</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/5 pt-8 text-center">
-        <p class="text-xs text-gray-600 font-mono">&copy; 2026 andAugment. Tous droits reserves.</p>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6" style="border-top:1px solid #E5E5E3">
+        <p class="text-xs" style="color:#ABABAB">&copy; 2026 andAugment. Tous droits réservés.</p>
+        <p class="text-xs" style="color:#ABABAB">Fabriqué au Japon · Windows 10/11</p>
       </div>
     </div>
   </footer>
 
+  <script>
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>
