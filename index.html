@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,6 @@
   <meta name="keywords" content="andAugment, YouTube 自動アップロード, Windows 自動化, 動画アップロード, 効率化ツール">
   <meta name="author" content="andAugment">
   <meta name="robots" content="index, follow">
-
   <title>andAugment - フォルダに入れるだけでYouTubeに自動アップロード | Windows 自動化ツール</title>
 
   <!-- OGP -->
@@ -18,8 +17,6 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="andAugment">
   <meta property="og:locale" content="ja_JP">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@andAugment">
   <meta name="twitter:title" content="andAugment - あなたの時間を増幅する">
@@ -43,36 +40,97 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
 
-  <!-- Plus Jakarta Sans (headings) + Be Vietnam Pro (body) -->
+  <!-- Fonts: Stitch Amber Flow design system -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Be+Vietnam+Pro:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
-  <!-- Material Symbols Outlined -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind + Stitch Amber Flow color tokens (exact from Google Stitch output) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Be Vietnam Pro', 'Plus Jakarta Sans', 'sans-serif'],
-            heading: ['Plus Jakarta Sans', 'sans-serif'],
-          },
           colors: {
-            brand: {
-              amber: '#D97706',
-              'amber-dark': '#92400E',
-              'amber-light': '#FEF3C7',
-              warm: '#FAFAF7',
-            }
-          }
-        }
-      }
+            "surface":                  "#f4f6ff",
+            "surface-bright":           "#f4f6ff",
+            "surface-dim":              "#c5d5f0",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low":    "#eaf1ff",
+            "surface-container":        "#dce9ff",
+            "surface-container-high":   "#d5e3fb",
+            "surface-container-highest":"#cfdef7",
+            "surface-variant":          "#cfdef7",
+            "surface-tint":             "#815100",
+            "on-surface":               "#252f3d",
+            "on-surface-variant":       "#525c6c",
+            "on-background":            "#252f3d",
+            "background":               "#f4f6ff",
+            "primary":                  "#815100",
+            "primary-container":        "#f8a010",
+            "primary-fixed":            "#f8a010",
+            "primary-fixed-dim":        "#e79400",
+            "primary-dim":              "#714600",
+            "on-primary":               "#fff0e3",
+            "on-primary-container":     "#4a2c00",
+            "inverse-primary":          "#f8a010",
+            "secondary":                "#6e5a00",
+            "secondary-container":      "#fed73e",
+            "secondary-fixed":          "#fed73e",
+            "secondary-dim":            "#604e00",
+            "on-secondary":             "#fff2d0",
+            "on-secondary-container":   "#5c4b00",
+            "tertiary":                 "#615e00",
+            "tertiary-container":       "#f8f460",
+            "on-tertiary-container":    "#5d5b00",
+            "outline":                  "#6d7788",
+            "outline-variant":          "#a3aec0",
+            "inverse-surface":          "#050f1c",
+            "inverse-on-surface":       "#939daf",
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px",
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            body:     ["Be Vietnam Pro", "sans-serif"],
+            label:    ["Plus Jakarta Sans", "sans-serif"],
+          },
+        },
+      },
     }
   </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #f4f6ff;
+      color: #252f3d;
+    }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    /* FAQ open state */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon-plus { display: none; }
+    .faq-item.open .faq-icon-minus { display: inline; }
+    .faq-icon-minus { display: none; }
+    /* Lang dropdown */
+    .lang-dropdown { display: none; }
+    .lang-dropdown.open { display: block; }
+    /* Mobile menu */
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+  </style>
 
   <!-- 構造化データ -->
   <script type="application/ld+json">
@@ -92,131 +150,176 @@
     "publisher": { "@type": "Organization", "name": "andAugment", "url": "https://andaugment.com" }
   }
   </script>
-
-  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-sans antialiased">
+<body class="bg-surface text-on-surface">
 
-  <!-- ============================================================
-       HEADER
-       ============================================================ -->
-  <header class="site-header" id="site-header">
-    <nav class="max-w-6xl mx-auto px-6 py-3.5 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="#home" class="flex items-center gap-2.5 group flex-shrink-0">
-        <img src="assets/images/logo.png" alt="andAugment" class="h-7 transition-transform duration-300 group-hover:scale-105">
-        <span class="font-bold text-gray-900 text-base tracking-tight hidden sm:inline">
-          <span style="color:#D97706">&amp;</span>Augment
-        </span>
-      </a>
+<!-- ============================================================
+     HEADER — Stitch glassmorphism style
+     ============================================================ -->
+<header class="fixed top-0 w-full z-50 bg-[#f4f6ff]/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(37,47,61,0.06)]" id="site-header">
+  <div class="flex justify-between items-center px-6 py-3.5 max-w-7xl mx-auto">
 
-      <!-- Nav links -->
-      <ul class="nav-menu hidden md:flex items-center gap-1">
-        <li><a href="#products" class="nav-link">製品</a></li>
-        <li><a href="#how-it-works" class="nav-link">使い方</a></li>
-        <li><a href="#about" class="nav-link">について</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
-      </ul>
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 group">
+      <img src="assets/images/logo.png" alt="andAugment" class="h-7 transition-transform duration-300 group-hover:scale-105">
+      <span class="text-lg font-bold font-headline tracking-tight text-on-surface hidden sm:inline">
+        <span class="text-primary">&amp;</span>Augment
+      </span>
+    </a>
 
-      <!-- Right: Lang + CTA -->
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <!-- Language switcher -->
-        <div class="lang-switcher relative hidden md:block">
-          <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors px-2.5 py-1.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300" data-lang-toggle>JA ▾</button>
-          <div class="hidden absolute right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg py-1.5 min-w-[150px] z-50">
-            <a href="./" class="block px-4 py-2 text-xs font-semibold" style="color:#D97706;background:#FEF3C7">🇯🇵 日本語</a>
-            <a href="en/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇺🇸 English</a>
-            <a href="zh-CN/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇨🇳 简体中文</a>
-            <a href="zh-TW/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇹🇼 繁體中文</a>
-            <a href="ko/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇰🇷 한국어</a>
-            <a href="es/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇪🇸 Español</a>
-            <a href="pt/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇧🇷 Português</a>
-            <a href="fr/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇫🇷 Français</a>
-            <a href="de/" class="block px-4 py-2 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-50">🇩🇪 Deutsch</a>
-          </div>
-        </div>
-        <!-- Buy CTA in nav -->
-        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-nav-cta hidden sm:inline-flex">
-          <span>購入する</span>
-          <span class="price-label text-blue-200 text-xs font-normal">¥2,980</span>
-        </a>
-        <!-- Hamburger -->
-        <button class="hamburger md:hidden text-gray-500 hover:text-gray-900 transition-colors p-1" aria-label="メニュー">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-        </button>
-      </div>
+    <!-- Nav -->
+    <nav class="hidden md:flex items-center gap-1 font-label">
+      <a href="#products" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1.5 rounded-full text-sm font-medium transition-all">製品</a>
+      <a href="#how-it-works" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1.5 rounded-full text-sm font-medium transition-all">使い方</a>
+      <a href="#about" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1.5 rounded-full text-sm font-medium transition-all">について</a>
+      <a href="#faq" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-3 py-1.5 rounded-full text-sm font-medium transition-all">FAQ</a>
     </nav>
-  </header>
+
+    <div class="flex items-center gap-2">
+      <!-- Language switcher -->
+      <div class="relative hidden md:block">
+        <button onclick="document.querySelector('.lang-dropdown').classList.toggle('open')"
+                class="text-xs font-semibold text-on-surface-variant hover:text-on-surface px-3 py-1.5 rounded-full border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+          JA ▾
+        </button>
+        <div class="lang-dropdown absolute right-0 top-full mt-2 bg-surface-container-lowest border border-outline-variant/20 rounded-2xl shadow-[0_8px_32px_rgba(37,47,61,0.12)] py-2 min-w-[156px] z-50">
+          <a href="./" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-primary bg-primary/5">🇯🇵 日本語</a>
+          <a href="en/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇺🇸 English</a>
+          <a href="zh-CN/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇨🇳 简体中文</a>
+          <a href="zh-TW/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇹🇼 繁體中文</a>
+          <a href="ko/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇰🇷 한국어</a>
+          <a href="es/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇪🇸 Español</a>
+          <a href="pt/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇧🇷 Português</a>
+          <a href="fr/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇫🇷 Français</a>
+          <a href="de/" class="flex items-center gap-2 px-4 py-2 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">🇩🇪 Deutsch</a>
+        </div>
+      </div>
+      <!-- CTA button — Stitch gradient pill -->
+      <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer"
+         class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-5 py-2 rounded-full text-sm font-bold shadow-sm hover:shadow-md transition-all hidden sm:inline-flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1,'wght' 600">shopping_bag</span>
+        ¥2,980 で購入
+      </a>
+      <!-- Hamburger -->
+      <button onclick="document.querySelector('.mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant" aria-label="メニュー">
+        <span class="material-symbols-outlined text-xl">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu bg-surface-container-lowest border-t border-outline-variant/20 px-6 py-4 md:hidden">
+    <nav class="flex flex-col gap-1 mb-4">
+      <a href="#products" class="px-4 py-2.5 rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors">製品</a>
+      <a href="#how-it-works" class="px-4 py-2.5 rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors">使い方</a>
+      <a href="#about" class="px-4 py-2.5 rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors">について</a>
+      <a href="#faq" class="px-4 py-2.5 rounded-xl text-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors">FAQ</a>
+    </nav>
+    <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer"
+       class="block w-full text-center bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-bold shadow-sm">
+      ¥2,980 で購入する
+    </a>
+    <div class="mt-4 flex flex-wrap gap-2">
+      <a href="./" class="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold">🇯🇵 JA</a>
+      <a href="en/" class="text-xs px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">🇺🇸 EN</a>
+      <a href="zh-CN/" class="text-xs px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">🇨🇳 ZH</a>
+      <a href="ko/" class="text-xs px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">🇰🇷 KO</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20">
 
   <!-- ============================================================
-       HERO
+       HERO — Stitch split layout (text left, product right)
        ============================================================ -->
-  <section id="home" class="hero-section text-center">
-    <div class="relative z-10 max-w-4xl mx-auto">
+  <section class="relative px-6 py-20 md:py-28 overflow-hidden">
+    <!-- ambient glow background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-primary-container/15 via-surface to-secondary-container/15 blur-3xl -z-10 pointer-events-none"></div>
 
-      <!-- Eyebrow badge -->
-      <div class="hero-eyebrow hero-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Windows 10 / 11 対応 · 買い切り価格
-      </div>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
-      <!-- Headline -->
-      <h1 class="hero-title">
-        <span class="hero-title-line block" style="--delay:0">フォルダに入れるだけで</span>
-        <span class="hero-title-line block" style="--delay:1">YouTubeに<em>自動アップロード</em></span>
-      </h1>
+      <!-- Left: copy -->
+      <div class="w-full md:w-1/2 space-y-7 z-10 text-center md:text-left">
 
-      <!-- Description -->
-      <p class="hero-desc hero-fade" style="--delay:2">
-        動画ファイルをフォルダに追加するだけ。タイトル・説明文・公開設定まで自動で設定してYouTubeにアップロード。毎回の手作業から、今日中に解放されます。
-      </p>
-
-      <!-- CTA buttons -->
-      <div class="hero-cta-group hero-fade" style="--delay:3">
-        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>¥2,980 で購入する</span>
-        </a>
-        <a href="#demo" class="btn-ghost">
-          デモを見る
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
-      </div>
-
-      <!-- Guarantee line -->
-      <div class="hero-guarantee hero-fade" style="--delay:4">
-        <span class="hero-guarantee-item">
-          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
-          30日間返金保証
-        </span>
-        <span class="hero-guarantee-item">
-          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
-          永久ライセンス
-        </span>
-        <span class="hero-guarantee-item">
-          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
-          無料アップデート
-        </span>
-        <span class="hero-guarantee-item">
-          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
-          月額費用なし
-        </span>
-      </div>
-
-      <!-- Product screenshot -->
-      <div class="app-window-wrap hero-fade" style="--delay:5">
-        <div class="app-window">
-          <div class="window-bar">
-            <span class="window-dot dot-r"></span>
-            <span class="window-dot dot-y"></span>
-            <span class="window-dot dot-g"></span>
-            <span class="window-title-bar">Video Auto Uploader for YouTube</span>
-          </div>
-          <img src="assets/images/demo-poster-ja.jpg" alt="Video Auto Uploader 画面" loading="eager">
+        <!-- Eyebrow badge — Stitch pill style -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container/30 text-on-secondary-container font-label text-sm font-semibold">
+          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1,'wght' 500">check_circle</span>
+          Windows 10 / 11 対応 · 買い切り価格
         </div>
+
+        <!-- Headline -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tighter text-on-surface leading-[1.08]">
+          フォルダに入れるだけで<br>
+          <span class="text-primary italic">YouTube</span>に<br>
+          自動アップロード
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-on-surface-variant max-w-lg leading-relaxed mx-auto md:mx-0">
+          動画ファイルをフォルダに追加するだけ。タイトル・説明文・公開設定まで全自動でYouTubeにアップロード。毎回の手作業から、今日中に解放されます。
+        </p>
+
+        <!-- CTA buttons — Stitch pill gradient -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
+          <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer"
+             class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1,'wght' 600">shopping_bag</span>
+            ¥2,980 で購入する
+          </a>
+          <a href="#demo"
+             class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl">play_circle</span>
+            デモを見る
+          </a>
+        </div>
+
+        <!-- Trust badges — Stitch pill chips -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface text-xs font-medium shadow-sm">
+            <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">verified</span>
+            30日間返金保証
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface text-xs font-medium shadow-sm">
+            <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">all_inclusive</span>
+            永久ライセンス
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface text-xs font-medium shadow-sm">
+            <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">system_update</span>
+            無料アップデート
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface text-xs font-medium shadow-sm">
+            <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">block</span>
+            月額費用なし
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: product window — Stitch rotated card style -->
+      <div class="w-full md:w-1/2 relative flex justify-center md:justify-end">
+        <!-- floating badge -->
+        <div class="absolute -top-4 -left-4 md:-left-8 bg-secondary-container text-on-secondary-container px-4 py-2.5 rounded-2xl shadow-xl z-10 hidden md:flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1,'wght' 600">folder_open</span>
+          <div>
+            <div class="text-xs font-bold">フォルダに入れるだけ</div>
+            <div class="text-xs opacity-70">あとは全自動</div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low rounded-2xl p-4 shadow-[0_20px_60px_rgba(37,47,61,0.15)] transform md:rotate-2 hover:rotate-0 transition-transform duration-500 max-w-lg w-full">
+          <!-- macOS-style window bar -->
+          <div class="flex items-center gap-1.5 mb-3 px-1">
+            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-green-400"></span>
+            <span class="ml-3 text-xs text-on-surface-variant font-medium opacity-70">Video Auto Uploader for YouTube</span>
+          </div>
+          <img src="assets/images/demo-poster-ja.jpg" alt="Video Auto Uploader 画面" class="rounded-xl w-full" loading="eager">
+        </div>
+
+        <!-- ambient glow behind the card -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-primary-container/20 to-secondary-container/20 blur-3xl -z-10 pointer-events-none"></div>
       </div>
     </div>
   </section>
@@ -224,213 +327,198 @@
   <!-- ============================================================
        TRUST BAR
        ============================================================ -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner max-w-5xl mx-auto">
-      <span class="trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  <div class="bg-surface-container-low border-y border-outline-variant/20">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-2">
+      <span class="inline-flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+        <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">verified</span>
         30日間返金保証
       </span>
-      <span class="trust-divider">|</span>
-      <span class="trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <span class="inline-flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+        <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">laptop_windows</span>
         Windows 10 / 11 動作確認済み
       </span>
-      <span class="trust-divider">|</span>
-      <span class="trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <span class="inline-flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+        <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">storefront</span>
         BOOTH で安全に購入
       </span>
-      <span class="trust-divider">|</span>
-      <span class="trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <span class="inline-flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+        <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">payments</span>
         サブスクなし・買い切り
       </span>
     </div>
   </div>
 
   <!-- ============================================================
-       VALUE PROPS (4 pillars)
+       VALUE PROPS — Stitch card style
        ============================================================ -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="py-20 md:py-28 bg-surface-container-lowest">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14 reveal">
-        <span class="section-label">Why andAugment</span>
-        <h2 class="section-title">選ばれる4つの理由</h2>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          Why andAugment
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-4">選ばれる4つの理由</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal" style="--reveal-delay:0.1s">
-
-        <div class="value-card">
-          <div class="value-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="bg-surface-container-low p-8 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-14 h-14 bg-secondary-container rounded-2xl flex items-center justify-center mb-6 rotate-3 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-on-secondary-container text-2xl" style="font-variation-settings:'FILL' 1,'wght' 500">payments</span>
           </div>
-          <div class="value-title">月額費用ゼロ</div>
-          <div class="value-desc">一度購入すれば永久に使えます。月々の支払いはありません。</div>
+          <h3 class="text-lg font-bold font-headline mb-2 text-primary">月額費用ゼロ</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">一度購入すれば永久に使えます。月々の支払いはありません。</p>
         </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="bg-surface-container-low p-8 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-14 h-14 bg-primary-container/30 rounded-2xl flex items-center justify-center mb-6 -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1,'wght' 500">security</span>
           </div>
-          <div class="value-title">30日間返金保証</div>
-          <div class="value-desc">試してみて合わなければ全額返金。リスクゼロでお試しいただけます。</div>
+          <h3 class="text-lg font-bold font-headline mb-2 text-primary">30日間返金保証</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">試してみて合わなければ全額返金。リスクゼロでお試しいただけます。</p>
         </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <div class="bg-surface-container-low p-8 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-14 h-14 bg-tertiary-container/50 rounded-2xl flex items-center justify-center mb-6 rotate-6 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-on-tertiary-container text-2xl" style="font-variation-settings:'FILL' 1,'wght' 500">system_update</span>
           </div>
-          <div class="value-title">無料アップデート</div>
-          <div class="value-desc">購入後も継続的に機能改善・新機能を無料でお届けします。</div>
+          <h3 class="text-lg font-bold font-headline mb-2 text-primary">無料アップデート</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">購入後も機能改善・新機能を無料でお届けします。</p>
         </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="bg-surface-container-low p-8 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-14 h-14 bg-secondary-container/50 rounded-2xl flex items-center justify-center mb-6 -rotate-6 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-on-secondary-container text-2xl" style="font-variation-settings:'FILL' 1,'wght' 500">bolt</span>
           </div>
-          <div class="value-title">すぐに使える</div>
-          <div class="value-desc">インストールから5分以内に自動化を開始できます。マニュアル不要。</div>
+          <h3 class="text-lg font-bold font-headline mb-2 text-primary">すぐに使える</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">インストールから5分以内に自動化を開始できます。マニュアル不要。</p>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       PRODUCTS
+       PRODUCTS — Stitch card grid
        ============================================================ -->
-  <section id="products" class="py-20 md:py-28" style="background:#FFF7ED;">
+  <section id="products" class="py-20 md:py-28 bg-surface-container-low">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14 reveal">
-        <span class="section-label">Products</span>
-        <h2 class="section-title">製品ラインナップ</h2>
-        <p class="section-desc">Windowsの日常作業を自動化するツール</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          Products
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-4">製品ラインナップ</h2>
+        <p class="text-on-surface-variant max-w-xl mx-auto">Windowsの日常作業を自動化するツール</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto reveal">
 
         <!-- 製品1: Video Auto Uploader (LIVE) -->
-        <div class="product-card product-card--active reveal" style="--reveal-delay:0.1s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--live"></span>
-              <span class="text-xs font-semibold" style="color:#16A34A">販売中</span>
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_4px_20px_rgba(37,47,61,0.08)] border-2 border-primary/15 relative">
+          <div class="absolute -top-3 left-6 bg-primary text-on-primary text-xs font-bold px-4 py-1 rounded-full tracking-widest uppercase">販売中</div>
+          <div class="flex items-start gap-4 mb-6 mt-2">
+            <div class="w-16 h-16 bg-surface-container rounded-2xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img src="assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
             </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap">
-                <img src="assets/images/products/vau-icon.png" alt="Video Auto Uploader" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#1A1A1A">Video Auto Uploader for YouTube</h3>
-                <p class="text-sm leading-relaxed" style="color:#555555">動画ファイルをフォルダに入れるだけ。タイトル・説明文・公開設定まで全自動でYouTubeにアップロードします。</p>
+            <div>
+              <h3 class="text-lg font-bold font-headline mb-1 text-on-surface">Video Auto Uploader for YouTube</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">動画ファイルをフォルダに入れるだけ。タイトル・説明文・公開設定まで全自動でYouTubeにアップロードします。</p>
+            </div>
+          </div>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+              <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">check_circle</span>
+              フォルダ監視で完全自動化
+            </li>
+            <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+              <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">check_circle</span>
+              タイトル・説明文のテンプレート設定
+            </li>
+            <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+              <span class="material-symbols-outlined text-base text-primary" style="font-variation-settings:'FILL' 1,'wght' 600">check_circle</span>
+              公開・非公開・限定公開の自動設定
+            </li>
+          </ul>
+          <div class="flex items-end justify-between pt-5 border-t border-outline-variant/15">
+            <div>
+              <div class="text-xs text-on-surface-variant mb-1">買い切り価格</div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-bold text-on-surface">¥2,980</span>
+                <span class="text-xs text-on-surface-variant">（税込）</span>
               </div>
             </div>
-            <!-- Feature bullets -->
-            <ul class="mb-5 space-y-2">
-              <li class="text-sm flex items-center gap-2" style="color:#555555">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                フォルダ監視で完全自動化
-              </li>
-              <li class="text-sm flex items-center gap-2" style="color:#555555">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                タイトル・説明文のテンプレート設定
-              </li>
-              <li class="text-sm flex items-center gap-2" style="color:#555555">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                公開・非公開・限定公開の自動設定
-              </li>
-            </ul>
-            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #FDE68A">
-              <div>
-                <span class="text-xs mb-0.5 block" style="color:#8A8A8A">買い切り価格</span>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-2xl font-bold font-mono" style="color:#1A1A1A">¥2,980</span>
-                  <span class="text-xs" style="color:#8A8A8A">（税込）</span>
-                </div>
-              </div>
-              <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-product">
-                今すぐ購入
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+            <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer"
+               class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all inline-flex items-center gap-1.5">
+              今すぐ購入
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-3 text-right">✓ 30日間返金保証 · BOOTHで安全に購入</p>
+        </div>
+
+        <!-- 製品2: Multi-Store Auto Publisher (upcoming) -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 opacity-70">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-outline animate-pulse"></span>
+            近日公開
+          </div>
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 bg-surface-container rounded-2xl flex items-center justify-center flex-shrink-0 overflow-hidden grayscale opacity-50">
+              <img src="assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
             </div>
-            <p class="text-xs mt-2 text-center" style="color:#8A8A8A">✓ 30日間返金保証 · BOOTHで安全に購入</p>
+            <div>
+              <h3 class="text-lg font-bold font-headline mb-1 text-on-surface-variant">Multi-Store Auto Publisher</h3>
+              <p class="text-sm text-on-surface-variant/70 leading-relaxed">BOOTH・Gumroad・LemonSqueezy。1つの操作で複数マーケットプレイスに一括公開。</p>
+            </div>
+          </div>
+          <div class="flex items-end justify-between pt-5 border-t border-outline-variant/10">
+            <div>
+              <div class="text-xs text-on-surface-variant/50 mb-1">買い切り価格</div>
+              <span class="text-2xl font-bold text-on-surface-variant/50">¥4,980</span>
+            </div>
+            <span class="px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant text-sm font-medium">Coming Soon</span>
           </div>
         </div>
 
-        <!-- 製品2: Multi-Store Auto Publisher -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.2s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--upcoming"></span>
-              <span class="text-xs font-medium" style="color:#8A8A8A">近日公開</span>
+        <!-- 製品3: Keep Awake Pro (upcoming) -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 opacity-70">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-outline animate-pulse"></span>
+            近日公開
+          </div>
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 bg-surface-container rounded-2xl flex items-center justify-center flex-shrink-0 overflow-hidden grayscale opacity-50">
+              <img src="assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
             </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="assets/images/products/msap-icon.png" alt="Multi-Store Auto Publisher" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Multi-Store Auto Publisher</h3>
-                <p class="text-sm leading-relaxed" style="color:#9AA5B4">BOOTH・Gumroad・LemonSqueezy。1つの操作で複数マーケットプレイスに一括公開。</p>
-              </div>
+            <div>
+              <h3 class="text-lg font-bold font-headline mb-1 text-on-surface-variant">Keep Awake Pro</h3>
+              <p class="text-sm text-on-surface-variant/70 leading-relaxed">ワンクリックでスリープを防止。長時間の作業・ダウンロード・レンダリング中に。</p>
             </div>
-            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #FDE68A">
-              <div>
-                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">買い切り価格</span>
-                <span class="text-2xl font-bold font-mono" style="color:#C8C8C6">¥4,980</span>
-              </div>
-              <span class="btn-product-disabled">Coming Soon</span>
+          </div>
+          <div class="flex items-end justify-between pt-5 border-t border-outline-variant/10">
+            <div>
+              <div class="text-xs text-on-surface-variant/50 mb-1">買い切り価格</div>
+              <span class="text-2xl font-bold text-on-surface-variant/50">¥500</span>
             </div>
+            <span class="px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant text-sm font-medium">Coming Soon</span>
           </div>
         </div>
 
-        <!-- 製品3: Keep Awake Pro -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.3s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--upcoming"></span>
-              <span class="text-xs font-medium" style="color:#8A8A8A">近日公開</span>
+        <!-- 製品4: In Development -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/15 opacity-70">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary text-xs font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+            開発中
+          </div>
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 bg-surface-container rounded-2xl flex items-center justify-center flex-shrink-0 overflow-hidden grayscale opacity-50">
+              <img src="assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy">
             </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="assets/images/products/keepawake-icon.png" alt="Keep Awake Pro" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">Keep Awake Pro</h3>
-                <p class="text-sm leading-relaxed" style="color:#9AA5B4">ワンクリックでスリープを防止。長時間の作業・ダウンロード・レンダリング中に。</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #FDE68A">
-              <div>
-                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">買い切り価格</span>
-                <span class="text-2xl font-bold font-mono" style="color:#C8C8C6">¥500</span>
-              </div>
-              <span class="btn-product-disabled">Coming Soon</span>
+            <div>
+              <h3 class="text-lg font-bold font-headline mb-1 text-on-surface-variant">次の製品をお楽しみに</h3>
+              <p class="text-sm text-on-surface-variant/70 leading-relaxed">「こういうツールが欲しかった」を形に。次のアイデアを準備中です。</p>
             </div>
           </div>
-        </div>
-
-        <!-- 製品4: Coming Soon -->
-        <div class="product-card product-card--upcoming reveal" style="--reveal-delay:0.4s">
-          <div class="product-card-inner">
-            <div class="product-status">
-              <span class="status-dot status-dot--dev"></span>
-              <span class="text-xs font-medium" style="color:#D97706">開発中</span>
+          <div class="flex items-end justify-between pt-5 border-t border-outline-variant/10">
+            <div>
+              <div class="text-xs text-on-surface-variant/50 mb-1">価格</div>
+              <span class="text-lg text-on-surface-variant/50">TBD</span>
             </div>
-            <div class="flex items-start gap-5 mb-5">
-              <div class="product-icon-wrap product-icon-wrap--dim">
-                <img src="assets/images/products/coming-soon.png" alt="Coming Soon" class="w-14 h-14" loading="lazy">
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-bold mb-2 leading-tight" style="color:#9AA5B4">次の製品をお楽しみに</h3>
-                <p class="text-sm leading-relaxed" style="color:#9AA5B4">「こういうツールが欲しかった」を形に。次のアイデアを準備中です。</p>
-              </div>
-            </div>
-            <div class="flex items-end justify-between mt-auto pt-4" style="border-top:1px solid #FDE68A">
-              <div>
-                <span class="text-xs mb-0.5 block" style="color:#C8C8C6">価格</span>
-                <span class="text-lg font-mono" style="color:#C8C8C6">TBD</span>
-              </div>
-              <span class="btn-product-disabled">In Development</span>
-            </div>
+            <span class="px-5 py-2.5 rounded-full bg-surface-container text-on-surface-variant text-sm font-medium">In Development</span>
           </div>
         </div>
 
@@ -441,16 +529,18 @@
   <!-- ============================================================
        DEMO VIDEO
        ============================================================ -->
-  <section id="demo" class="py-20 md:py-28 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
+  <section id="demo" class="py-20 md:py-28 bg-surface-container-lowest">
+    <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
-        <span class="section-label">How It Works</span>
-        <h2 class="section-title">30秒でわかる仕組み</h2>
-        <p class="section-desc">実際の動作を見てみてください</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          How It Works
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-4">30秒でわかる仕組み</h2>
+        <p class="text-on-surface-variant">実際の動作を見てみてください</p>
       </div>
       <div class="reveal" style="--reveal-delay:0.15s">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:20px;box-shadow:0 12px 40px rgba(120,80,0,0.10),0 0 0 1.5px rgba(217,119,6,0.10);">
-          <video style="position:absolute;top:0;left:0;width:100%;height:100%;" controls preload="metadata" poster="assets/images/demo-poster-ja.jpg">
+        <div class="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(37,47,61,0.12)] ring-1 ring-outline-variant/20">
+          <video controls preload="metadata" poster="assets/images/demo-poster-ja.jpg" class="w-full block">
             <source src="assets/videos/vau-promo-ja.mp4" type="video/mp4">
           </video>
         </div>
@@ -459,80 +549,82 @@
   </section>
 
   <!-- ============================================================
-       HOW IT WORKS (3 steps)
+       HOW IT WORKS — Stitch 3-step card design
        ============================================================ -->
-  <section id="how-it-works" class="py-20 md:py-28" style="background:#FFF7ED;">
+  <section id="how-it-works" class="py-20 md:py-28 bg-surface-container-low">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-14 reveal">
-        <span class="section-label">3 Steps</span>
-        <h2 class="section-title">使い方は3ステップ</h2>
-        <p class="section-desc">難しい設定は不要。インストールから自動化まで最短5分。</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          3 Steps
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-4">使い方は3ステップ</h2>
+        <p class="text-on-surface-variant max-w-xl mx-auto">難しい設定は不要。インストールから自動化まで最短5分。</p>
       </div>
 
-      <div class="steps-grid reveal" style="--reveal-delay:0.1s">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
         <!-- Step 1 -->
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-16 h-16 bg-secondary-container rounded-2xl flex items-center justify-center mb-8 rotate-3 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-on-secondary-container text-3xl" style="font-variation-settings:'FILL' 1,'wght' 500">download</span>
           </div>
-          <div class="step-title">インストール</div>
-          <div class="step-desc">BOOTHからダウンロードして実行。数秒でセットアップ完了。</div>
+          <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary-container/30 text-secondary text-sm font-bold font-label mb-3">1</div>
+          <h3 class="text-xl font-bold font-headline mb-3 text-primary">インストール</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm">BOOTHからダウンロードして実行。数秒でセットアップ完了。.NETランタイムも自動インストール。</p>
         </div>
-        <!-- Arrow -->
-        <div class="step-arrow">→</div>
         <!-- Step 2 -->
-        <div class="step-item">
-          <div class="step-number">2</div>
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+        <div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-16 h-16 bg-primary-container/40 rounded-2xl flex items-center justify-center mb-8 -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1,'wght' 500">folder_open</span>
           </div>
-          <div class="step-title">フォルダを指定</div>
-          <div class="step-desc">監視したいフォルダを1つ選ぶだけ。テンプレートを設定。</div>
+          <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold font-label mb-3">2</div>
+          <h3 class="text-xl font-bold font-headline mb-3 text-primary">フォルダを指定</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm">監視したいフォルダを1つ選ぶだけ。タイトル・説明文のテンプレートを設定。</p>
         </div>
-        <!-- Arrow -->
-        <div class="step-arrow">→</div>
         <!-- Step 3 -->
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-surface transition-colors duration-500">
+          <div class="w-16 h-16 bg-tertiary-container/50 rounded-2xl flex items-center justify-center mb-8 rotate-6 group-hover:rotate-0 transition-transform duration-300">
+            <span class="material-symbols-outlined text-on-tertiary-container text-3xl" style="font-variation-settings:'FILL' 1,'wght' 500">play_circle</span>
           </div>
-          <div class="step-title">自動アップロード</div>
-          <div class="step-desc">あとは動画をフォルダに入れるだけ。全自動でYouTubeへ。</div>
+          <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-tertiary-container/40 text-tertiary text-sm font-bold font-label mb-3">3</div>
+          <h3 class="text-xl font-bold font-headline mb-3 text-primary">自動アップロード</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm">あとは動画をフォルダに入れるだけ。全自動でYouTubeへアップロードされます。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       ABOUT DEVELOPER
+       ABOUT DEVELOPER — Stitch card style
        ============================================================ -->
-  <section id="about" class="py-20 md:py-28 bg-white">
+  <section id="about" class="py-20 md:py-28 bg-surface-container-lowest">
     <div class="max-w-3xl mx-auto px-6">
-      <div class="reveal">
-        <span class="section-label text-center block">About</span>
-        <h2 class="section-title text-center">開発者について</h2>
+      <div class="text-center mb-10 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          About
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter">開発者について</h2>
       </div>
 
-      <div class="about-content reveal" style="--reveal-delay:0.15s">
-        <p class="text-lg mb-6 leading-relaxed" style="color:#555555">
+      <div class="reveal">
+        <p class="text-lg mb-5 leading-relaxed text-on-surface-variant">
           きっかけは、テニスの練習動画をYouTubeにアップロードする作業でした。毎回ファイルを選んで、タイトルを入力して、公開設定を選んで——その繰り返しが面倒で、自動化ツールを自作しました。
         </p>
-        <p class="text-lg mb-6 leading-relaxed" style="color:#555555">
-          <strong style="color:#1A1A1A">andAugment</strong> は「自分が不便だと感じたことを、自動化で解決する」をコンセプトに、日常の小さなストレスを取り除くWindowsツールを開発・販売しています。
+        <p class="text-lg mb-5 leading-relaxed text-on-surface-variant">
+          <strong class="text-on-surface">andAugment</strong> は「自分が不便だと感じたことを、自動化で解決する」をコンセプトに、日常の小さなストレスを取り除くWindowsツールを開発・販売しています。
         </p>
-        <p class="text-lg leading-relaxed" style="color:#555555">
+        <p class="text-lg leading-relaxed text-on-surface-variant">
           大げさな機能は必要ありません。ちょっとニッチで、でも確実に時間を節約できる——そんなツールをこれからも作り続けます。
         </p>
 
-        <!-- Developer card -->
-        <div class="developer-card mt-8">
-          <div class="developer-avatar">&</div>
+        <!-- Developer card — Stitch style -->
+        <div class="mt-8 bg-surface-container-low p-6 rounded-2xl flex items-start gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-on-primary text-2xl font-bold font-headline flex-shrink-0">
+            &amp;
+          </div>
           <div>
-            <div class="developer-name">andAugment</div>
-            <div class="developer-role">ソフトウェア開発者・自動化ツール作者</div>
-            <div class="developer-bio">実際に自分が使うツールだけを作っています。すべての製品は本当に自分が「欲しかった」機能です。購入前の質問・購入後のサポート、どちらも丁寧に対応します。</div>
+            <div class="font-bold text-on-surface font-headline mb-0.5">andAugment</div>
+            <div class="text-sm text-on-surface-variant mb-2">ソフトウェア開発者・自動化ツール作者</div>
+            <div class="text-sm text-on-surface-variant leading-relaxed">実際に自分が使うツールだけを作っています。すべての製品は本当に自分が「欲しかった」機能です。購入前の質問・購入後のサポート、どちらも丁寧に対応します。</div>
           </div>
         </div>
       </div>
@@ -540,74 +632,82 @@
   </section>
 
   <!-- ============================================================
-       FAQ
+       FAQ — Stitch accordion style (no dividers, background shifts)
        ============================================================ -->
-  <section id="faq" class="py-20 md:py-28" style="background:#FFF7ED;">
+  <section id="faq" class="py-20 md:py-28 bg-surface-container-low">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-14 reveal">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">よくある質問</h2>
-        <p class="section-desc">購入前の疑問をまとめました</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          FAQ
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-4">よくある質問</h2>
+        <p class="text-on-surface-variant">購入前の疑問をまとめました</p>
       </div>
 
-      <div class="bg-white rounded-2xl border reveal" style="border-color:#FDE68A;overflow:hidden;--reveal-delay:0.1s">
+      <div class="space-y-3 reveal">
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Windows 10 / 11 で動きますか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">Windows 10 / 11 で動きますか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             はい、Windows 10 / 11（64bit）で動作確認済みです。インストールは数秒で完了し、.NET ランタイムも自動でインストールされます。
           </div>
         </div>
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            月額費用はかかりますか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">月額費用はかかりますか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             一切かかりません。一度購入すれば永久に使えます。追加料金・更新費用・サブスクリプションなど一切なし。買い切りです。
           </div>
         </div>
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            返金はできますか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">返金はできますか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             購入から30日以内であれば、理由を問わず全額返金いたします。まずはお気軽にお試しください。返金の場合はメールまたはXよりご連絡ください。
           </div>
         </div>
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            アップデートは無料ですか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">アップデートは無料ですか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             はい、すべてのアップデートは無料です。機能追加・バグ修正・Windows新バージョン対応、すべて無料でお届けします。
           </div>
         </div>
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            PCを変えたときはどうなりますか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">PCを変えたときはどうなりますか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             新しいPCに再インストールできます。ご購入時の情報をお手元に保管しておいてください。不明な場合はメールでご相談いただければサポートします。
           </div>
         </div>
 
-        <div class="faq-item px-6">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            インターネット接続は必要ですか？
-            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <div class="faq-item bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleFaq(this)" class="w-full px-7 py-5 flex justify-between items-center text-left hover:bg-surface transition-colors duration-200 cursor-pointer">
+            <span class="text-base font-semibold font-headline text-on-surface pr-4">インターネット接続は必要ですか？</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-plus">add</span>
+            <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon-minus">remove</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer px-7 pb-5 text-on-surface-variant leading-relaxed text-sm">
             YouTubeへのアップロード時にはインターネット接続が必要です。ただし、ソフトウェア自体の動作・設定・フォルダ監視はオフラインでも行われます。テレメトリーデータは収集しません。
           </div>
         </div>
@@ -617,137 +717,173 @@
   </section>
 
   <!-- ============================================================
-       FINAL CTA (dark)
+       FINAL CTA — Stitch full-width primary section
        ============================================================ -->
-  <section class="final-cta-section py-24 md:py-32 relative overflow-hidden">
-    <div class="cta-bg" aria-hidden="true"></div>
-    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight tracking-tight" style="letter-spacing:-0.03em">
-        毎週の繰り返し作業、<br>今日から自動化しませんか？
-      </h2>
-      <p class="text-lg mb-10" style="color:rgba(255,255,255,0.65)">
-        買い切りだから、試すハードルはゼロ。30日間返金保証付き。
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-        <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="btn-primary group">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>¥2,980 で購入する</span>
-        </a>
-        <a href="#contact" class="btn-ghost">お問い合わせ</a>
+  <section class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto bg-primary text-on-primary rounded-2xl overflow-hidden relative">
+      <!-- decorative -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/30 to-transparent -skew-x-12 transform translate-x-1/4 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-white/5 blur-3xl rounded-full pointer-events-none"></div>
+
+      <div class="relative z-10 px-10 py-16 md:py-20 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter mb-6 max-w-2xl mx-auto leading-tight">
+          毎週の繰り返し作業、<br>今日から自動化しませんか？
+        </h2>
+        <p class="text-lg mb-10 text-on-primary/75 max-w-lg mx-auto">
+          買い切りだから、試すハードルはゼロ。30日間返金保証付き。
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer"
+             class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1,'wght' 600">shopping_bag</span>
+            ¥2,980 で購入する
+          </a>
+          <a href="#contact" class="text-on-primary/80 hover:text-on-primary font-semibold transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-base">mail</span>
+            お問い合わせ
+          </a>
+        </div>
+        <p class="text-sm text-on-primary/50 inline-flex items-center gap-2 flex-wrap justify-center">
+          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1,'wght' 600">security</span>
+          30日間返金保証 · 永久ライセンス · 月額費用なし
+        </p>
       </div>
-      <p class="cta-guarantee" style="color:rgba(255,255,255,0.45)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        30日間返金保証 · 永久ライセンス · 月額費用なし
-      </p>
     </div>
   </section>
 
   <!-- ============================================================
        CONTACT
        ============================================================ -->
-  <section id="contact" class="py-20 md:py-28 bg-white">
+  <section id="contact" class="py-20 md:py-24 bg-surface-container-lowest">
     <div class="max-w-2xl mx-auto px-6 text-center">
       <div class="reveal">
-        <span class="section-label">Contact</span>
-        <h2 class="section-title">お問い合わせ</h2>
-        <p class="section-desc mb-12">購入前の質問・技術的な問題・ご要望など、お気軽にどうぞ</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 text-on-secondary-container text-xs font-semibold font-label mb-4">
+          Contact
+        </div>
+        <h2 class="text-4xl font-bold font-headline tracking-tighter mb-4">お問い合わせ</h2>
+        <p class="text-on-surface-variant mb-10">購入前の質問・技術的な問題・ご要望など、お気軽にどうぞ</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="--reveal-delay:0.15s">
-        <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="contact-card group">
-          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#D97706" viewBox="0 0 24 24" fill="currentColor">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
+        <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer"
+           class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-colors duration-300 flex flex-col items-center">
+          <svg class="w-8 h-8 mb-4 text-primary transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
-          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">@andAugment</span>
-          <span class="text-xs" style="color:#8A8A8A">X (Twitter) — 最速対応</span>
+          <span class="font-bold text-on-surface font-headline mb-1">@andAugment</span>
+          <span class="text-xs text-on-surface-variant">X (Twitter) — 最速対応</span>
         </a>
-        <a href="mailto:andaugment@gmail.com" class="contact-card group">
-          <svg class="w-7 h-7 mb-3 transition-transform duration-300 group-hover:scale-110" style="color:#D97706" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
-          </svg>
-          <span class="text-sm font-bold mb-1" style="color:#1A1A1A">andaugment@gmail.com</span>
-          <span class="text-xs" style="color:#8A8A8A">メール — 1〜3営業日以内に返信</span>
+        <a href="mailto:andaugment@gmail.com"
+           class="bg-surface-container-low p-7 rounded-2xl group hover:bg-surface-container transition-colors duration-300 flex flex-col items-center">
+          <span class="material-symbols-outlined text-4xl text-primary mb-4 transition-transform duration-300 group-hover:scale-110" style="font-variation-settings:'FILL' 1,'wght' 400">mail</span>
+          <span class="font-bold text-on-surface font-headline mb-1">andaugment@gmail.com</span>
+          <span class="text-xs text-on-surface-variant">メール — 1〜3営業日以内に返信</span>
         </a>
       </div>
-      <p class="text-xs mt-8" style="color:#8A8A8A">返信まで1〜3営業日いただく場合がございます</p>
+      <p class="text-xs text-on-surface-variant mt-6">返信まで1〜3営業日いただく場合がございます</p>
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer style="background:#FFF7ED;border-top:1px solid #FDE68A;" class="py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+</main>
 
-        <!-- Brand -->
-        <div class="md:col-span-2">
-          <a href="#home" class="flex items-center gap-2 mb-3">
-            <img src="assets/images/logo.png" alt="andAugment" class="h-7">
-            <span class="font-bold text-gray-900 text-base"><span style="color:#D97706">&amp;</span>Augment</span>
-          </a>
-          <p class="text-sm mb-3" style="color:#555555">Windowsの日常作業を自動化するツールを開発・販売しています。</p>
-          <p class="text-xs" style="color:#8A8A8A">
-            <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color:#D97706">@andAugment</a>
-            &nbsp;·&nbsp;
-            <a href="mailto:andaugment@gmail.com" class="hover:underline" style="color:#D97706">andaugment@gmail.com</a>
-          </p>
-        </div>
-
-        <!-- Links -->
-        <div>
-          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">Products</h3>
-          <ul class="space-y-2">
-            <li><a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="text-sm transition-colors hover:underline" style="color:#555555">Video Auto Uploader</a></li>
-            <li><span class="text-sm" style="color:#ABABAB">Multi-Store Publisher</span></li>
-            <li><span class="text-sm" style="color:#ABABAB">Keep Awake Pro</span></li>
-          </ul>
-        </div>
-
-        <!-- Legal -->
-        <div>
-          <h3 class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#8A8A8A">Company</h3>
-          <ul class="space-y-2">
-            <li><a href="#about" class="text-sm transition-colors hover:underline" style="color:#555555">About</a></li>
-            <li><a href="contact.html" class="text-sm transition-colors hover:underline" style="color:#555555">Contact</a></li>
-            <li><a href="privacy.html" class="text-sm transition-colors hover:underline" style="color:#555555">Privacy Policy</a></li>
-            <li><a href="terms.html" class="text-sm transition-colors hover:underline" style="color:#555555">Terms of Service</a></li>
-          </ul>
-        </div>
-
+<!-- ============================================================
+     FOOTER — Stitch style
+     ============================================================ -->
+<footer class="bg-surface-container-low border-t border-outline-variant/15 py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="#" class="flex items-center gap-2 mb-4">
+          <img src="assets/images/logo.png" alt="andAugment" class="h-7">
+          <span class="font-bold text-on-surface font-headline"><span class="text-primary">&amp;</span>Augment</span>
+        </a>
+        <p class="text-sm text-on-surface-variant mb-3 leading-relaxed">Windowsの日常作業を自動化するツールを開発・販売しています。</p>
+        <p class="text-xs text-on-surface-variant">
+          <a href="https://twitter.com/andAugment" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">@andAugment</a>
+          &nbsp;·&nbsp;
+          <a href="mailto:andaugment@gmail.com" class="text-primary hover:underline">andaugment@gmail.com</a>
+        </p>
       </div>
-
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6" style="border-top:1px solid #FDE68A">
-        <p class="text-xs" style="color:#ABABAB">&copy; 2026 andAugment. All rights reserved.</p>
-        <p class="text-xs" style="color:#ABABAB">Made with ❤ in Japan · Windows 10/11 対応</p>
+      <!-- Products -->
+      <div>
+        <h3 class="text-xs font-bold font-label tracking-widest uppercase mb-4 text-on-surface-variant">Products</h3>
+        <ul class="space-y-2.5">
+          <li><a href="https://andaugment.booth.pm" target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-on-surface hover:underline transition-colors">Video Auto Uploader</a></li>
+          <li><span class="text-sm text-on-surface-variant/40">Multi-Store Publisher</span></li>
+          <li><span class="text-sm text-on-surface-variant/40">Keep Awake Pro</span></li>
+        </ul>
+      </div>
+      <!-- Company -->
+      <div>
+        <h3 class="text-xs font-bold font-label tracking-widest uppercase mb-4 text-on-surface-variant">Company</h3>
+        <ul class="space-y-2.5">
+          <li><a href="#about" class="text-sm text-on-surface-variant hover:text-on-surface hover:underline transition-colors">About</a></li>
+          <li><a href="contact.html" class="text-sm text-on-surface-variant hover:text-on-surface hover:underline transition-colors">Contact</a></li>
+          <li><a href="privacy.html" class="text-sm text-on-surface-variant hover:text-on-surface hover:underline transition-colors">Privacy Policy</a></li>
+          <li><a href="terms.html" class="text-sm text-on-surface-variant hover:text-on-surface hover:underline transition-colors">Terms of Service</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
 
-  <!-- Language redirect -->
-  <script>
-  (function() {
-    if (sessionStorage.getItem('lang-redirected')) return;
-    sessionStorage.setItem('lang-redirected', '1');
-    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    var map = { 'en':'/en/', 'zh-cn':'/zh-CN/', 'zh-tw':'/zh-TW/', 'zh-hant':'/zh-TW/', 'zh-hans':'/zh-CN/', 'zh':'/zh-CN/', 'ko':'/ko/', 'es':'/es/', 'pt':'/pt/', 'fr':'/fr/', 'de':'/de/' };
-    var target = map[lang] || map[lang.split('-')[0]];
-    if (target && window.location.pathname === '/') window.location.href = target;
-  })();
-  </script>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6 border-t border-outline-variant/15">
+      <p class="text-xs text-on-surface-variant/50">&copy; 2026 andAugment. All rights reserved.</p>
+      <p class="text-xs text-on-surface-variant/50">Made with ❤ in Japan · Windows 10/11 対応</p>
+    </div>
+  </div>
+</footer>
 
-  <!-- FAQ Accordion -->
-  <script>
-  function toggleFaq(btn) {
-    var item = btn.closest('.faq-item');
-    var isOpen = item.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
-    // Open clicked if it was closed
-    if (!isOpen) item.classList.add('open');
-  }
-  </script>
+<!-- Language redirect -->
+<script>
+(function() {
+  if (sessionStorage.getItem('lang-redirected')) return;
+  sessionStorage.setItem('lang-redirected', '1');
+  var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  var map = { 'en':'/en/', 'zh-cn':'/zh-CN/', 'zh-tw':'/zh-TW/', 'zh-hant':'/zh-TW/', 'zh-hans':'/zh-CN/', 'zh':'/zh-CN/', 'ko':'/ko/', 'es':'/es/', 'pt':'/pt/', 'fr':'/fr/', 'de':'/de/' };
+  var target = map[lang] || map[lang.split('-')[0]];
+  if (target && window.location.pathname === '/') window.location.href = target;
+})();
+</script>
 
-  <script src="js/main.js"></script>
+<!-- FAQ Accordion -->
+<script>
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+<!-- Scroll reveal -->
+<script>
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+
+<!-- Header scroll shadow -->
+<script>
+window.addEventListener('scroll', function() {
+  var h = document.getElementById('site-header');
+  if (window.scrollY > 10) { h.style.boxShadow = '0 4px 24px rgba(37,47,61,0.10)'; }
+  else { h.style.boxShadow = '0 4px 24px rgba(37,47,61,0.06)'; }
+}, { passive: true });
+</script>
+
+<!-- Close lang dropdown on outside click -->
+<script>
+document.addEventListener('click', function(e) {
+  var dd = document.querySelector('.lang-dropdown');
+  if (!e.target.closest('.relative') && dd) dd.classList.remove('open');
+});
+</script>
+
 </body>
 </html>
