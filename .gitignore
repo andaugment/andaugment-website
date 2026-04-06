@@ -9,3 +9,5 @@ Thumbs.db
 # Temporary
 *.tmp
 *.log
+.mcp.json
+stitch-generated.html
