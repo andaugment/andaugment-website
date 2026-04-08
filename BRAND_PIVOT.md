@@ -42,7 +42,15 @@
 - [ ] SNSプロフィールを更新
 - [ ] BOOTH：AI副業商品を削除（音楽販売に転換検討）
 
-## 廃止・保留するもの
+## ブランド整理
 
-- VAU・KAP・PluginDrop等のAIツール販促コンテンツ（TRACKER.mdの投稿は一旦保留）
-- BOOTHのAIツール商品ページ
+### 廃止するもの
+- BOOTH：VAU・KAP商品ページ → 削除
+- LemonSqueezy：VAU・KAP → 削除
+- andAugmentとしてのAIツール販促コンテンツ（TRACKER.mdの投稿は保留）
+
+### 別ブランドとして継続するもの
+- **PluginDrop**（andAugmentとは独立）
+  - DTMプラグインDEALSアフィリエイトサイト
+  - DTM界隈での認知→andAugment音楽販売への相乗効果も期待
+  - 引き続きアフィリエイト収益を目指す
