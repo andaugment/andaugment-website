@@ -808,83 +808,172 @@ Air Studios Reverb / LiquidSonics Cinematic Rooms / Valhalla Room
     <strong>Pro Tip — Fusion-IR vs コンボリューション:</strong> 通常のコンボリューション（Air Studios含む）は1枚のIRスナップショット → 静的で動かない。LiquidSonicsのFusion-IRは複数IRをリアルタイムで変調 → 本物の空間のように「呼吸する」。Valhalla Room（アルゴリズム）とFusion-IRの中間的な特性を持つ。
   </div>
 
-  <!-- ===== ROUTING ===== -->
-  <h3 style="margin-top:2rem">Cubaseルーティング（Send/Return）</h3>
+  <!-- ===== ROUTING ARCHITECTURE ===== -->
+  <h3 style="margin-top:2rem">ルーティングアーキテクチャ（3リバーブ役割分担）</h3>
 
-  <div class="flow">
-    <div class="fb">楽器トラック</div><div class="fa">→</div>
-    <div class="fb fb-bus">セクショングループ</div><div class="fa">→</div>
-    <div class="fb fb-bus">Orchestral Master</div>
-  </div>
-  <div class="flow">
-    <div class="fb">楽器トラック</div><div class="fa">↘ Send</div>
-    <div class="fb fb-fx">セクションReverbFX</div><div class="fa">→</div>
-    <div class="fb fb-bus">Orchestral Master</div>
-  </div>
-  <div class="flow">
-    <div class="fb fb-bus">各セクショングループ</div><div class="fa">↘ Send（少量）</div>
-    <div class="fb fb-fx">Global Glue FX</div><div class="fa">→</div>
-    <div class="fb fb-bus">Master</div>
+  <div class="alert alert-red">
+    <strong>重要:</strong> Air Studios Reverbは<strong>Send/FXバスではなくINSERT</strong>で各セクションバスに挿す。Virtual Positioning Technology（空間配置）はInsertでのみ機能する。Sendバスに送ると単なるコンボリューションになり空間配置の恩恵が消える。
   </div>
 
-  <!-- ===== FX CHANNEL TABLE ===== -->
-  <h3 style="margin-top:2rem">FXチャンネル設定表</h3>
-
-  <table>
-    <tr><th>FXチャンネル</th><th>プラグイン</th><th>RT60 / アルゴリズム</th><th>Pre-delay</th><th>重要パラメータ</th><th>Send量</th></tr>
+  <table style="margin-bottom:1.5rem">
     <tr>
-      <td class="td-gold">FX1: Spitfire弦楽</td>
+      <th>役割</th>
+      <th>プラグイン</th>
+      <th>挿入位置</th>
+      <th>何をする？</th>
+    </tr>
+    <tr>
+      <td class="td-gold">Layer 1<br>ホール配置</td>
       <td><strong>Air Studios Reverb</strong></td>
-      <td>1.8–2.3s<br>Lyndhurst Hall</td>
-      <td>Vln: 15–25ms<br>Vc: 25–35ms<br>Cb: 30–40ms</td>
-      <td>Canopy: Low<br>Gallery Dampening: ON<br>CPU対策: Sendバス専用</td>
-      <td>Spitfire: -10〜-12dB<br>（8dio: このFXに送らない）</td>
+      <td>各セクションバスに<strong>INSERT</strong><br>（弦・金管・木管・打楽器 それぞれ）</td>
+      <td>各楽器をLyndhurst Hallの物理的な位置に配置。コンサートマスター（前列）〜ティンパニ（後列）の奥行きを作る。</td>
     </tr>
     <tr>
-      <td class="td-gold">FX2: 金管</td>
+      <td class="td-gold">Layer 2<br>テール・奥行き</td>
       <td><strong>Valhalla Room</strong></td>
-      <td>2.0–2.5s<br>Large Room</td>
-      <td>8–15ms</td>
-      <td>High Cut: 5000–6500Hz（必須）<br>Mod: Low〜Mid</td>
-      <td>-9〜-12dB</td>
+      <td>Sendバス（1インスタンス）<br>100% Wet</td>
+      <td>各セクションからのSend量とPre-delayで奥行き差を演出。アルゴリズムで有機的なリバーブテール。CPU最軽量。</td>
     </tr>
     <tr>
-      <td class="td-gold">FX3: 木管</td>
-      <td><strong>Valhalla Room</strong></td>
-      <td>2.0s<br>Large Room</td>
-      <td>10–20ms</td>
-      <td>High Cut: 5500Hz<br>前方定位→Pre-delayやや短め</td>
-      <td>-12〜-15dB</td>
-    </tr>
-    <tr>
-      <td class="td-gold">FX4: 打楽器</td>
-      <td><strong>Valhalla Room</strong></td>
-      <td>1.5–2.0s<br>Medium Room</td>
-      <td>5ms以下</td>
-      <td>High Cut: 6000Hz<br>Mod: Off（クリアなアタック維持）</td>
-      <td>-6〜-9dB</td>
-    </tr>
-    <tr>
-      <td class="td-gold">FX5: Global Glue</td>
+      <td class="td-gold">Layer 3<br>グローバルグルー</td>
       <td><strong>PhoenixVerb</strong></td>
-      <td>3.5–4.5s<br>Large Hall</td>
-      <td>50ms</td>
-      <td>混合率を極力低く。全員を同じ空気感で包む。Wet量は -18〜-20dBで薄くかける。</td>
-      <td>全セクションから -18〜-20dB</td>
-    </tr>
-    <tr>
-      <td class="td-gold" style="color:var(--muted)">FX6: 8dio弦楽<br>（Seventh Heaven導入後）</td>
-      <td><em>Seventh Heaven Standard</em><br><span style="color:var(--muted);font-size:0.8rem">（$69 → 最初の追加投資）</span></td>
-      <td>2.0–2.8s<br>Concert Hall / Amsterdam Hall</td>
-      <td>20–30ms</td>
-      <td>ER/Tailを独立制御。8dioの部屋感を払拭してBricasti M7の格調あるホールへ置換。</td>
-      <td>8dio: -12〜-15dB<br>（Close Mics中心で使用時）</td>
+      <td>Orchestral Masterバスに<strong>INSERT</strong><br>（または並列グルーバス）</td>
+      <td>全セクションを「同じ部屋で録音された」一体感に統合。Reverb Attackパラメータで弦のブルームを制御。12–20% Wet。</td>
     </tr>
   </table>
 
-  <div class="alert alert-red" style="margin-top:1.5rem">
-    <strong>Valhalla Room 最重要設定 — High Cut:</strong> 5000〜6500Hzにハイカットを必ず入れること。これをしないと高音がリバーブで過度に拡散し「玩具っぽいホール感」になる。VI-Controlのオーケストラミキサーが口を揃える最重要パラメータ。
+  <div class="code">
+弦楽バス ──[ASR INSERT: Layout A, Canopy Med, 20-25%wet]──────────────┐
+木管バス ──[ASR INSERT: Layout A, Canopy Med, 20-25%wet]──────────────┤
+金管バス ──[ASR INSERT: Layout A/B, Canopy Med-Hi, 25-35%wet]─────────┤  → Orchestral Master Bus
+打楽器バス─[ASR INSERT: Layout B, Canopy Hi, 35-50%wet]───────────────┤     │
+           │                                                            │     ▼
+           └──Send(20-45%)──→[Valhalla Room Bus]────────────────────────┘  [PhoenixVerb INSERT]
+                              Large Room, 2.0-4.0s                          Hall, 12-20%wet
+                              Pre-delay: セクションごとに変化                Reverb Attack: 中〜遅め
+                                                                                │
+                                                                           Mix Master Bus
+                                                                        [Pro-Q3 / Pro-L2]
+</div>
+
+  <!-- ===== AIR STUDIOS DETAIL ===== -->
+  <h3 style="margin-top:2.5rem">Air Studios Reverb — セクション別INSERT設定</h3>
+
+  <table>
+    <tr><th>セクション</th><th>Layout</th><th>Canopy</th><th>Canopy Material</th><th>Gallery Dampening</th><th>推奨Dry/Wet</th></tr>
+    <tr>
+      <td class="td-gold">弦楽（前列）</td>
+      <td>A</td>
+      <td>Medium (7m)</td>
+      <td>Wood（暖かみ）</td>
+      <td>ON（引き締まった音）</td>
+      <td>20–25%</td>
+    </tr>
+    <tr>
+      <td class="td-gold">木管（中列）</td>
+      <td>A</td>
+      <td>Medium (7m)</td>
+      <td>Wood or Melatech</td>
+      <td>ON</td>
+      <td>20–30%</td>
+    </tr>
+    <tr>
+      <td class="td-gold">金管（中〜後列）</td>
+      <td>A or B</td>
+      <td>Medium-High</td>
+      <td>Melatech（現代的）</td>
+      <td>OFF（開放感あり）</td>
+      <td>25–35%</td>
+    </tr>
+    <tr>
+      <td class="td-gold">打楽器（後列）</td>
+      <td><strong>B</strong>（Hans Zimmer式前後逆）</td>
+      <td>High (9.5m)（最大空間）</td>
+      <td>Melatech</td>
+      <td>OFF</td>
+      <td>35–50%</td>
+    </tr>
+  </table>
+  <div class="alert alert-blue" style="margin-top:0.5rem">
+    <strong>CPU管理:</strong> ASRは全リバーブ中最もCPU負荷が高い（1インスタンス≈2%、4セクションで≈8%）。作曲フェーズ完了後にセクションをFreeze/レンダリングすること。Valhalla RoomとPhoenixVerbはライブで動かしておく。
   </div>
+
+  <!-- ===== VALHALLA ROOM DETAIL ===== -->
+  <h3 style="margin-top:2.5rem">Valhalla Room — アルゴリズム選択と詳細設定</h3>
+
+  <table>
+    <tr><th>アルゴリズム</th><th>用途</th><th>澤野スタイルでの活用</th></tr>
+    <tr>
+      <td class="td-gold">Large Room</td>
+      <td>オーケストラの主力。自然な減衰。最も汎用性高い。</td>
+      <td>通常セクション全て。金管・木管・打楽器のSendバス。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">Concert Hall</td>
+      <td>Large Roomの拡張版。長いPre-delay対応。</td>
+      <td>クライマックス・エピックシーン。Sawano Drop前後の壮大な空間。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">Smooth</td>
+      <td>高いエコー密度、均一なEarly→Late移行。</td>
+      <td>弦楽のリッチなテール。感情的な場面。Valhalla Roomで最も「ラグジュアリー」な音。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">Sanctuary</td>
+      <td>大聖堂的な長いテール。</td>
+      <td>コーラス・非常にエピックな開幕シーン。</td>
+    </tr>
+    <tr>
+      <td style="color:var(--muted)">Noisy</td>
+      <td>ローファイ</td>
+      <td>オーケストラには使用しない</td>
+    </tr>
+  </table>
+
+  <div class="code" style="margin-top:1rem">
+Valhalla Room — オーケストラ標準設定（VI-Control + Valhalla DSP公式）:
+
+Mode:              Large Room または Concert Hall
+Decay:             2.0 – 3.5s（通常）/ 3.5 – 4.0s（澤野クライマックス）
+Pre-delay:         弦楽: 12–18ms / 木管: 20–25ms / 金管: 25–30ms / 打楽器: 30–40ms
+Early Send:        100%
+Early Diffusion:   100%（Max）
+High Cut:          4,500 – 6,500Hz ← 最重要。これを怠ると玩具ホール感に
+Bass Mult:         1.0 – 1.2（自然なコンサートホール特性）
+Modulation:        5 – 15%（弦楽のシマーを出す、ただし音程揺れにならないよう控えめ）
+Mix:               100% Wet（Sendバス使用時は常に100%）
+
+Send量目安: 弦楽20% / 木管30% / 金管35% / 打楽器45%
+（Send量でセクション間の奥行き差を作る）</div>
+
+  <!-- ===== PHOENIXVERB DETAIL ===== -->
+  <h3 style="margin-top:2.5rem">PhoenixVerb — グローバルグルー設定</h3>
+
+  <div class="alert" style="background:rgba(92,154,224,0.1);border-color:var(--blue);margin-bottom:1rem">
+    <strong>PhoenixVerbがグルーバスに最適な理由:</strong><br>
+    「<strong>Reverb Attack</strong>」パラメータを持つ（Valhalla Roomにはない）。これはリバーブテールが立ち上がるスピードを制御する。<strong>遅め設定</strong>にすると弦のアタックの後にリバーブがゆっくりブルームする — 澤野弘之の「弦が部屋に溶け込んでいく」あの効果。Bloomコントロール = 澤野サウンドの隠し鍵。
+  </div>
+
+  <div class="code">
+PhoenixVerb — Orchestral Master Bus グルー設定:
+
+Algorithm:      Hall
+Reverb Time:    2.5 – 4.0s（澤野スタイルは長め）
+Pre-delay:      30 – 45ms（Valhallより長め → 全体的な距離感）
+Diffusion:      80 – 100%（スムーズなブレンド）
+Reverb Attack:  中〜遅め ← 澤野の「ブルーム」を作る核心パラメータ
+ER Level:       独立してコントロール（アーリーリフレクション量を別に設定可）
+High Cut:       6,000 – 8,000Hz
+Low Cut:        80 – 120Hz（低域のマッド防止 → Pro-Q3でも可）
+
+Mix（Insertの場合）: 12 – 20% Wet
+Mix（並列グルーバスの場合）: 100% Wet, リターン量 20%前後
+
+澤野スタイル仕上げ:
+- Pro-Q3でPhoenixVerbバスの12kHz以上をハイシェルフカット
+  （本物のホールは高域を吸収する。Air感過多 = ライブラリ感が出る）
+- Soothe2をValhalla Roomバスに挿してクレッシェンド時のハーシュネスを動的に抑制</div>
+
 </section>
 
 <!-- ============================================================ -->
