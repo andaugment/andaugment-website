@@ -1027,6 +1027,119 @@ Mix（並列グルーバスの場合）: 100% Wet, リターン量 20%前後
     <strong>iZotope Neutron 5 AI Mix Assistantの限界:</strong> オーケストラ素材でAIが「変な調整/極端なカット」をすることがVI-Controlで多数報告されている。Assistantを出発点にして全設定を手動で見直す前提で使う。EQモジュール自体は高品質。
   </div>
 
+  <!-- ===== REVERB MASTER COMPARISON ===== -->
+  <h3 style="margin-top:2.5rem">全リバーブ比較マスター表（2025年VI-Control調査）</h3>
+
+  <table>
+    <tr>
+      <th>プラグイン</th>
+      <th>価格</th>
+      <th>エンジン</th>
+      <th>CPU</th>
+      <th>オーケストラでの最適用途</th>
+      <th>弱み</th>
+      <th>VI-Control順位</th>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Cinematic Rooms Pro</strong><br>LiquidSonics</td>
+      <td>$199</td>
+      <td>アルゴリズム+<br>Fusion-IR</td>
+      <td>ほぼゼロ</td>
+      <td>オーケストラの部屋感・セクション別Send・Atmos対応。Alan Meyerson（ハンスジマーミキサー）開発に参画。</td>
+      <td>オーケストラ以外には過剰</td>
+      <td style="color:var(--gold)"><strong>#1</strong></td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Seventh Heaven Pro</strong><br>LiquidSonics</td>
+      <td>$299<br><em>Standard: $69</em></td>
+      <td>Fusion-IR<br>（Bricasti M7）</td>
+      <td>&lt;0.7%</td>
+      <td>ホール・プレートキャラクター。弦楽のシマー。ソロ楽器。短いアンビエンスでも金属音にならない。</td>
+      <td>UI複雑。価格高め。</td>
+      <td style="color:var(--gold)"><strong>#2</strong></td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Valhalla Room</strong></td>
+      <td>$50</td>
+      <td>アルゴリズム</td>
+      <td>非常に低い</td>
+      <td>汎用。セクション別Sendで奥行き演出。12アルゴリズム。最高コスパ。</td>
+      <td>ERがやや合成的。密なパッセージで濁りがち。</td>
+      <td style="color:var(--gold)"><strong>#3</strong></td>
+    </tr>
+    <tr>
+      <td><strong>2CAudio Aether</strong></td>
+      <td>~$149</td>
+      <td>アルゴリズム</td>
+      <td>中程度</td>
+      <td>進化するテール。ハイブリッド/シンセオーケストラ。澤野スタイルのシンセ要素。</td>
+      <td>UI複雑。LiquidSonicsと比べpedigree弱め。</td>
+      <td>#4〜5</td>
+    </tr>
+    <tr>
+      <td><strong>FabFilter Pro-R2</strong></td>
+      <td>~$199</td>
+      <td>アルゴリズム</td>
+      <td>低い</td>
+      <td>EQ統合型リバーブ。細かいパラメトリック制御が必要な場合。</td>
+      <td>「音楽的でない」と感じるユーザーも。</td>
+      <td>#5</td>
+    </tr>
+    <tr>
+      <td><strong>Eventide Blackhole</strong></td>
+      <td>~$99</td>
+      <td>非線形<br>creative</td>
+      <td>低い</td>
+      <td><strong>室内楽リバーブには不可。</strong>ドローン・シンセパッド・タイコヒットのCreative FX専用。澤野スタイルのシンセストリング要素に有効。</td>
+      <td>ハーモニクス染色あり。グルーリバーブ不可。</td>
+      <td>特殊用途</td>
+    </tr>
+    <tr>
+      <td><strong>Altiverb</strong></td>
+      <td>~$595</td>
+      <td>コンボリューション</td>
+      <td>高い</td>
+      <td>世界中のホールIR。本物の空間の再現性では最高峰。</td>
+      <td>CPU重い。高価。モジュレーション不可。</td>
+      <td>特殊用途</td>
+    </tr>
+    <tr>
+      <td><strong>UAD Lexicon 480L</strong></td>
+      <td>$349+<br>Sparkサブ必要</td>
+      <td>ハードウェア<br>エミュレーション</td>
+      <td>UAD DSPオフロード</td>
+      <td>クラシックハリウッドサウンド（Jerry Goldsmith / James Horner時代）。Seventh HeavenよりM7経由でなく直接480L音。</td>
+      <td>プラットフォーム依存。Spark月額費用。</td>
+      <td>特殊用途</td>
+    </tr>
+  </table>
+
+  <!-- ===== PRO WORKFLOWS ===== -->
+  <h3 style="margin-top:2.5rem">プロ作曲家・ミキサーのリバーブワークフロー</h3>
+
+  <table>
+    <tr><th>人物</th><th>役割</th><th>リバーブアプローチ</th></tr>
+    <tr>
+      <td class="td-gold"><strong>Alan Meyerson</strong></td>
+      <td>Hans Zimmerの専属ミキサー<br>（Inception / Dune / Dunkirk）</td>
+      <td>・セクションごとに<strong>独立したリバーブSend</strong>（弦・金管・打楽器それぞれ別）<br>・「1つの部屋に全部を送る」ではなく「部屋の延長を作る」発想<br>・サステインの末尾でリバーブテールを使ってサンプルの不自然なリリースをカバー<br>・<strong>Cinematic Rooms Pro</strong>開発コンサルタント（確認済）</td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Tom Holkenborg</strong><br>（Junkie XL）</td>
+      <td>Deadpool / Mad Max / Batman v Superman</td>
+      <td>・<strong>ハードウェアリバーブ中心</strong>: Yamaha REV7（1980年代初）+ Korg DRV-3000<br>・Soundtoys EchoBoyを「ピアノ用秘密兵器リバーブプリセット」として使用<br>・6台のサーバーでVSL（Vienna Symphonic Library）を運用<br>・ライブオーケストラとサンプルの積極的な混合</td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>澤野弘之</strong><br>エンジニア: 逢坂光典</td>
+      <td>進撃の巨人 / ガンダムUC / SiM</td>
+      <td>・<strong>Bricasti M7</strong>ハードウェアリバーブの使用が推定（VI-Controlコミュニティ分析）<br>・弦楽：長いブルームテール（アタック後にゆっくり開く）<br>・打楽器：ダークなロングディケイ（High Cutを低めに設定）<br>→ Seventh Heaven Standard（$69）がM7の最良ソフトウェア代替</td>
+    </tr>
+  </table>
+
+  <div class="alert" style="background:rgba(201,162,39,0.08);border-color:var(--gold);margin:1.5rem 0">
+    <strong>Black Friday セール情報:</strong> LiquidSonicsは毎年Black Fridayに30〜70%OFFセールを実施。Cinematic Rooms Proが$99まで下がることがある（通常$199）。Valhalla Roomはセール一切なし（常に$50）。
+  </div>
+
   <h3>セクション別MIXチェーン</h3>
 
   <h4>弦楽バス</h4>
