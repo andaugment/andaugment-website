@@ -946,6 +946,91 @@ Mix:               100% Wet（Sendバス使用時は常に100%）
 Send量目安: 弦楽20% / 木管30% / 金管35% / 打楽器45%
 （Send量でセクション間の奥行き差を作る）</div>
 
+  <h4 style="margin-top:1.5rem;color:var(--gold2)">1インスタンスで奥行きを作る — Pre-delay + Send量テクニック</h4>
+  <div class="alert alert-blue">
+    Valhalla Roomは<strong>1インスタンスでOK</strong>。セクションごとに別インスタンスを立ち上げる必要なし。各楽器トラックからSend量とCubaseのSend Pre-delayを変えることで「前列〜後列」の奥行き感を1インスタンスで作れる。
+  </div>
+  <div class="code">
+Cubase FX Send設定（Valhalla Room 1インスタンスへ）:
+
+弦楽  → Send Pre-delay: 0ms,  Send量: -18dB（少なめ = 近い・前列）
+木管  → Send Pre-delay: 5ms,  Send量: -15dB
+金管  → Send Pre-delay: 10ms, Send量: -12dB（多め = 遠い・後列）
+打楽器→ Send Pre-delay: 15ms, Send量: -9dB （最も後列）
+
+※ Valhalla Room本体のPre-delayはグローバル設定（25-35ms）にしておき、
+  各SendのPre-delayで微調整する。合計値が各セクションの「実効Pre-delay」になる。</div>
+
+  <h4 style="margin-top:1.5rem;color:var(--gold2)">シーン別プリセット（澤野弘之スタイル）</h4>
+  <table>
+    <tr><th>シーン</th><th>Mode</th><th>Decay</th><th>High Cut</th><th>Bass Mult</th><th>Mod</th><th>ポイント</th></tr>
+    <tr>
+      <td class="td-gold">静かなイントロ<br>（弦楽のみ）</td>
+      <td>Smooth</td>
+      <td>3.0–4.0s</td>
+      <td>4,500Hz</td>
+      <td>1.2</td>
+      <td>10–15%</td>
+      <td>Smoothモードで弦が溶けるような長いテール。ダークで詩的。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">バトル中盤<br>（標準）</td>
+      <td>Large Room</td>
+      <td>2.0–2.5s</td>
+      <td>5,500Hz</td>
+      <td>1.0</td>
+      <td>5–8%</td>
+      <td>はっきりした空間感。金管が前に出る。クリアなアタック。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">クライマックス<br>（Sawano Drop前）</td>
+      <td>Concert Hall</td>
+      <td>3.5–4.0s</td>
+      <td>4,500Hz</td>
+      <td>1.2</td>
+      <td>8–12%</td>
+      <td>巨大な空間。Drop直前に弦・金管のテールを長くして緊張感を高める。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">Sawano Drop直後<br>（静寂→爆発）</td>
+      <td>Large Room</td>
+      <td>2.0s</td>
+      <td>6,000Hz</td>
+      <td>0.9</td>
+      <td>3–5%</td>
+      <td>Drop後はDecay短め・Bass Mult低め。タイトに締まった打楽器が前に出る。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">コーラス・合唱</td>
+      <td>Sanctuary</td>
+      <td>4.0–5.0s</td>
+      <td>4,000Hz</td>
+      <td>1.3</td>
+      <td>12–20%</td>
+      <td>大聖堂的空間。ゆっくりとしたModulationで神秘的なシマー。</td>
+    </tr>
+    <tr>
+      <td class="td-gold">打楽器ヒット<br>（Tim / Taiko）</td>
+      <td>Large Room<br>or Concert Hall</td>
+      <td>3.0–4.0s</td>
+      <td>3,500–4,500Hz</td>
+      <td>1.3</td>
+      <td>Off</td>
+      <td>High CutをさらにDarkに。Modulation切ってクリアなアタック維持。低域テールを太く。</td>
+    </tr>
+  </table>
+
+  <h4 style="margin-top:1.5rem;color:var(--gold2)">Valhalla Roomバスに挿すべきもの</h4>
+  <div class="code">
+Valhalla Room FX チャンネル:
+1. Valhalla Room（100% Wet）
+2. FabFilter Pro-Q3
+   - HP: 40–60Hz（リバーブの低域モッサリ防止）
+   - High Shelf: -1.5dB @ 8kHz（Air感を少し取る → よりリアルなホール）
+3. oeksound Soothe2（強く推奨）
+   - Softモード, Selectivity 4–5
+   - フォルティッシモ時にリバーブテールの高域ハーシュネスを動的に制御</div>
+
   <!-- ===== PHOENIXVERB DETAIL ===== -->
   <h3 style="margin-top:2.5rem">PhoenixVerb — グローバルグルー設定</h3>
 
