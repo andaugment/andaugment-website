@@ -3,36 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>andAugment — 制作ガイド</title>
+<title>andAugment — Epic Battle Production Guide v2</title>
 <style>
   :root {
-    --bg: #0f0a1a;
-    --bg2: #1a1030;
-    --bg3: #231545;
+    --bg: #0a0714;
+    --bg2: #120e24;
+    --bg3: #1e1640;
     --gold: #c9a227;
     --gold2: #e8c55a;
+    --gold3: #f5d98a;
     --purple: #7b4fa6;
-    --text: #e8e0f0;
-    --muted: #9080b0;
-    --border: #3a2860;
+    --purple2: #a070d0;
+    --text: #ddd6f0;
+    --muted: #8070a8;
+    --border: #2e2050;
     --green: #4caf7d;
     --red: #e05c5c;
     --blue: #5c9ae0;
+    --orange: #d4883a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    line-height: 1.7;
-    padding: 0 0 80px;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
 
-  /* Header */
+  /* HERO */
   .hero {
-    background: linear-gradient(135deg, #0f0a1a 0%, #1a0a30 50%, #0f0a1a 100%);
+    background: linear-gradient(160deg, #0a0714 0%, #1a0830 40%, #0a0714 100%);
     border-bottom: 1px solid var(--border);
-    padding: 60px 40px;
+    padding: 70px 40px 50px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -40,760 +37,912 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: 50%;
+    top: -100px; left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(201,162,39,0.08) 0%, transparent 70%);
+    width: 800px; height: 500px;
+    background: radial-gradient(ellipse, rgba(201,162,39,0.06) 0%, transparent 65%);
     pointer-events: none;
   }
-  .hero h1 {
-    font-size: 2.2rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .hero p { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.1em; }
+  .hero-badge { font-size: 0.7rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; opacity: 0.8; }
+  .hero h1 { font-size: 2.4rem; font-weight: 200; letter-spacing: 0.2em; color: var(--gold2); text-transform: uppercase; margin-bottom: 10px; }
+  .hero p { color: var(--muted); font-size: 0.9rem; letter-spacing: 0.08em; }
+  .hero .ver { margin-top: 20px; display: inline-block; padding: 4px 16px; border: 1px solid var(--border); border-radius: 20px; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; }
 
-  /* Nav */
+  /* NAV */
   .nav {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 24px 40px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;
+    padding: 18px 30px; border-bottom: 1px solid var(--border);
+    background: var(--bg2); position: sticky; top: 0; z-index: 100;
   }
   .nav a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    padding: 6px 14px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    transition: all 0.2s;
+    color: var(--muted); text-decoration: none; font-size: 0.75rem;
+    letter-spacing: 0.06em; padding: 5px 13px;
+    border: 1px solid var(--border); border-radius: 20px; transition: all 0.15s;
   }
-  .nav a:hover { color: var(--gold); border-color: var(--gold); }
+  .nav a:hover { color: var(--gold); border-color: var(--gold); background: rgba(201,162,39,0.05); }
 
-  /* Layout */
-  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-
-  /* Sections */
-  section { padding: 60px 0 20px; }
+  /* LAYOUT */
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 36px 80px; }
+  section { padding: 64px 0 16px; }
   section + section { border-top: 1px solid var(--border); margin-top: 20px; }
 
+  /* HEADINGS */
   h2 {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
+    font-size: 1.3rem; font-weight: 300; color: var(--gold); letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 32px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px;
   }
-  h2 .num {
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    font-size: 0.75rem;
-    margin-right: 12px;
-    color: var(--gold);
+  .sec-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border: 1px solid var(--gold); border-radius: 50%;
+    font-size: 0.72rem; flex-shrink: 0; opacity: 0.8;
   }
-  h3 {
-    font-size: 1rem;
-    color: var(--gold2);
-    font-weight: 500;
-    margin: 32px 0 12px;
-    letter-spacing: 0.05em;
-  }
-  h4 {
-    font-size: 0.85rem;
-    color: var(--purple);
-    font-weight: 600;
-    margin: 20px 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  p { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+  h3 { font-size: 1rem; color: var(--gold2); font-weight: 500; margin: 32px 0 10px; letter-spacing: 0.05em; }
+  h4 { font-size: 0.8rem; color: var(--purple2); font-weight: 600; margin: 20px 0 6px; text-transform: uppercase; letter-spacing: 0.12em; }
+  p { color: var(--text); margin-bottom: 10px; font-size: 0.92rem; }
 
-  /* Cards */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 16px;
+  /* ALERT BOXES */
+  .alert {
+    border-radius: 6px; padding: 14px 18px; font-size: 0.85rem; margin: 16px 0;
   }
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
-  }
+  .alert-gold { background: rgba(201,162,39,0.07); border: 1px solid rgba(201,162,39,0.25); color: #c5b06a; }
+  .alert-gold strong { color: var(--gold); }
+  .alert-red { background: rgba(224,92,92,0.07); border: 1px solid rgba(224,92,92,0.25); color: #d4909090; }
+  .alert-red strong { color: var(--red); }
+  .alert-green { background: rgba(76,175,125,0.07); border: 1px solid rgba(76,175,125,0.25); color: #80c4a0; }
+  .alert-green strong { color: var(--green); }
+  .alert-blue { background: rgba(92,154,224,0.07); border: 1px solid rgba(92,154,224,0.25); color: #88b0d8; }
+  .alert-blue strong { color: var(--blue); }
 
-  /* Table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0 24px;
-    font-size: 0.88rem;
-  }
-  th {
-    background: var(--bg3);
-    color: var(--gold);
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid var(--border);
-  }
-  td {
-    padding: 9px 14px;
-    border-bottom: 1px solid rgba(58,40,96,0.4);
-    color: var(--text);
-  }
-  tr:hover td { background: rgba(123,79,166,0.08); }
-  .center { text-align: center; }
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 0.85rem; }
+  th { background: var(--bg3); color: var(--gold); padding: 10px 14px; text-align: left; font-weight: 500; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 14px; border-bottom: 1px solid rgba(46,32,80,0.5); color: var(--text); vertical-align: top; }
+  tr:hover td { background: rgba(123,79,166,0.06); }
+  .td-gold { color: var(--gold2); font-weight: 600; }
+  .td-green { color: var(--green); }
+  .td-red { color: var(--red); }
+  .td-muted { color: var(--muted); font-size: 0.8rem; }
 
-  /* Code blocks */
-  .prompt {
-    background: #080514;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    border-radius: 6px;
-    padding: 20px;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 0.82rem;
-    color: #d0c8e8;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    margin: 12px 0 24px;
+  /* CODE / PROMPT */
+  .code {
+    background: #060411; border: 1px solid var(--border); border-left: 3px solid var(--gold);
+    border-radius: 6px; padding: 18px; font-family: 'Consolas', monospace; font-size: 0.8rem;
+    color: #c0b8e0; line-height: 1.9; white-space: pre-wrap; margin: 10px 0 22px;
   }
+  .code .c { color: var(--muted); } /* comment */
+  .code .k { color: var(--gold2); } /* keyword */
+  .code .v { color: var(--green); } /* value */
 
-  /* Tags */
-  .tag {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    margin: 2px;
-  }
-  .tag-gold { background: rgba(201,162,39,0.15); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); }
-  .tag-purple { background: rgba(123,79,166,0.15); color: #b08ad4; border: 1px solid rgba(123,79,166,0.3); }
-  .tag-green { background: rgba(76,175,125,0.12); color: var(--green); border: 1px solid rgba(76,175,125,0.25); }
-  .tag-blue { background: rgba(92,154,224,0.12); color: var(--blue); border: 1px solid rgba(92,154,224,0.25); }
-  .tag-red { background: rgba(224,92,92,0.12); color: var(--red); border: 1px solid rgba(224,92,92,0.25); }
+  /* CARDS */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 14px 0 24px; }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .card h4 { margin-top: 0; }
 
-  /* Signal flow */
-  .flow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 12px 0;
-    font-size: 0.85rem;
-  }
-  .flow-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 6px 14px;
-    color: var(--text);
-    white-space: nowrap;
-  }
-  .flow-arrow { color: var(--gold); font-size: 1.1rem; }
-  .flow-fx {
-    background: rgba(201,162,39,0.1);
-    border-color: rgba(201,162,39,0.4);
-    color: var(--gold2);
-  }
-  .flow-bus {
-    background: rgba(123,79,166,0.15);
-    border-color: rgba(123,79,166,0.4);
-    color: #b08ad4;
-  }
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; margin: 2px; }
+  .tag-g { background: rgba(201,162,39,0.12); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); }
+  .tag-p { background: rgba(123,79,166,0.12); color: var(--purple2); border: 1px solid rgba(123,79,166,0.3); }
+  .tag-gr { background: rgba(76,175,125,0.1); color: var(--green); border: 1px solid rgba(76,175,125,0.25); }
+  .tag-b { background: rgba(92,154,224,0.1); color: var(--blue); border: 1px solid rgba(92,154,224,0.25); }
+  .tag-r { background: rgba(224,92,92,0.1); color: var(--red); border: 1px solid rgba(224,92,92,0.25); }
 
-  /* Pan diagram */
-  .pan-bar {
-    display: flex;
-    align-items: center;
-    margin: 6px 0;
-    gap: 10px;
-    font-size: 0.83rem;
-  }
-  .pan-label { width: 160px; color: var(--text); flex-shrink: 0; }
-  .pan-track {
-    flex: 1;
-    height: 8px;
-    background: var(--bg3);
-    border-radius: 4px;
-    position: relative;
-  }
-  .pan-dot {
-    position: absolute;
-    top: -3px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-  .pan-center { width: 1px; height: 100%; background: var(--border); position: absolute; left: 50%; }
-  .dot-strings { background: var(--green); }
-  .dot-brass { background: var(--gold); }
-  .dot-ww { background: var(--blue); }
-  .dot-perc { background: var(--red); }
+  /* SIGNAL FLOW */
+  .flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 10px 0; font-size: 0.82rem; }
+  .fb { background: var(--bg3); border: 1px solid var(--border); border-radius: 5px; padding: 5px 13px; white-space: nowrap; }
+  .fb-fx { background: rgba(201,162,39,0.08); border-color: rgba(201,162,39,0.35); color: var(--gold2); }
+  .fb-bus { background: rgba(123,79,166,0.1); border-color: rgba(123,79,166,0.35); color: var(--purple2); }
+  .fa { color: var(--gold); font-size: 1rem; }
 
-  /* Warning / note boxes */
-  .note {
-    background: rgba(201,162,39,0.06);
-    border: 1px solid rgba(201,162,39,0.2);
-    border-radius: 6px;
-    padding: 14px 18px;
-    font-size: 0.85rem;
-    color: #c0b080;
-    margin: 16px 0;
-  }
-  .note strong { color: var(--gold); }
+  /* PANNING VIZ */
+  .pan-row { display: flex; align-items: center; margin: 5px 0; gap: 10px; font-size: 0.82rem; }
+  .pan-lbl { width: 170px; flex-shrink: 0; }
+  .pan-track { flex: 1; height: 6px; background: var(--bg3); border-radius: 3px; position: relative; }
+  .pan-center-line { position: absolute; left: 50%; width: 1px; height: 100%; background: var(--border); }
+  .pan-dot { position: absolute; top: -5px; width: 16px; height: 16px; border-radius: 50%; transform: translateX(-50%); border: 2px solid var(--bg); }
 
-  /* Divider */
-  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  /* PRIORITY BOX */
+  .priority-list { list-style: none; }
+  .priority-list li {
+    display: flex; align-items: flex-start; gap: 14px; padding: 12px 0;
+    border-bottom: 1px solid rgba(46,32,80,0.4); font-size: 0.88rem;
+  }
+  .p-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .p1 { background: var(--gold); color: #000; }
+  .p2 { background: var(--purple2); color: #fff; }
+  .p3 { background: var(--blue); color: #fff; }
+  .p4 { background: var(--green); color: #000; }
+  .p5 { background: var(--muted); color: #fff; }
+
+  /* STRUCTURE DIAGRAM */
+  .structure { display: flex; gap: 3px; margin: 16px 0 24px; flex-wrap: wrap; }
+  .str-block {
+    background: var(--bg3); border: 1px solid var(--border); border-radius: 5px;
+    padding: 10px 12px; font-size: 0.75rem; text-align: center; flex: 1; min-width: 70px;
+  }
+  .str-block .label { color: var(--gold2); font-weight: 600; font-size: 0.8rem; margin-bottom: 3px; }
+  .str-block .bars { color: var(--muted); font-size: 0.7rem; }
+  .str-block.peak { background: rgba(201,162,39,0.1); border-color: rgba(201,162,39,0.35); }
+  .str-block.drop { background: rgba(123,79,166,0.12); border-color: rgba(123,79,166,0.35); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .source-list { font-size: 0.78rem; color: var(--muted); columns: 2; gap: 20px; margin-top: 20px; }
+  .source-list a { color: var(--muted); text-decoration: none; }
+  .source-list a:hover { color: var(--gold); }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>andAugment — Production Guide</h1>
-  <p>Cubase オーケストラテンプレート・MIX・リファレンスプロンプト 完全ガイド</p>
+  <div class="hero-badge">andAugment / Epic Orchestral Game Music</div>
+  <h1>Production Guide</h1>
+  <p>Cubase テンプレート · ライブラリ設定 · MIX · 澤野弘之分析 · 作曲技法</p>
+  <span class="ver">Version 2.0 — 6エージェント並列調査 · VI-Control / Gearspace / 公式ドキュメント参照</span>
 </div>
 
 <nav class="nav">
-  <a href="#suno">Suno / Wondera プロンプト</a>
-  <a href="#template">テンプレート構成</a>
+  <a href="#correction">⚠ 前回修正</a>
+  <a href="#sawano">澤野弘之分析</a>
+  <a href="#composition">作曲技法</a>
+  <a href="#template">Cubaseテンプレート</a>
+  <a href="#infinite">Infinite Brass/WW</a>
+  <a href="#strings">Spitfire + 8dio</a>
   <a href="#panning">パン配置</a>
   <a href="#reverb">リバーブ設計</a>
-  <a href="#libraries">ライブラリ設定</a>
-  <a href="#mix">MIXワークフロー</a>
-  <a href="#cubase">Cubase 実装手順</a>
+  <a href="#mix">MIXチェーン</a>
+  <a href="#suno">Sunoプロンプト</a>
 </nav>
 
 <div class="container">
 
-  <!-- ===================== SUNO / WONDERA ===================== -->
-  <section id="suno">
-    <h2><span class="num">1</span>Suno / Wondera — リファレンスプロンプト</h2>
+<!-- ============================================================ -->
+<section id="correction">
+  <h2><span class="sec-num">!</span>前回ガイドからの重要修正</h2>
 
-    <p>生成した音源は<strong>完成品ではなくリファレンス</strong>として使用する。構成・展開・テンション感の参考に。</p>
+  <div class="alert alert-red">
+    <strong>修正1: Infinite Brass/Woodwindsのメインコントローラー</strong><br>
+    前回「CC2（Breath）」と記載 → 正しくは <strong>CC1（Dynamics）</strong>。Aaron Ventureライブラリはキースイッチなし・CC1が全ての表情を制御する物理モデリングベースのエンジン。
+  </div>
+  <div class="alert alert-red">
+    <strong>修正2: ライブラリ分類の誤り</strong><br>
+    前回「Orchestral Tools製」と記載 → 正しくは <strong>Aaron Venture製</strong>。エンジン設計がサンプルライブラリとは根本的に異なる。
+  </div>
+  <div class="alert alert-red">
+    <strong>修正3: 8dioのリバーブ処理</strong><br>
+    前回「内蔵リバーブをOFF」のみ記載 → 正しくは、8dio Century Stringsは <strong>Close Mics（1-3）に切り替えてから外部リバーブに送る</strong>。Hall Micsをそのまま使いながら外部リバーブを重ねると二重の空間になる。
+  </div>
+  <div class="alert alert-gold">
+    <strong>新発見: UAD優先順位の修正</strong><br>
+    UAD Sparkは「Phase 1から導入推奨」ではなく、<strong>FabFilter Pro-Q3 → Valhalla Room → Soothe2 → Pro-L2</strong>の順が正しい優先順位。UADは5番目以降。
+  </div>
+</section>
 
-    <h3>Suno プロンプト — Epic Battle Orchestral（澤野弘之風）</h3>
-    <div class="prompt">epic orchestral battle music, Hiroyuki Sawano style, cinematic game soundtrack,
-driving cello ostinato, powerful brass fanfare, soaring choir vocals,
-thunderous taiko percussion, emotional string swells, intense rhythmic pulse,
-dark fantasy RPG boss battle, 140-160 BPM, hybrid orchestral,
-minor key, dramatic tension and release, triple forte climax,
-no electric guitar, pure orchestral power</div>
+<!-- ============================================================ -->
+<section id="sawano">
+  <h2><span class="sec-num">1</span>澤野弘之 — サウンド深層分析</h2>
 
-    <h3>Suno プロンプト — Epic Battle（よりハイブリッド）</h3>
-    <div class="prompt">cinematic hybrid orchestral, epic battle theme, dark fantasy game score,
-aggressive low brass, driving string ostinato, tribal percussion, epic choir,
-electronic bass pulses, tension building, explosive climax,
-influenced by Two Steps From Hell and Hiroyuki Sawano,
-140 BPM, minor scale, war and glory, emotionally overwhelming</div>
+  <div class="alert alert-blue">
+    <strong>調査ソース:</strong> VI-Control "Making Music like Hiroyuki Sawano" スレッド（30ページ超）、Genelec公式インタビュー、Equipboard機材データ、HackMD 86/Eighty-Six コンポーザーインタビュー、Tunebat BPMデータ
+  </div>
 
-    <h3>Wondera / Udio プロンプト</h3>
-    <div class="prompt">Genre: Epic Orchestral / Cinematic Game Music
-Mood: Intense, Dramatic, Powerful, Dark Fantasy
-Instrumentation: Full Orchestra — Strings (ostinato), Brass (fanfare), Choir (Latin vocals),
-  Taiko Drums, Timpani, Cinematic Percussion
-BPM: 150
-Key: D minor
-Structure: Intro buildup → Driving verse → Explosive chorus → Bridge breakdown → Final climax
-Reference: Hiroyuki Sawano - Attack on Titan OST, Two Steps From Hell - "Heart of Courage"
-Style notes: Heavy low-end foundation, sudden dynamic contrasts, sweeping string melody</div>
+  <h3>「Sawano Drop」— 最重要な構造的指紋</h3>
+  <p>ほぼ全てのバトル曲に使われる澤野弘之の最も識別しやすい構造パターン：</p>
+  <div class="structure">
+    <div class="str-block"><div class="label">パルス intro</div><div class="bars">オスティナート確立</div></div>
+    <div class="str-block"><div class="label">レイヤー積み</div><div class="bars">テンション上昇</div></div>
+    <div class="str-block peak"><div class="label">⬛ Silencio</div><div class="bars">1/4〜1/2拍 完全休止</div></div>
+    <div class="str-block peak"><div class="label">DROP</div><div class="bars">フル編成 + タムタム</div></div>
+    <div class="str-block drop"><div class="label">ブレイクダウン</div><div class="bars">スパース化</div></div>
+    <div class="str-block peak"><div class="label">最終 DROP</div><div class="bars">コーラス + 合唱</div></div>
+  </div>
+  <p><strong>「完全休止」が全てのエネルギーを解放する。</strong> ビルドアップより1小節の沈黙の方が10小節の積み重ねより効果的。</p>
 
-    <div class="note">
-      <strong>使い方のコツ：</strong> 生成されたものの「構成」と「テンション曲線」だけを参考にする。実際の音色・質感は自分のライブラリで全部作り直す前提で聴く。
+  <h3>ハーモニー言語 — コード分析</h3>
+  <div class="alert alert-gold">
+    <strong>核心原則：低音域で長3度を使わない。</strong> 低域の積み重ねた3度は周波数干渉を起こす。代わりにsus2/sus4コードとオープンインターバルを多用。
+  </div>
+
+  <table>
+    <tr><th>手法</th><th>具体例 (Eマイナー)</th><th>効果</th></tr>
+    <tr><td>IVmaj7 / IVsus2</td><td>Amaj7 / Asus2</td><td>解決感なく浮遊</td></tr>
+    <tr><td>I/V (第2転回形)</td><td>Em/B</td><td>不安定な着地、緊張維持</td></tr>
+    <tr><td>VIsus2</td><td>Csus2</td><td>感情的な頂点</td></tr>
+    <tr><td>Vsus4 → V</td><td>Bsus4 → B</td><td>テンション→リリース</td></tr>
+    <tr><td>m7コード多用</td><td>Em7, Am7, Dm7</td><td>トーナルの曖昧さ</td></tr>
+  </table>
+
+  <h4>Sawano風コード進行（Eマイナー）</h4>
+  <div class="code">
+<span class="c">// バトル曲メイン（最頻出）</span>
+i — IVmaj7 — VIsus2 — i/V
+Em — Amaj7 — Csus2 — Em/B
+
+<span class="c">// より暗い、脅威感</span>
+i — VI — III — VII
+Em — C — G — D
+
+<span class="c">// フリジアン（ボス戦向け）</span>
+i — bII — i — bVII
+Em — F — Em — D</div>
+
+  <h3>BPMデータ（実測値）</h3>
+  <table>
+    <tr><th>曲名</th><th>キー</th><th>BPM</th><th>用途</th></tr>
+    <tr><td>Counter Attack-Mankind</td><td class="td-gold">F#/Gb minor</td><td>110</td><td>AoT メインバトル</td></tr>
+    <tr><td>DOA</td><td class="td-gold">D minor</td><td>138</td><td>電子+オーケストラ融合</td></tr>
+    <tr><td>YouSeeBIGGIRL/T:T</td><td class="td-gold">G minor</td><td>87</td><td>重厚感・低テンポ</td></tr>
+    <tr><td>Call Your Name</td><td class="td-gold">B minor</td><td>142</td><td>高速バトル</td></tr>
+    <tr><td>BRiCKS</td><td class="td-gold">G minor</td><td>—</td><td>純オーケストラ密度最大</td></tr>
+  </table>
+  <p><strong>バトル曲は105〜160 BPM</strong>に集中。速さは弦の16分音符密度で表現し、テンポ自体は中程度に保つ（半時間感覚）。</p>
+
+  <h3>澤野弘之の実際のVSTスタック（VI-Control調査確認）</h3>
+  <table>
+    <tr><th>役割</th><th>ライブラリ</th><th>メモ</th></tr>
+    <tr><td>弦（ドライ/タイト）</td><td class="td-gold">LASS</td><td>スピッカート、マルカート</td></tr>
+    <tr><td>弦（ウェット/アンビエント）</td><td>8Dio Majestica</td><td>LASSSとレイヤー</td></tr>
+    <tr><td>弦（レガートメロディ）</td><td>CineStrings</td><td>ファーストチェア旋律</td></tr>
+    <tr><td>打楽器（主要）</td><td class="td-gold">ProjectSAM True Strike 1</td><td>AoT S1の大部分</td></tr>
+    <tr><td>タイコ</td><td>8Dio Epic Taiko Ensemble</td><td>AoT確認済み</td></tr>
+    <tr><td>コーラス（大）</td><td class="td-gold">8Dio Lacrimosa</td><td>200人（70Bs/60T/40A/30S）</td></tr>
+    <tr><td>コーラス（小）</td><td>8Dio Requiem</td><td>セカンドレイヤー</td></tr>
+    <tr><td>金管</td><td>8Dio Century Brass</td><td>コアブラス</td></tr>
+    <tr><td>シンセ</td><td class="td-gold">Omnisphere</td><td>"Distant Memories"など</td></tr>
+    <tr><td>ドラムレイヤー</td><td>Stylus RMX</td><td>ハイハット・ループ</td></tr>
+    <tr><td>ダーティドラム</td><td class="td-gold">Heavyocity Damage 1</td><td>"Perc Bad A Krunch Kit"</td></tr>
+    <tr><td>グリッチ/スティンガー</td><td>Heavyocity Evolve 1&2、Mutations</td><td>テクスチャーFX</td></tr>
+    <tr><td>DAW/MIX</td><td>Pro Tools</td><td>モニター: Genelec 8341 + GLM</td></tr>
+    <tr><td>ライブ弦</td><td class="td-gold">Koichiro Muroya Strings</td><td>東京Sound City（実際の弦楽団）</td></tr>
+  </table>
+
+  <div class="alert alert-green">
+    <strong>andAugmentへの代替案:</strong> Tokyo Scoring Strings (Impact Soundworks) = 実際に小室弦楽団がSound Cityで収録したライブラリ。澤野弘之の実際の弦に最も近いサウンド。
+  </div>
+
+  <h3>グリッチシンセの再現手法</h3>
+  <p>AoT「Apetitan」などのグリッチ効果（Omnisphere「Rad Drug」+「Power Blowout」使用）の再現：</p>
+  <ul style="margin: 8px 0 16px 20px; font-size: 0.88rem; line-height: 2;">
+    <li>コムフィルターに自動化（周波数/レゾナンスをLFOで動かす）</li>
+    <li>ゲートオートメーション（音量の矩形波LFO）</li>
+    <li>Izotope Stutter Edit 2、Sugar Bytes Effectrix、Sugar Bytes Looperatorが代替</li>
+  </ul>
+
+  <h3>コーラス/ボーカルの使い方</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>SATBコーラステクスチャー</h4>
+      <p>8Dio LacrimosaとRequiemを重ねる。コーラスはDROPの後にのみ登場させる（ビルドアップ中は不在または強くフィルター）。登場自体が構造的な事件。</p>
     </div>
-  </section>
-
-  <!-- ===================== TEMPLATE ===================== -->
-  <section id="template">
-    <h2><span class="num">2</span>Cubase オーケストラテンプレート構成</h2>
-
-    <h3>全体のシグナルフロー</h3>
-    <div class="flow">
-      <div class="flow-box">Instrument Track</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box flow-bus">Section Group</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box flow-bus">Orchestral Bus</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box flow-bus">Master Bus</div>
+    <div class="card">
+      <h4>nZkボーカル（フォネティック）</h4>
+      <p>意味のある英語/ドイツ語の単語に聞こえるが完全には理解できないシラブルを使う。「感情的フォネティクス」——意味論的ではなく感情的。</p>
+      <p>ドイツ語の合唱：ヨーロッパの宗教音楽の権威感を付与（"Vogel im Käfig"等）。</p>
     </div>
-    <div class="flow">
-      <div class="flow-box">Instrument Track</div>
-      <div class="flow-arrow">↘ Send</div>
-      <div class="flow-box flow-fx">Section Reverb FX</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box flow-bus">Orchestral Bus</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="composition">
+  <h2><span class="sec-num">2</span>エピックバトル曲 — 作曲技法</h2>
+
+  <h3>標準的な楽曲構成（130 BPM基準）</h3>
+  <div class="structure">
+    <div class="str-block"><div class="label">Intro</div><div class="bars">4〜8小節</div></div>
+    <div class="str-block"><div class="label">Section A</div><div class="bars">16小節</div></div>
+    <div class="str-block peak"><div class="label">Chorus 1</div><div class="bars">16小節</div></div>
+    <div class="str-block"><div class="label">A2</div><div class="bars">8〜16小節</div></div>
+    <div class="str-block drop"><div class="label">Bridge</div><div class="bars">8〜16小節</div></div>
+    <div class="str-block peak"><div class="label">Chorus 2</div><div class="bars">16小節</div></div>
+    <div class="str-block peak"><div class="label">Climax</div><div class="bars">8〜16小節</div></div>
+    <div class="str-block"><div class="label">Outro</div><div class="bars">4〜8小節</div></div>
+  </div>
+  <p>全体: <strong>88〜112小節 = 約2:40〜3:30</strong>（130 BPM時）。全て<strong>8小節単位</strong>で構成する。</p>
+
+  <h3>キーと音階の選択</h3>
+  <table>
+    <tr><th>音階</th><th>感情</th><th>使用場面</th></tr>
+    <tr><td class="td-gold">Eマイナー（最推奨）</td><td>暗い・叙事詩的</td><td>弦の開放弦共鳴で物理的存在感。標準バトル</td></tr>
+    <tr><td>Dマイナー</td><td>高貴・悲劇的</td><td>金管の鳴りが最良。中速バトル向き</td></tr>
+    <tr><td>Bマイナー</td><td>強烈・緊張感</td><td>より速い曲、金管が高音域で鳴る</td></tr>
+    <tr><td>フリジアン（b2度）</td><td>古代・脅威・異質</td><td>ボス戦・ヴィラン</td></tr>
+    <tr><td>フリジアンドミナント</td><td>最大テンション</td><td>最終ボス（One-Winged Angel型）</td></tr>
+  </table>
+
+  <h3>弦のオスティナートパターン（4種）</h3>
+  <div class="code">
+<span class="k">タイプ1: 16分音符ランニング（高エネルギー・クライマックス用）</span>
+チェロ/ヴィオラ: E-B-E-B 全16分音符（パワーコード等価）
+
+<span class="k">タイプ2: 8分音符ドライブ（ビルドアップ・ヴァース用）</span>
+チェロ: スタッカート8分音符、ルート音中心。1・3拍にアクセント
+
+<span class="k">タイプ3: シンコペーション（ブリッジ前の転換）</span>
+小節線をまたぐタイ、オフビートアクセント → テンポ変えずに切迫感を増す
+
+<span class="k">タイプ4: ストラヴィンスキー型カーペット</span>
+ヴァイオリン/ヴィオラ: トレモロ持続和音
+チェロ: 8分音符移動オスティナート
+バス: ダウンビートの根音
+→ 和声密度 + リズムドライブを同時に達成</div>
+
+  <h4>セクション別役割分担</h4>
+  <table>
+    <tr><th>セクション</th><th>役割</th></tr>
+    <tr><td>コントラバス</td><td>根音のみ、シンプルな8分または持続音</td></tr>
+    <tr><td>チェロ</td><td>旋律オスティナートの主役。最も動く</td></tr>
+    <tr><td>ヴィオラ</td><td>チェロの1オクターブ上で強化、または和音トーン</td></tr>
+    <tr><td>第2ヴァイオリン</td><td>カウンターリズムまたはトレモロ持続</td></tr>
+    <tr><td>第1ヴァイオリン</td><td>旋律またはカウンターパターン</td></tr>
+  </table>
+
+  <h3>金管ヴォイシング（4声構成例 — Eマイナー）</h3>
+  <div class="code">
+下から上: Tuba (E1) → Bass Trombone (B2) → Tenor Trombones (E3/G3)
+         → Horns (B3/E4) → Trumpets (E5)
+
+<span class="c">// 第5音をバストロンボーンに置く → 安定感</span>
+<span class="c">// 3度(G)はテナートロンボーン → 低音域に置かない</span>
+<span class="c">// ホルンは octave reinforcement</span>
+<span class="c">// トランペットが上部のエネルギーを担う</span></div>
+
+  <h3>打楽器レイヤー（3層構成）</h3>
+  <table>
+    <tr><th>レイヤー</th><th>楽器</th><th>役割</th></tr>
+    <tr><td class="td-gold">低音域（基盤）</td><td>オーケストラバスドラム、タイコ、ティンパニ</td><td>各小節の1拍目に主打。タイコは16分音符パターン（グリッドより5-10ms遅め）</td></tr>
+    <tr><td class="td-gold">中音域（リズム）</td><td>スネア（軍楽風）、ロートタム、フレームドラム</td><td>半音符または4分音符。セクション間のフィル</td></tr>
+    <tr><td class="td-gold">高音域（輝き）</td><td>クラッシュシンバル、サスペンドシンバルスウェル</td><td>フレーズ頭（毎4〜8小節）のみ。毎拍は使わない</td></tr>
+  </table>
+  <div class="alert alert-gold">
+    <strong>タイミングの秘訣:</strong> 打楽器を75%クォンタイズ（完全グリッドではない）にすると人間らしく、物理的に感じられる。特にタイコは5-10msグリッドより遅らせると「呼吸」する。
+  </div>
+
+  <h3>テンションとリリースの6技法</h3>
+  <table>
+    <tr><th>#</th><th>技法</th><th>実装</th></tr>
+    <tr><td class="td-gold">1</td><td>和声テンション維持</td><td>強拍にI（根位置）を置かない。i/V（第2転回）で着地を先延ばし</td></tr>
+    <tr><td class="td-gold">2</td><td>オーケストラ密度増加</td><td>弦→低金管（8小節後）→ホルン（12小節）→トランペット+合唱（コーラス）</td></tr>
+    <tr><td class="td-gold">3</td><td>DROP前のネガティブスペース</td><td>1小節（または1拍）の沈黙がコーラス再登場を最大化</td></tr>
+    <tr><td class="td-gold">4</td><td>見かけ上のテンポ倍加</td><td>クライマックスで弦オスティナートを8分→16分に切替。BPMは変えない</td></tr>
+    <tr><td class="td-gold">5</td><td>転調（半音〜全音上）</td><td>最終コーラス/クライマックスで半音〜全音転調。Em→Fmが即効性高い</td></tr>
+    <tr><td class="td-gold">6</td><td>ベースドロップ</td><td>ブリッジでベースラインを8小節消す。クライマックスで戻ってきた時の物理的インパクトが倍増</td></tr>
+  </table>
+
+  <h3>旋律作成ルール</h3>
+  <p>「1回聴いたら歌える」が合格基準。</p>
+  <ul style="margin: 8px 0 16px 20px; font-size: 0.88rem; line-height: 2.2;">
+    <li><strong>ペンタトニックでフックを作る</strong> — Eマイナーペンタ: E-G-A-B-D。最大5音で主题を構築</li>
+    <li><strong>第6音か第7音でピーク</strong> — EからC(♭6)への上昇アーク = 悲しみ+壮大さ</li>
+    <li><strong>「da-da-DUM」リズムパターン</strong> — 8分×2＋4分。記憶に残る最基本リズムセル</li>
+    <li><strong>コールアンドレスポンス</strong> — 4小節の金管コール→弦のレスポンス。対話があると単調でなくなる</li>
+    <li><strong>シンコペーション = 危険のシグナル</strong> — オフビートアクセントで敵の強大さを表現（シモムラ・植松流）</li>
+  </ul>
+
+  <h3>Spotify/YouTube戦略（2025最新）</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>YouTube</h4>
+      <p><strong>最初の30秒に最強の瞬間を持ってくる。</strong> スロービルドアップは内部に。Shortsは最良の15-30秒を切り出す。</p>
+      <p>週1回の定期アップロードがアルゴリズムを安定させる。</p>
+      <p>タグ: epic orchestral music, game battle music, cinematic orchestra, JRPG music, boss battle music</p>
     </div>
-    <div class="flow">
-      <div class="flow-box flow-bus">Section Groups</div>
-      <div class="flow-arrow">↘ Send</div>
-      <div class="flow-box flow-fx">Global Reverb FX</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box flow-bus">Master Bus</div>
+    <div class="card">
+      <h4>Spotify（2025）</h4>
+      <p><strong>Save rate</strong>（再生回数より3倍重要）と<strong>Repeat-listen ratio</strong>がアルゴリズムを動かす。</p>
+      <p>リリース<strong>4週間前</strong>に Editorial Pitch を送信（必須）。</p>
+      <p>SubmitHub「Epic Music Playlists」キュレーターへのアウトリーチ。</p>
     </div>
+  </div>
+</section>
 
-    <h3>推奨トラック構成</h3>
+<!-- ============================================================ -->
+<section id="template">
+  <h2><span class="sec-num">3</span>Cubase プロフェッショナルテンプレート設計</h2>
 
-    <h4>STRINGS（緑）</h4>
-    <table>
-      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
-      <tr><td>Vln I</td><td>Spitfire Studio Strings</td><td>メイン旋律・高音域</td></tr>
-      <tr><td>Vln II</td><td>Spitfire Studio Strings</td><td>ハーモニー・オスティナート</td></tr>
-      <tr><td>Vla</td><td>Spitfire Studio Strings</td><td>中域の厚み</td></tr>
-      <tr><td>Vc</td><td>8dio Century Strings または Spitfire</td><td>低域旋律・チェロオスティナート</td></tr>
-      <tr><td>Cb</td><td>8dio Century Strings または Spitfire</td><td>基礎低音</td></tr>
-      <tr><td>Vln I Sord</td><td>Spitfire Sordino</td><td>静かなセクション用（別トラック）</td></tr>
-      <tr><td>Vc Sord</td><td>Spitfire Sordino</td><td>静かなセクション用</td></tr>
-    </table>
+  <div class="alert alert-blue">
+    <strong>調査ソース:</strong> VI-Control Orchestral Template スレッド群、Steinbergフォーラム、Art Conductor (BabylonWaves)公式、Negative Track Delay Database (VI-Control)
+  </div>
 
-    <h4>BRASS（金）</h4>
-    <table>
-      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
-      <tr><td>Horns</td><td>Infinite Brass</td><td>コード・中域を埋める</td></tr>
-      <tr><td>Trumpets</td><td>Infinite Brass</td><td>ファンファーレ・主旋律</td></tr>
-      <tr><td>Trombones</td><td>Infinite Brass</td><td>低域ブラス・重厚感</td></tr>
-      <tr><td>Tuba</td><td>Infinite Brass</td><td>最低音域の土台</td></tr>
-    </table>
+  <div class="alert alert-red">
+    <strong>重要原則:</strong> テンプレート構築に2〜3日以上かけるな。コアスケルトン（5楽器）を作って実際に曲を書き始める。実際の制作から必要なものが見えてくる。
+  </div>
 
-    <h4>WOODWINDS（青）</h4>
-    <table>
-      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
-      <tr><td>Flutes</td><td>Infinite Woodwinds</td><td>高音域・透明感</td></tr>
-      <tr><td>Clarinets</td><td>Infinite Woodwinds</td><td>中高音域</td></tr>
-      <tr><td>Oboes</td><td>Infinite Woodwinds</td><td>旋律・色彩</td></tr>
-      <tr><td>Bassoons</td><td>Infinite Woodwinds</td><td>低木管</td></tr>
-    </table>
+  <h3>推奨Cubaseバージョン: Cubase Pro 14</h3>
+  <p>Cubase 14でCPU処理効率が大幅改善（VI-Controlユーザー報告: ピークCPU 25%→12-15%）。大規模テンプレートでの差が顕著。</p>
 
-    <h4>PERCUSSION（赤）</h4>
-    <table>
-      <tr><th>トラック名</th><th>ライブラリ</th><th>用途</th></tr>
-      <tr><td>Cinematic Perc 1</td><td>Damage</td><td>エピックヒット・衝撃音</td></tr>
-      <tr><td>Cinematic Perc 2</td><td>TrueStrike</td><td>タイコ・ドラムロール</td></tr>
-      <tr><td>HZ Percussion</td><td>Hans Zimmer Percussion</td><td>シネマティック・ハイブリッド</td></tr>
-      <tr><td>Timpani</td><td>Superior Drums または専用</td><td>ティンパニロール・アクセント</td></tr>
-    </table>
-
-    <h4>PIANO / SYNTH / BASS（紫）</h4>
-    <table>
-      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
-      <tr><td>Piano</td><td>Keyscape（Concert Grand）</td><td>エモーショナルセクション</td></tr>
-      <tr><td>Synth Main</td><td>Serum 2</td><td>テクスチャー・パッド・リード</td></tr>
-      <tr><td>Synth Pad</td><td>Omnisphere / Avenger</td><td>広がり・雰囲気</td></tr>
-      <tr><td>Bass</td><td>Trilian</td><td>バトル曲の低音強化</td></tr>
-      <tr><td>Guitar（Elec）</td><td>Shreddage</td><td>ハイブリッドアクセント</td></tr>
-    </table>
-
-    <h3>グループ・バス構成（Cubase）</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>セクショングループ</h4>
-        <p>Strings Group<br>Brass Group<br>Woodwinds Group<br>Percussion Group<br>Piano/Keys Group<br>Synth Group<br>Bass/Guitar Group</p>
-      </div>
-      <div class="card">
-        <h4>FXチャンネル（リバーブ）</h4>
-        <p>FX1: String Reverb<br>FX2: Brass Reverb<br>FX3: WW Reverb<br>FX4: Perc Reverb<br>FX5: Global Reverb（全セクションから少量Send）</p>
-      </div>
-      <div class="card">
-        <h4>マスターバス</h4>
-        <p>Orchestral Master Bus<br>↳ 全グループが集まる<br>↳ 軽くグルーコンプ<br>↳ Ozone で最終処理</p>
-      </div>
+  <h3>必須機能（4つ）</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>VCAフェーダー</h4>
+      <p>グループトラックより優れている理由: 相対的で非破壊的。個別トラックのオートメーションを壊さずにセクション全体のレベルを動かせる。入れ子にできる（楽器VCA → セクションVCA → マスターVCA）。</p>
     </div>
-  </section>
-
-  <!-- ===================== PANNING ===================== -->
-  <section id="panning">
-    <h2><span class="num">3</span>パン配置（指揮者視点）</h2>
-
-    <p>指揮者から見た配置を基本とする。<strong>Left = 指揮者から見て左 = 客席から見て左</strong>。</p>
-
-    <div class="note"><strong>重要：</strong> ライブラリによってすでにステレオイメージが広いものがある（8dio等）。そのままパンすると広がりすぎるため、ステレオ幅を先に調整してからパンをかける。</div>
-
-    <h3>弦楽器</h3>
-    <div class="pan-bar">
-      <div class="pan-label">1st Violins</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-strings" style="left:25%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L50〜60</span>
+    <div class="card">
+      <h4>Visibility Configurations</h4>
+      <p>200トラックテンプレートで正気を保つ唯一の方法。「Strings Only」「Full Orch Mix」「Shorts Only」等の表示設定をキーボードショートカットに登録。</p>
     </div>
-    <div class="pan-bar">
-      <div class="pan-label">2nd Violins</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-strings" style="left:35%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L20〜30</span>
+    <div class="card">
+      <h4>Negative Track Delay</h4>
+      <p>Kontaktライブラリには「音が鳴り始めるまでの時間」がある。インスペクターのDelayフィールドにマイナス値を設定してグリッドに合わせる。<strong>VI-Control Negative Track Delay Database Spreadsheet</strong>が標準値を網羅している。</p>
     </div>
-    <div class="pan-bar">
-      <div class="pan-label">Violas</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-strings" style="left:52%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">C〜R10</span>
+    <div class="card">
+      <h4>Disabled Tracks（デフォルト無効化）</h4>
+      <p>全トラックをデフォルトで無効化。必要な楽器だけ有効にして作業。RAM/CPU節約に最も効果的な方法。右クリック→「トラックを無効化」。</p>
     </div>
-    <div class="pan-bar">
-      <div class="pan-label">Cellos</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-strings" style="left:62%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R20〜30</span>
+  </div>
+
+  <h3>フォルダー構造（推奨）</h3>
+  <div class="code">
+STRINGS (Folder) — <span class="c">Blue</span>
+  ├── Violins I (Folder)
+  │     ├── Vln I — Longs   <span class="c">← 別トラック：処理チェーンが異なるため</span>
+  │     ├── Vln I — Shorts
+  │     ├── Vln I — Legato
+  │     └── Vln I — Sordino
+  ├── Violins II / Violas / Cellos / Basses (同様)
+BRASS (Folder) — <span class="c">Gold</span>
+  ├── Horns / Trumpets / Trombones / Tuba
+WOODWINDS (Folder) — <span class="c">Green</span>
+PERCUSSION (Folder) — <span class="c">Red</span>
+  ├── Cinematic Perc / Orchestral Perc
+CHOIR (Folder) — <span class="c">Purple</span>
+SYNTH / FX (Folder) — <span class="c">Grey</span>
+─────────────────────────────────────────
+GROUP TRACKS
+  STR Bus / BR Bus / WW Bus / PERC Bus / MASTER ORCH Bus
+VCA FADERS
+  VCA-Strings / VCA-Brass / VCA-WW / VCA-Perc / VCA-Master
+FX RETURNS
+  Hall Reverb / Room Reverb / Perc Reverb / Global Glue Reverb</div>
+
+  <div class="alert alert-gold">
+    <strong>Shorts/Longsは必ず別トラック。</strong> Expression Mapsで同一トラック内で切り替えると、Negative Track DelayをアーティキュレーションごとにConditionできない（Legato -80ms / Staccato -20ms が同一トラックでは両立しない）。
+  </div>
+
+  <h3>Kontakt ルーティング戦略</h3>
+  <table>
+    <tr><th>方法</th><th>推奨場面</th><th>注意点</th></tr>
+    <tr><td class="td-gold">1楽器1Kontaktインスタンス</td><td>主役・前面の楽器</td><td>RAMが増えるが設定シンプル。デバッグが容易</td></tr>
+    <tr><td>マルチティンバル（複数出力）</td><td>バックグラウンドテクスチャー、RAM制約時</td><td>設定が複雑。Expression Maps管理が難しい</td></tr>
+  </table>
+
+  <h3>Expression Maps: Art Conductor (BabylonWaves)</h3>
+  <p>Spitfire、VSL、EW、Aaron Venture等の主要ライブラリ向けに事前構築されたExpression Maps集。手動で作るのに数週間かかるものが即使える。Cubase専用設計。</p>
+
+  <h3>VEPro 7 — 必要か？</h3>
+  <p><strong>最初のテンプレートでは不要。</strong> RAMが80-100GBを超えてプロジェクト読み込み/保存が問題になってから検討する。VEProの本質的価値は「1日に1回ロードするだけでいい」デカップリング機能。</p>
+
+  <h3>テンプレート構築の推奨順序</h3>
+  <ol style="margin: 10px 0 16px 20px; font-size: 0.88rem; line-height: 2.5;">
+    <li>フォルダー構造とカラーコーディングを作成（楽器ゼロの状態で）</li>
+    <li>グループトラックとVCA構造を作成</li>
+    <li>FX Returnチャンネルを3〜5つ作成（リバーブ）</li>
+    <li>コアスケルトン5楽器だけロード（Vln I, Vc, Brass Ens, Perc, Piano）</li>
+    <li>ルーティング確認: 楽器→グループ→マスター→リバーブFX</li>
+    <li>Expression Mapsを1楽器分だけ手動で設定して仕組みを理解</li>
+    <li>Negative Track Delayを各楽器に設定</li>
+    <li>テンプレートとして保存 → <strong>32小節の曲を書いて検証</strong></li>
+    <li>実際の制作で必要と判明したものだけ追加</li>
+  </ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="infinite">
+  <h2><span class="sec-num">4</span>Aaron Venture Infinite Brass &amp; Woodwinds — 完全設定ガイド</h2>
+
+  <div class="alert alert-red">
+    <strong>注意:</strong> これはOrchestrall Toolsではなく<strong>Aaron Venture</strong>のライブラリ。物理モデリング/IR-ハイブリッドエンジン。キースイッチなし。全ての表情はCC1+ベロシティ+音価の組み合わせで自動生成される。
+  </div>
+
+  <h3>完全CCマップ</h3>
+  <table>
+    <tr><th>CC#</th><th>機能</th><th>バトル音楽での推奨設定</th></tr>
+    <tr><td class="td-gold">CC1</td><td>Dynamics（主要コントローラー）</td><td>ff = 100-115（127は「頭が吹き飛ぶ」レベル。使用しない）</td></tr>
+    <tr><td>CC11</td><td>Volume（最大127がデフォルト）</td><td><strong>Cubaseとの競合注意！</strong> テンプレートのCC11グローバルと干渉する</td></tr>
+    <tr><td>CC16</td><td>Flutter（フラッタータンギング）</td><td>攻撃的なトゥッティブラスにオートメーション追加</td></tr>
+    <tr><td>CC17</td><td>Growl（グロール）</td><td>低音ブラスのバトルオスティナートに効果的</td></tr>
+    <tr><td>CC22</td><td>Close Mic Level</td><td>バトル用: 80-90%（プレゼンスと存在感のため）</td></tr>
+    <tr><td>CC23</td><td>Main（楽器）Mic Level</td><td>60-70%</td></tr>
+    <tr><td>CC24</td><td>Ambient Mic Level</td><td>30-40%（バトルでは控えめに）</td></tr>
+    <tr><td class="td-gold">CC26</td><td>ミュート切替（ポットストップ/カップ/ハーモン等）</td><td>必要に応じて</td></tr>
+    <tr><td class="td-gold">CC63</td><td>Mixed Mic Mode（ON=127）</td><td>CPU40%削減。制作中はON推奨。最終レンダーで手動コントロールに戻す</td></tr>
+    <tr><td>CC64</td><td>レガートバイパス（サステインペダル）</td><td>プレビューのみ。最終レンダーでは使わない</td></tr>
+    <tr><td class="td-red">CC95-120</td><td>バックエンド予約（触らない）</td><td>絶対に何も書かない</td></tr>
+  </table>
+
+  <h3>内蔵スペース選択</h3>
+  <table>
+    <tr><th>ホール</th><th>サウンド特性</th><th>バトル用推奨</th></tr>
+    <tr><td>Mozarteum (Salzburg)</td><td>温かく豊かなクラシック感</td><td>△ 尾を75%に短縮すれば使える</td></tr>
+    <tr><td class="td-gold">Bersa Hall (Zagreb)</td><td>「ボンバスティック」、ワイド、攻撃的</td><td>◯ Epic/Battleに最適</td></tr>
+    <tr><td class="td-gold">Studio（ドライ）</td><td>完全ドライ</td><td>◎ 外部リバーブと組み合わせる場合の最良選択</td></tr>
+  </table>
+
+  <div class="alert alert-gold">
+    <strong>プロ推奨ワークフロー:</strong> Studio (ドライ) IR を選択 → 外部共有リバーブバスで全セクションを同じ空間に置く。これにより Spitfire Studio Strings との音響空間統一が実現できる。
+  </div>
+
+  <h3>Cubase固有の問題と解決策</h3>
+  <table>
+    <tr><th>問題</th><th>症状</th><th>解決策</th></tr>
+    <tr><td class="td-red">レイテンシー</td><td>グリッドより10-15ms遅れて鳴る</td><td>MIDIトラックのTrack Delayを<strong>-20〜-30ms</strong>に設定</td></tr>
+    <tr><td class="td-red">スタックノート</td><td>音が切れない・放置される</td><td>KontaktをOmniモードにしない。<strong>各楽器を特定MIDIチャンネルに割り当てる</strong></td></tr>
+    <tr><td class="td-red">CC11競合</td><td>予期しないボリューム変化</td><td>Infiniteのボリュームコントロールを<strong>CC11から別のCCにリマップ</strong>（テンプレートのCC11グローバルと干渉するため）</td></tr>
+    <tr><td class="td-red">Expression Maps</td><td>公式マップが存在しない</td><td>コミュニティリソース: github.com/nabemon/KSP_InfiniteRouter を使用</td></tr>
+  </table>
+
+  <h3>ダイナミクスのベストプラクティス</h3>
+  <div class="code">
+<span class="c">// CC1 ダイナミクス天井値（これを超えない）</span>
+ppp = 15-25
+pp  = 30-40
+p   = 45-55
+mp  = 55-65
+mf  = 65-75
+f   = 75-88
+ff  = 90-105
+fff = 110-115  <span class="c">← これが実質的な上限</span>
+MAX = 127      <span class="c">← 使用禁止（非現実的な強さ）</span>
+
+<span class="c">// ベロシティ: CC1値を超えないように設定</span>
+<span class="c">// 高ベロシティ + 高CC1 = 不自然に攻撃的なアタック</span>
+
+<span class="c">// 音価ヒューマナイズ: 各音に5-15msの長さのばらつきを与える</span>
+<span class="c">// Cubase MIDI Modifier: Note Start Humanization 約40%</span>
+<span class="c">// Pitch Accuracy: 35-50%でアンサンブル感（完全な精度でない）</span></div>
+
+  <h3>バトル音楽向けアーティキュレーション</h3>
+  <table>
+    <tr><th>欲しいサウンド</th><th>CC1</th><th>ベロシティ</th><th>音価</th></tr>
+    <tr><td>持続的なブラスのスウェル</td><td>低→90+へオートメーション</td><td>60-80</td><td>長い</td></tr>
+    <tr><td>マルカートヒット</td><td>80+</td><td>100-120</td><td>200ms未満</td></tr>
+    <tr><td>スタッカートファンファーレ</td><td>70-90</td><td>音ごとに変化</td><td>200ms未満</td></tr>
+    <tr><td>レガートメロディ</td><td>安定または微増</td><td>60-80</td><td>長い</td></tr>
+    <tr><td>フラッターブラス</td><td>80+</td><td>80-100</td><td>CC16でオートメーション</td></tr>
+    <tr><td>低音グロール</td><td>70-90</td><td>80-100</td><td>CC17でオートメーション</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ -->
+<section id="strings">
+  <h2><span class="sec-num">5</span>Spitfire Studio Strings + 8dio Century Strings — 混在ミックス</h2>
+
+  <div class="alert alert-blue">
+    <strong>調査ソース:</strong> VI-Control 複数スレッド（"8DIO Strings vs Spitfire Strings"等）、Spitfire公式ドキュメント、8Dio公式、Sample Library Review
+  </div>
+
+  <h3>2ライブラリの根本的な違い</h3>
+  <table>
+    <tr><th></th><th>Spitfire Studio Strings</th><th>8dio Century Strings</th></tr>
+    <tr><td>録音環境</td><td>AIR Studio 1（ドライ）</td><td>未公開ホール（中程度ウェット）</td></tr>
+    <tr><td>音の性格</td><td>明快、定義、アタック感</td><td>情熱的、感情的、若干ドライ</td></tr>
+    <tr><td>強み</td><td>速いパッセージ、旋律の明瞭さ</td><td>レガート旋律、感情表現</td></tr>
+    <tr><td>弱点</td><td>やや無機質、ドライすぎる</td><td>空間情報が混入</td></tr>
+    <tr><td>マイク処理</td><td>6ポジション（Close/Tree/Outrigger/Ambient等）</td><td>Mixed A/B（ホール）+ Close 1-3</td></tr>
+  </table>
+
+  <h3>セクション別推奨ライブラリ</h3>
+  <table>
+    <tr><th>セクション</th><th>推奨</th><th>理由</th></tr>
+    <tr><td>第1ヴァイオリン（旋律）</td><td class="td-gold">Spitfire</td><td>明瞭なアタック、速いパッセージでの定義感</td></tr>
+    <tr><td>第2ヴァイオリン（和声）</td><td>どちらかまたは両方レイヤー</td><td>Spitfire=定義、8dio=温かみ</td></tr>
+    <tr><td>ヴィオラ</td><td class="td-gold">8dio</td><td>レガートの情感が優れている</td></tr>
+    <tr><td>チェロ（旋律）</td><td class="td-gold">8dio</td><td>"8Dio cellos have superior legato tone"（VI-Control）</td></tr>
+    <tr><td>チェロ（リズム）</td><td>Spitfire</td><td>リズムフィギュアでのアタック明瞭さ</td></tr>
+    <tr><td>コントラバス</td><td>8dioまたはどちらか</td><td>Spitfireの低音域は「あまり強くない」とのVI-Control報告</td></tr>
+  </table>
+
+  <h3>共通音響空間の作り方（3ステップ）</h3>
+
+  <h4>Step 1: 両ライブラリをドライ状態に揃える</h4>
+  <div class="code">
+Spitfire Studio Strings:
+  → Close mics: 70-80%
+  → Tree mics: 20-30%
+  → Ambient mics: 10-20%（または外部リバーブに任せてカット）
+  → Outrigger mics: 必要に応じてSpitfireをワイドにしたい場合に追加
+
+8dio Century Strings:
+  → <span class="k">Close 1-3 を主に使用（Hall Micsは絞る）</span>
+  → Mixed A: フォーカスが必要な場合
+  → Mixed B / Wide: Spitfireの広がりに合わせたい場合に少量
+  → <span class="c">Hall micsをそのまま使いながら外部リバーブを重ねると二重空間になる</span></div>
+
+  <h4>Step 2: 短いルームIRを8dioチャンネルに追加（ブレンドの秘訣）</h4>
+  <p>Spitfire Studio Stringsにはドライ録音でも近接マイクに実際のAIR Studio 1のルーム感が微かに入っている。8dioのCloseマイクはより純粋にドライ。この差を埋めるため：</p>
+  <div class="code">
+8dioチャンネルに非常に短いルームIRを追加:
+  RT60: 0.3-0.5秒
+  Pre-delay: 50-80ms
+  目的: 近接場の「生きたルーム」感を付与</div>
+
+  <h4>Step 3: 共有ホールリバーブバス（FXチャンネル）</h4>
+  <div class="code">
+Air Studios Reverb / LiquidSonics Cinematic Rooms / Valhalla Room
+  RT60目標: 1.8〜2.3秒（Spitfire + 8dioのブレンド用）
+  ※Lyndhurst Hall RT60 = 2.6秒なのでそれより少し短く
+
+  Canopy height: Low または Medium（RT60短縮）
+  Gallery Dampening: ON（吸収を追加、8dioのホール感と近づける）
+  Early Level: 100%, Late Level: 15-25%
+
+  Pre-delay（配置感）:
+    ヴァイオリン   : 15-25ms
+    ヴィオラ       : 20-30ms
+    チェロ         : 25-35ms
+    コントラバス   : 30-40ms
+
+  Send量:
+    Spitfire Studio Strings: -10〜-12 dB（ドライなので多め）
+    8dio Century Strings:    -14〜-18 dB（すでに空間感あり）</div>
+
+  <h3>EQアジャスト（各ライブラリ）</h3>
+  <table>
+    <tr><th>処理</th><th>Spitfire Studio Strings</th><th>8dio Century Strings</th></tr>
+    <tr><td>ハイパス</td><td>80-100 Hz（Vln/Vla）</td><td>60-80 Hz</td></tr>
+    <tr><td>ボクシーネス</td><td>250-300 Hz、-2〜-4 dB（ナロウQ:2-4）</td><td>300-400 Hz、-1〜-2 dB</td></tr>
+    <tr><td>ハーシュネス</td><td>2 kHz、-1.5〜-2 dB</td><td>（ホールマイクが拡散するため不要なことが多い）</td></tr>
+    <tr><td>プレゼンス</td><td>10-12 kHz、+1 dB シェルフ</td><td>3-5 kHz、+1〜-2 dB（ワイドQ:0.5-0.7）</td></tr>
+  </table>
+
+  <h3>ステレオ幅の管理</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>方法A: Spitfireを広げる</h4>
+      <p>Waves S1 Stereo Enhancer、またはM/S処理でSideチャンネルを2-3 dBブースト。OutriggerマイクをSpitfireで上げる。</p>
     </div>
-    <div class="pan-bar">
-      <div class="pan-label">Contrabasses</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-strings" style="left:72%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R40〜50</span>
+    <div class="card">
+      <h4>方法B: 8dioを絞る（推奨）</h4>
+      <p>8dioのCloseマイクを中心に使い、Wide/Mixed Bを控えめに。M/S EQでSideを少し削る。</p>
     </div>
-
-    <h3>金管楽器</h3>
-    <div class="pan-bar">
-      <div class="pan-label">French Horns</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-brass" style="left:35%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L20〜30</span>
+    <div class="card">
+      <h4>方法C: 深みで分離（最良）</h4>
+      <p>Spitfire CloseをFront定義として使い、8dioのAmbient MicsをRoom Tailとして使う。「幅」ではなく「深み」で分離する自然な層構造。</p>
     </div>
-    <div class="pan-bar">
-      <div class="pan-label">Trumpets</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-brass" style="left:62%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R20〜30</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Trombones</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-brass" style="left:67%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R30〜40</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Tuba</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-brass" style="left:72%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R40〜50</span>
-    </div>
+  </div>
+</section>
 
-    <h3>木管楽器</h3>
-    <div class="pan-bar">
-      <div class="pan-label">Flutes</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-ww" style="left:43%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L10〜15</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Clarinets</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-ww" style="left:45%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L5〜10</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Oboes</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-ww" style="left:55%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R5〜10</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Bassoons</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-ww" style="left:57%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">R10〜15</span>
-    </div>
+<!-- ============================================================ -->
+<section id="panning">
+  <h2><span class="sec-num">6</span>パン配置（指揮者視点）</h2>
 
-    <h3>打楽器</h3>
-    <div class="pan-bar">
-      <div class="pan-label">Timpani</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-perc" style="left:40%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">L10〜C</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Snare / SD</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-perc" style="left:50%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">Center</span>
-    </div>
-    <div class="pan-bar">
-      <div class="pan-label">Taiko / Damage</div>
-      <div class="pan-track">
-        <div class="pan-center"></div>
-        <div class="pan-dot dot-perc" style="left:50%"></div>
-      </div>
-      <span style="color:var(--muted);font-size:0.8rem">Center〜広がり</span>
-    </div>
-  </section>
+  <div class="alert alert-gold">
+    <strong>注意:</strong> 数値はあくまでガイドライン。ライブラリによってすでにステレオイメージが広いものがある（特に8dio Wide mics）。まずステレオ幅を調整してからパンをかける。
+  </div>
 
-  <!-- ===================== REVERB ===================== -->
-  <section id="reverb">
-    <h2><span class="num">4</span>リバーブ設計</h2>
+  <h4>弦楽器</h4>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-gr">Strings</span> 1st Violins</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:24%;background:#4caf7d;"></div></div><span class="td-muted">L50-60</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-gr">Strings</span> 2nd Violins</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:35%;background:#4caf7d;"></div></div><span class="td-muted">L20-30</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-gr">Strings</span> Violas</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:51%;background:#4caf7d;"></div></div><span class="td-muted">Center〜R5</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-gr">Strings</span> Cellos</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:63%;background:#4caf7d;"></div></div><span class="td-muted">R20-30</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-gr">Strings</span> Basses</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:72%;background:#4caf7d;"></div></div><span class="td-muted">R40-50</span></div>
 
-    <div class="note">
-      <strong>大原則：VST内蔵リバーブは全てOFF。</strong> 全てのリバーブはSend/Returnで一元管理する。これにより空間の統一感と後からの調整が可能になる。
-    </div>
+  <br>
+  <h4>金管楽器</h4>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-g">Brass</span> French Horns</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:34%;background:#c9a227;"></div></div><span class="td-muted">L20-30</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-g">Brass</span> Trumpets</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:63%;background:#c9a227;"></div></div><span class="td-muted">R20-30</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-g">Brass</span> Trombones</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:67%;background:#c9a227;"></div></div><span class="td-muted">R30-40</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-g">Brass</span> Tuba</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:72%;background:#c9a227;"></div></div><span class="td-muted">R40-50</span></div>
 
-    <h3>推奨リバーブ構成（5チャンネル）</h3>
+  <br>
+  <h4>木管楽器</h4>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-b">WW</span> Flutes</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:43%;background:#5c9ae0;"></div></div><span class="td-muted">L10-15</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-b">WW</span> Clarinets</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:45%;background:#5c9ae0;"></div></div><span class="td-muted">L5-10</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-b">WW</span> Oboes</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:55%;background:#5c9ae0;"></div></div><span class="td-muted">R5-10</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-b">WW</span> Bassoons</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:57%;background:#5c9ae0;"></div></div><span class="td-muted">R10-15</span></div>
 
-    <table>
-      <tr><th>FXチャンネル</th><th>プラグイン</th><th>設定目安</th><th>用途</th></tr>
-      <tr>
-        <td>FX1 String Reverb</td>
-        <td>Air Studios Reverb</td>
-        <td>Decay 2.5〜3.0s / Pre-delay 20ms</td>
-        <td>弦楽器専用ホール</td>
-      </tr>
-      <tr>
-        <td>FX2 Brass Reverb</td>
-        <td>Air Studios Reverb</td>
-        <td>Decay 2.0〜2.5s / Pre-delay 30ms</td>
-        <td>金管専用（少し後方）</td>
-      </tr>
-      <tr>
-        <td>FX3 WW Reverb</td>
-        <td>Air Studios Reverb</td>
-        <td>Decay 2.0s / Pre-delay 15ms</td>
-        <td>木管（前方・近い）</td>
-      </tr>
-      <tr>
-        <td>FX4 Perc Reverb</td>
-        <td>Air Studios Reverb</td>
-        <td>Decay 1.5〜2.0s / Pre-delay 5ms</td>
-        <td>打楽器（短め・鋭い）</td>
-      </tr>
-      <tr>
-        <td>FX5 Global Reverb</td>
-        <td>Air Studios Reverb</td>
-        <td>Decay 3.5〜4.0s / Pre-delay 50ms</td>
-        <td>全体をホールに置く「グルー」</td>
-      </tr>
-    </table>
+  <br>
+  <h4>打楽器</h4>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-r">Perc</span> Timpani</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:41%;background:#e05c5c;"></div></div><span class="td-muted">L10〜Center</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-r">Perc</span> Snare / BD</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:50%;background:#e05c5c;"></div></div><span class="td-muted">Center</span></div>
+  <div class="pan-row"><div class="pan-lbl"><span class="tag tag-r">Perc</span> Cinematic</div><div class="pan-track"><div class="pan-center-line"></div><div class="pan-dot" style="left:50%;background:#e05c5c;"></div></div><span class="td-muted">Center〜広がり</span></div>
+</section>
 
-    <h3>Send量の目安</h3>
-    <table>
-      <tr><th>セクション</th><th>セクションリバーブSend</th><th>Globalリバーブ Send</th></tr>
-      <tr><td>1st/2nd Violins</td><td>-12dB〜-9dB</td><td>-18dB〜-15dB</td></tr>
-      <tr><td>Violas / Cellos</td><td>-15dB〜-12dB</td><td>-18dB</td></tr>
-      <tr><td>Contrabasses</td><td>-18dB（控えめ）</td><td>-20dB</td></tr>
-      <tr><td>Brass（全体）</td><td>-12dB〜-9dB</td><td>-15dB</td></tr>
-      <tr><td>Woodwinds</td><td>-15dB〜-12dB</td><td>-18dB</td></tr>
-      <tr><td>Cinematic Perc</td><td>-9dB〜-6dB</td><td>-12dB</td></tr>
-      <tr><td>Timpani</td><td>-12dB</td><td>-15dB</td></tr>
-    </table>
+<!-- ============================================================ -->
+<section id="reverb">
+  <h2><span class="sec-num">7</span>リバーブ設計（5チャンネル）</h2>
 
-    <h3>Spitfire vs 8dio のリバーブ処理の違い</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>Spitfire Studio Strings</h4>
-        <p><span class="tag tag-green">ドライ録音</span></p>
-        <p>AIR Studio 1で収録。意図的にドライな録音のため、リバーブは完全に自分で追加する。Send量は多めでOK。</p>
-      </div>
-      <div class="card">
-        <h4>8dio Century Strings</h4>
-        <p><span class="tag tag-purple">ホール録音</span></p>
-        <p>大きなホールで収録されており、すでに空間感がある。Sendは控えめに。Spitfireと混ぜるときは干渉注意。</p>
-      </div>
-    </div>
+  <div class="alert alert-red">
+    <strong>大原則:</strong> VST内蔵リバーブは全てOFF。Infinite Brass: Studio IRに設定。8dio: Close Micsを中心に使用。全リバーブはFX Send/Returnで一元管理。
+  </div>
 
-    <div class="note">
-      <strong>実用的なヒント：</strong> 8dio Century Stringsはチェロとコントラバスのみに使い、高音弦はSpitfireに統一するとルーム感の差が出にくい。
-    </div>
-  </section>
+  <div class="flow">
+    <div class="fb">楽器トラック</div><div class="fa">→</div>
+    <div class="fb fb-bus">セクショングループ</div><div class="fa">→</div>
+    <div class="fb fb-bus">Orchestral Master</div>
+  </div>
+  <div class="flow">
+    <div class="fb">楽器トラック</div><div class="fa">↘ Send</div>
+    <div class="fb fb-fx">セクションReverbFX</div><div class="fa">→</div>
+    <div class="fb fb-bus">Orchestral Master</div>
+  </div>
+  <div class="flow">
+    <div class="fb fb-bus">各セクショングループ</div><div class="fa">↘ Send（少量）</div>
+    <div class="fb fb-fx">Global Glue Reverb FX</div><div class="fa">→</div>
+    <div class="fb fb-bus">Master</div>
+  </div>
 
-  <!-- ===================== LIBRARIES ===================== -->
-  <section id="libraries">
-    <h2><span class="num">5</span>ライブラリ別設定ガイド</h2>
+  <table>
+    <tr><th>FXチャンネル</th><th>設定目安</th><th>Pre-delay</th><th>Send量</th></tr>
+    <tr>
+      <td class="td-gold">FX1: String Reverb</td>
+      <td>RT60: 1.8-2.3s（Air Studios Reverb / Valhalla Room）<br>Canopy: Low, Gallery Dampening ON</td>
+      <td>Vln: 15-25ms<br>Vc: 25-35ms<br>Cb: 30-40ms</td>
+      <td>Spitfire: -10〜-12dB<br>8dio: -14〜-18dB</td>
+    </tr>
+    <tr>
+      <td class="td-gold">FX2: Brass Reverb</td>
+      <td>RT60: 2.0-2.5s（少し後方に置く）</td>
+      <td>8-15ms（クリアさのため短め）</td>
+      <td>-9〜-12dB</td>
+    </tr>
+    <tr>
+      <td class="td-gold">FX3: WW Reverb</td>
+      <td>RT60: 2.0s（前方・近い）</td>
+      <td>10-20ms</td>
+      <td>-12〜-15dB</td>
+    </tr>
+    <tr>
+      <td class="td-gold">FX4: Perc Reverb</td>
+      <td>RT60: 1.5-2.0s（短め・鋭い）</td>
+      <td>5ms以下</td>
+      <td>-6〜-9dB</td>
+    </tr>
+    <tr>
+      <td class="td-gold">FX5: Global Glue</td>
+      <td>RT60: 3.5-4.0s（長め、薄くかける）</td>
+      <td>50ms</td>
+      <td>全セクションから -18〜-20dB</td>
+    </tr>
+  </table>
+</section>
 
-    <div class="card-grid">
-      <div class="card">
-        <h4>Spitfire Studio Strings / Sordino</h4>
-        <p>内蔵リバーブ（Room）: <strong>OFF</strong><br>
-        Microphone mix: Close + Tree（50/50）<br>
-        Expression / Dynamics CC: CC11/CC1<br>
-        Sordino: 弦のソフトセクション専用に別トラック</p>
-      </div>
-      <div class="card">
-        <h4>8dio Century Strings</h4>
-        <p>内蔵リバーブ: <strong>OFF or 最小</strong><br>
-        ステレオ幅を少し絞る（〜70%）<br>
-        Spitfireと混ぜる場合はEQで2kHz帯を調整</p>
-      </div>
-      <div class="card">
-        <h4>Infinite Brass / Woodwinds</h4>
-        <p>内蔵リバーブ: <strong>OFF</strong><br>
-        Legato mode使用時はポルタメント調整<br>
-        CC2（Breath）で音量・表情をコントロール</p>
-      </div>
-      <div class="card">
-        <h4>Damage / TrueStrike / HZ Perc</h4>
-        <p>内蔵リバーブ: <strong>OFF</strong><br>
-        Damage: トランジェント強めに設定<br>
-        HZ Perc: ダイナミクスCC127推奨</p>
-      </div>
-      <div class="card">
-        <h4>Keyscape（Piano）</h4>
-        <p>内蔵リバーブ: <strong>OFF</strong>（Springだけ残しても可）<br>
-        Concert Grand推奨<br>
-        Close mic中心で後からFX Reverb</p>
-      </div>
-      <div class="card">
-        <h4>Shreddage（Guitar）</h4>
-        <p>アンプシミュレーター: Shreddage内臓 or 外部<br>
-        バトル曲では高域を少し削ってオケに馴染ませる<br>
-        Sendリバーブは控えめ（-18dB程度）</p>
-      </div>
-    </div>
-  </section>
+<!-- ============================================================ -->
+<section id="mix">
+  <h2><span class="sec-num">8</span>MIXワークフロー — プラグイン優先順位</h2>
 
-  <!-- ===================== MIX ===================== -->
-  <section id="mix">
-    <h2><span class="num">6</span>MIXワークフロー</h2>
+  <div class="alert alert-blue">
+    <strong>調査ソース:</strong> VI-Control "What UAD Plugs?" スレッド、Alan Meyerson(Hans Zimmer専属ミキサー)推奨プラグイン、Mark Isham公式UAD推薦、Sound On Sound レビュー
+  </div>
 
-    <h3>現状（iZotope）vs UAD — 正直な比較</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>iZotope Neutron + Ozone（現状）</h4>
-        <p><span class="tag tag-green">今すぐ使える</span> <span class="tag tag-blue">AI支援あり</span></p>
-        <p>Neutron 5のMix Assistantはオーケストラにも有効。Ozoneのマスタリングは出口として十分な品質。<br><br>
-        <strong>弱点：</strong> アナログ感・倍音感が薄い。キャラクターが出にくい。</p>
-      </div>
-      <div class="card">
-        <h4>UAD サブスク</h4>
-        <p><span class="tag tag-gold">音質向上</span> <span class="tag tag-red">月額コスト</span></p>
-        <p>Neve 1073/SSL G Bus/Manley Varimu等のアナログエミュが使える。シネマティックのグルー感・厚みは明確に変わる。<br><br>
-        <strong>弱点：</strong> 月額$19.99〜。曲が完成してからでも遅くない。</p>
-      </div>
-    </div>
+  <h3>プラグイン導入優先順位（正しい順番）</h3>
+  <ul class="priority-list">
+    <li>
+      <span class="p-num p1">1</span>
+      <div><strong>FabFilter Pro-Q3</strong> — 永続購入約$179<br>
+      <span style="color:var(--muted);font-size:0.82rem">全てのオーケストラMIXタスクはここから始まる。ダイナミックEQモード、M/S処理、ゼロレイテンシーモード。Non-negotiable。</span></div>
+    </li>
+    <li>
+      <span class="p-num p1">2</span>
+      <div><strong>Valhalla Room</strong> — $50永続<br>
+      <span style="color:var(--muted);font-size:0.82rem">プロレベルのオーケストラリバーブを最低価格で実現。LiquidSonics Cinematic Roomsへのアップグレードパス。</span></div>
+    </li>
+    <li>
+      <span class="p-num p2">3</span>
+      <div><strong>oeksound Soothe2</strong> — 約$149永続<br>
+      <span style="color:var(--muted);font-size:0.82rem">ライブラリブレンドに変革をもたらす。Softモード、Selectivity 4-6、Depth -4〜-6dB。異なるメーカーのライブラリを混ぜる時に必須。</span></div>
+    </li>
+    <li>
+      <span class="p-num p2">4</span>
+      <div><strong>FabFilter Pro-L2</strong> — 約$179永続<br>
+      <span style="color:var(--muted);font-size:0.82rem">透明なマスタリングリミッター。True Peak -1.0 dBTP設定。オーケストラはダイナミクスを生かす。-13〜-14 LUFSを目標。</span></div>
+    </li>
+    <li>
+      <span class="p-num p3">5</span>
+      <div><strong>UAD Spark</strong> — $19.99/月（一時停止可能）<br>
+      <span style="color:var(--muted);font-size:0.82rem">①〜④が揃ってから。最も価値があるのは: Studer A800（サチュレーション）、Lexicon 224（リバーブ）、Massive Passive（マスタリングEQ）、Neve 1073、LA-2A。Lexicon 480Lは含まれないため注意（DSPのみ）。</span></div>
+    </li>
+    <li>
+      <span class="p-num p4">6</span>
+      <div><strong>LiquidSonics Cinematic Rooms</strong> — 約$199永続<br>
+      <span style="color:var(--muted);font-size:0.82rem">Hans ZimmerのRemote Control Productionsで使用。Valhalla Roomよりモダンで透明なホールサウンド。商業リリース段階でのアップグレード。</span></div>
+    </li>
+  </ul>
 
-    <div class="note">
-      <strong>結論：</strong> Phase 1（最初の2曲）はiZotope + FabFilterで十分。曲が完成してから必要と感じたらUADを検討。今は制作スピードが最優先。
-    </div>
+  <div class="alert alert-red">
+    <strong>iZotope Neutron 5 AI Mix Assistantの限界:</strong> オーケストラ素材でAIが「変な調整/極端なカット」をすることがVI-Controlで多数報告されている。Assistantを出発点にして全設定を手動で見直す前提で使う。EQモジュール自体は高品質。
+  </div>
 
-    <h3>推奨MIXチェーン（セクショングループ）</h3>
-    <table>
-      <tr><th>グループ</th><th>Insert処理</th><th>ポイント</th></tr>
-      <tr>
-        <td>Strings Group</td>
-        <td>FabFilter Pro-Q3 → 軽いコンプ → Neutron</td>
-        <td>200Hz以下をカット、8kHz帯を少し上げて輝きを出す</td>
-      </tr>
-      <tr>
-        <td>Brass Group</td>
-        <td>FabFilter Pro-Q3 → サチュレーション</td>
-        <td>300〜500Hzのこもりを削る、トランジェントは触らない</td>
-      </tr>
-      <tr>
-        <td>WW Group</td>
-        <td>FabFilter Pro-Q3（軽め）</td>
-        <td>基本的に触らない。存在感が薄い場合は2〜4kHz少し上げ</td>
-      </tr>
-      <tr>
-        <td>Perc Group</td>
-        <td>Transient Shaper → コンプ → EQ</td>
-        <td>アタックを前に出す。低域は80Hz以上に集中</td>
-      </tr>
-      <tr>
-        <td>Master Bus</td>
-        <td>Neutron Mix Bus → Ozone</td>
-        <td>軽いグルーコンプ（1〜2dB GR）。Ozoneで-1〜-0.5 LUFS目標</td>
-      </tr>
-    </table>
+  <h3>セクション別MIXチェーン</h3>
 
-    <h3>シネマティック楽曲のラウドネス目標</h3>
-    <table>
-      <tr><th>用途</th><th>ターゲット</th></tr>
-      <tr><td>Spotify / Apple Music配信</td><td>-14 LUFS (integrated)</td></tr>
-      <tr><td>YouTube</td><td>-13〜-14 LUFS</td></tr>
-      <tr><td>ライセンス（Fab / AudioJungle）</td><td>-16〜-14 LUFS</td></tr>
-      <tr><td>True Peak</td><td>-1 dBTP 以下</td></tr>
-    </table>
-  </section>
+  <h4>弦楽バス</h4>
+  <div class="code">
+1. FabFilter Pro-Q3
+   HP: 40-60Hz（Linear Phase OFF on bus）
+   Dynamic EQ: 250-350Hz（フォルティッシモ時のマッドネスを制御）
+   Presence: +1-2dB @  3-5kHz（Spitfireの明瞭さを活かす）
+   Air: +0.5-1dB @ 10kHz shelf
 
-  <!-- ===================== CUBASE STEPS ===================== -->
-  <section id="cubase">
-    <h2><span class="num">7</span>Cubase 実装手順（テンプレート作成）</h2>
+2. oeksound Soothe2（オプションだが強く推奨）
+   Soft mode, Selectivity: 4-6, Depth: -4〜-6dB max
 
-    <h3>Step 1: グループチャンネル作成</h3>
-    <p>「プロジェクト」→「トラックを追加」→「グループ」で以下を作成：</p>
-    <p>Strings / Brass / Woodwinds / Percussion / Keys / Synth / Bass&Guitar / Orchestral Master</p>
+3. パラレルコンプ Send（20-30%ブレンド）
+   UAD LA-2A または FabFilter Pro-C2（Cleanモード）
 
-    <h3>Step 2: FXチャンネル作成（リバーブ）</h3>
-    <p>「プロジェクト」→「トラックを追加」→「FX」で5つ作成。Air Studios Reverbをインサート。各リバーブは<strong>100% WET</strong>に設定。</p>
+4. UAD Studer A800 または Softube Tape（サチュレーション、控えめに）
 
-    <h3>Step 3: 楽器トラック追加とルーティング</h3>
-    <p>各インストゥルメントトラックの出力を対応するグループに設定。Send欄からFXチャンネルへの量を設定。</p>
+5. Reverb Send → FX1 String Reverb</div>
 
-    <h3>Step 4: セクショングループをOrchestral Masterへ</h3>
-    <p>各セクショングループの出力を「Orchestral Master」グループに設定。FXチャンネルも同様。</p>
+  <h4>金管バス</h4>
+  <div class="code">
+1. FabFilter Pro-Q3
+   HP: 50-80Hz
+   Dynamic EQ: 500-700Hz（"Brass Honk"ゾーンをDynamic Cut）
+   High cut: 12kHz以上を穏やかにカット（ハーシュネス防止）
 
-    <h3>Step 5: テンプレートとして保存</h3>
-    <p>「ファイル」→「テンプレートとして保存」→「andAugment_EPIC_BATTLE_v1」</p>
+2. UAD 1176 Rev A（またはFabFilter Pro-C2）
+   Attack: 1ms, Release: Auto, Ratio: 4:1, パラレルブレンド
+   → 「スクワッシュなしのパンチ」
 
-    <div class="note">
-      <strong>Track Delay について：</strong> 一部ライブラリはレイテンシーが大きい（特にLegato音源）。CubaseのインスペクターのTrack Delayで-100ms程度マイナス値を設定するとタイミングが改善する場合がある。
-    </div>
+3. UAD Neve 1073 EQ（サブティルに）
+   +2-3dB @ 150Hz（低音ブラスの充実感）
 
-    <h3>MIDIコントローラー割り当て（推奨）</h3>
-    <table>
-      <tr><th>CC</th><th>用途</th></tr>
-      <tr><td>CC1 (Mod Wheel)</td><td>ダイナミクス / Dynamics（多くのSpitfireライブラリ）</td></tr>
-      <tr><td>CC2</td><td>ブレス / Breath（Infiniteシリーズ）</td></tr>
-      <tr><td>CC11</td><td>エクスプレッション（全体の音量表情）</td></tr>
-      <tr><td>CC64</td><td>サステインペダル</td></tr>
-    </table>
-  </section>
+4. Reverb Send → FX2 Brass Reverb（Short pre-delay: 8-15ms）</div>
 
-</div>
+  <h4>マスターバス</h4>
+  <div class="code">
+1. FabFilter Pro-Q3（Linear Phaseモード）— 修正のみ
 
-<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:60px;">
-  andAugment Production Guide — 2026 | 調査: VI-Control / Flypaper / Composer Focus / ImprovMX Docs
+2. Gullfoss または FabFilter Pro-MB（低設定）
+   ダイナミックな周波数蓄積をフォルティッシモ時にのみ制御
+
+3. SSL G-Bus スタイルコンプ（Cytomic The Glue / Waves SSL G-Bus）
+   Attack: 30-100ms, Ratio: 2:1, GR: -1〜-3dB max（グルー）
+
+4. UAD Manley Massive Passive（オプション）
+   Low: 少し重さを追加, High: Air
+
+5. UAD Studer A800 または Softube Tape（控えめなサチュレーション）
+
+6. FabFilter Pro-L2（True Peak -1.0 dBTP）
+   Orchestral: -13〜-14 LUFS integrated
+   ダイナミクスを壊さない透明なリミッティング</div>
+
+  <h3>ラウドネス目標</h3>
+  <table>
+    <tr><th>配信先</th><th>LUFS (Integrated)</th><th>True Peak</th></tr>
+    <tr><td>Spotify / Apple Music</td><td class="td-gold">-14 LUFS</td><td>-1 dBTP</td></tr>
+    <tr><td>YouTube</td><td>-13〜-14 LUFS</td><td>-1 dBTP</td></tr>
+    <tr><td>Fab / AudioJungle (ライセンス)</td><td>-16〜-14 LUFS</td><td>-1 dBTP</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ -->
+<section id="suno">
+  <h2><span class="sec-num">9</span>Suno / Wondera — リファレンスプロンプト（改訂版）</h2>
+
+  <h3>Sunoプロンプト — 澤野弘之スタイル（Sawano Drop構造あり）</h3>
+  <div class="code">
+epic orchestral battle music, Hiroyuki Sawano style, Attack on Titan OST influence,
+driving cello ostinato in 16th notes, sudden full orchestra silence then catastrophic drop,
+powerful low brass stabs, soaring string runs, 200-person epic choir reveal at climax,
+taiko drums layered with cinematic percussive hits, phonetic English vocals,
+D minor or E minor, 130 BPM, hybrid orchestral with electronic texture,
+suspended chord harmony avoiding major thirds, half-time snare feel,
+glitch synth texture underneath orchestra, one clear memorable melody hook</div>
+
+  <h3>Sunoプロンプト — より電子的なハイブリッド（DOAスタイル）</h3>
+  <div class="code">
+cinematic hybrid orchestral game battle, intense and emotional,
+aggressive string ostinato with distorted drum layering,
+Heavyocity Damage style percussion hits, epic brass fanfare stabs,
+lead female vocalist with phonetic English syllables over orchestra,
+Omnisphere ambient texture underneath, electronic bass pulses on downbeats,
+minor key suspended chords, 138 BPM driving tempo,
+buildout to explosive chorus with full choir, dark fantasy game score,
+glitch metallic sound design between sections</div>
+
+  <h3>使い方</h3>
+  <div class="alert alert-gold">
+    生成した音源は<strong>完成品ではなくリファレンス</strong>として使用する。確認すべきは：(1) 全体の構成とテンション曲線、(2) どのセクションで何のレイヤーが入ってくるか、(3) リズムとハーモニーの感触。音色・質感は自分のライブラリで全部作り直す前提で聴く。
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border);margin-top:40px;line-height:2.2;">
+  <strong style="color:var(--gold)">andAugment Production Guide v2.0</strong><br>
+  調査ソース: VI-Control（複数スレッド）/ Gearspace / Steinberg Forums / Aaron Venture公式 / Spitfire公式 / 8Dio公式<br>
+  Genelec インタビュー（澤野弘之）/ Equipboard / HackMD / Sound On Sound / Universal Audio 公式 / BabylonWaves 公式<br>
+  Sample Library Review / Professional Composers / Composer Focus / Become a Pro Composer / Flypaper (Soundfly)
 </div>
 
 </body>
