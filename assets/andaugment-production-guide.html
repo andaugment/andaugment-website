@@ -738,11 +738,78 @@ Air Studios Reverb / LiquidSonics Cinematic Rooms / Valhalla Room
 
 <!-- ============================================================ -->
 <section id="reverb">
-  <h2><span class="sec-num">7</span>リバーブ設計（5チャンネル）</h2>
+  <h2><span class="sec-num">7</span>リバーブ設計</h2>
 
   <div class="alert alert-red">
-    <strong>大原則:</strong> VST内蔵リバーブは全てOFF。Infinite Brass: Studio IRに設定。8dio: Close Micsを中心に使用。全リバーブはFX Send/Returnで一元管理。
+    <strong>大原則:</strong> VST内蔵リバーブは全てOFF。Infinite Brass: Studio IRに設定。8dio: Close Micsを中心に使用（Hall Mics最小化）。全リバーブはFX Send/Returnで一元管理。
   </div>
+
+  <!-- ===== REVERB COMPARISON ===== -->
+  <h3 style="margin-top:2rem">所有リバーブ深掘り比較（VI-Control・Sound On Sound調査済）</h3>
+
+  <div class="alert alert-blue" style="margin-bottom:1.5rem">
+    <strong>重要な訂正:</strong> PhoenixVerbはLiquidSonics製ではなく<strong>Exponential Audio（iZotope）製</strong>。元Lexiconエンジニア Mark Gemer が設計したアルゴリズムリバーブ。
+  </div>
+
+  <table>
+    <tr>
+      <th>プラグイン</th>
+      <th>エンジン種別</th>
+      <th>オーケストラでの強み</th>
+      <th>弱み・注意点</th>
+      <th>最適用途</th>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Air Studios Reverb</strong><br><span style="color:var(--muted);font-size:0.8rem">Spitfire / 所有済</span></td>
+      <td>コンボリューション<br>（Lyndhurst Hall IR）</td>
+      <td>本物の伝説的録音スタジオの空間。Spitfireライブラリと同じ部屋なので<strong>完璧な音響一致</strong>。67,000種のIR搭載。唯一無二のアイデンティティ。</td>
+      <td><strong>CPU負荷が非常に高い</strong> → Sendバス専用必須。スタティック（動かない）。複数ライブラリのグルーには不向き（部屋が合わない）。</td>
+      <td>FX1: <strong>Spitfire系弦楽専用</strong><br>Spitfire + 8dio混在なら8dio側には使わない</td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Valhalla Room</strong><br><span style="color:var(--muted);font-size:0.8rem">$50 / 所有済</span></td>
+      <td>アルゴリズム<br>（独自DSP）</td>
+      <td>CPU最軽量。Large Roomアルゴリズムが<strong>オーケストラのワークホース</strong>。複数ライブラリのグルーに最強。暖かみのある色付きが心地よい。</td>
+      <td>Cinematic Roomsと比較するとやや「キャラクター」がつく。密度の高いフルオーケストラパッセージで濁ることがある。</td>
+      <td>FX2: 金管・FX3: 木管・FX4: 打楽器<br>ライブラリ横断グルーリバーブに最適</td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>PhoenixVerb</strong><br><span style="color:var(--muted);font-size:0.8rem">Exponential Audio / 所有済</span></td>
+      <td>アルゴリズム<br>（元Lexiconエンジニア設計）</td>
+      <td><strong>900種以上のプリセット</strong>。透明性が最も高い — 音源に溶け込む感覚。周期的アーティファクトや音程アノマリーがない。Sound On Sound「他に類を見ないクリーンさ」。</td>
+      <td>Valhallほどの「キャラクター」がない（良くも悪くも）。Bloom/Proximityなどシネマ特化パラメータはない。</td>
+      <td>FX5: <strong>Global Glueリバーブ</strong>（透明で全体を包む長いテール。薄くかける）</td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:2.5rem">推奨アップグレードパス</h3>
+  <table>
+    <tr>
+      <th>優先度</th>
+      <th>プラグイン</th>
+      <th>価格</th>
+      <th>理由</th>
+    </tr>
+    <tr>
+      <td class="td-gold">Next Buy</td>
+      <td><strong>LiquidSonics Seventh Heaven Standard</strong></td>
+      <td>$69</td>
+      <td>Bricasti M7（実機$4,000〜）をFusion-IR技術で再現。アーリーリフレクションとテールが独立制御可能。Sound On Sound「不可能なほど良い音」。M7はAlan Meyerson（ハンス・ジマーミキサー）が長年愛用。弦楽・室内楽・ソロ楽器に最適。30プリセットでほぼ全ケースをカバー。</td>
+    </tr>
+    <tr>
+      <td class="td-gold" style="color:var(--muted)">Phase 3以降</td>
+      <td><strong>LiquidSonics Cinematic Rooms Standard</strong></td>
+      <td>$199</td>
+      <td>Hans ZimmerのRemote Control Productionsで使用確認済。Alan Meyerson「使った中で最もミュージカルなリバーブ」と明言。Valhalla Roomより透明でモダン。フルオーケストラの密なパッセージでも濁らない。80種のプリセット（Amethyst Hall / Studio Hallが特に評価高い）。</td>
+    </tr>
+  </table>
+
+  <div class="alert" style="background:rgba(201,162,39,0.08);border-color:var(--gold);margin:1.5rem 0">
+    <strong>Pro Tip — Fusion-IR vs コンボリューション:</strong> 通常のコンボリューション（Air Studios含む）は1枚のIRスナップショット → 静的で動かない。LiquidSonicsのFusion-IRは複数IRをリアルタイムで変調 → 本物の空間のように「呼吸する」。Valhalla Room（アルゴリズム）とFusion-IRの中間的な特性を持つ。
+  </div>
+
+  <!-- ===== ROUTING ===== -->
+  <h3 style="margin-top:2rem">Cubaseルーティング（Send/Return）</h3>
 
   <div class="flow">
     <div class="fb">楽器トラック</div><div class="fa">→</div>
@@ -756,43 +823,68 @@ Air Studios Reverb / LiquidSonics Cinematic Rooms / Valhalla Room
   </div>
   <div class="flow">
     <div class="fb fb-bus">各セクショングループ</div><div class="fa">↘ Send（少量）</div>
-    <div class="fb fb-fx">Global Glue Reverb FX</div><div class="fa">→</div>
+    <div class="fb fb-fx">Global Glue FX</div><div class="fa">→</div>
     <div class="fb fb-bus">Master</div>
   </div>
 
+  <!-- ===== FX CHANNEL TABLE ===== -->
+  <h3 style="margin-top:2rem">FXチャンネル設定表</h3>
+
   <table>
-    <tr><th>FXチャンネル</th><th>設定目安</th><th>Pre-delay</th><th>Send量</th></tr>
+    <tr><th>FXチャンネル</th><th>プラグイン</th><th>RT60 / アルゴリズム</th><th>Pre-delay</th><th>重要パラメータ</th><th>Send量</th></tr>
     <tr>
-      <td class="td-gold">FX1: String Reverb</td>
-      <td>RT60: 1.8-2.3s（Air Studios Reverb / Valhalla Room）<br>Canopy: Low, Gallery Dampening ON</td>
-      <td>Vln: 15-25ms<br>Vc: 25-35ms<br>Cb: 30-40ms</td>
-      <td>Spitfire: -10〜-12dB<br>8dio: -14〜-18dB</td>
+      <td class="td-gold">FX1: Spitfire弦楽</td>
+      <td><strong>Air Studios Reverb</strong></td>
+      <td>1.8–2.3s<br>Lyndhurst Hall</td>
+      <td>Vln: 15–25ms<br>Vc: 25–35ms<br>Cb: 30–40ms</td>
+      <td>Canopy: Low<br>Gallery Dampening: ON<br>CPU対策: Sendバス専用</td>
+      <td>Spitfire: -10〜-12dB<br>（8dio: このFXに送らない）</td>
     </tr>
     <tr>
-      <td class="td-gold">FX2: Brass Reverb</td>
-      <td>RT60: 2.0-2.5s（少し後方に置く）</td>
-      <td>8-15ms（クリアさのため短め）</td>
+      <td class="td-gold">FX2: 金管</td>
+      <td><strong>Valhalla Room</strong></td>
+      <td>2.0–2.5s<br>Large Room</td>
+      <td>8–15ms</td>
+      <td>High Cut: 5000–6500Hz（必須）<br>Mod: Low〜Mid</td>
       <td>-9〜-12dB</td>
     </tr>
     <tr>
-      <td class="td-gold">FX3: WW Reverb</td>
-      <td>RT60: 2.0s（前方・近い）</td>
-      <td>10-20ms</td>
+      <td class="td-gold">FX3: 木管</td>
+      <td><strong>Valhalla Room</strong></td>
+      <td>2.0s<br>Large Room</td>
+      <td>10–20ms</td>
+      <td>High Cut: 5500Hz<br>前方定位→Pre-delayやや短め</td>
       <td>-12〜-15dB</td>
     </tr>
     <tr>
-      <td class="td-gold">FX4: Perc Reverb</td>
-      <td>RT60: 1.5-2.0s（短め・鋭い）</td>
+      <td class="td-gold">FX4: 打楽器</td>
+      <td><strong>Valhalla Room</strong></td>
+      <td>1.5–2.0s<br>Medium Room</td>
       <td>5ms以下</td>
+      <td>High Cut: 6000Hz<br>Mod: Off（クリアなアタック維持）</td>
       <td>-6〜-9dB</td>
     </tr>
     <tr>
       <td class="td-gold">FX5: Global Glue</td>
-      <td>RT60: 3.5-4.0s（長め、薄くかける）</td>
+      <td><strong>PhoenixVerb</strong></td>
+      <td>3.5–4.5s<br>Large Hall</td>
       <td>50ms</td>
+      <td>混合率を極力低く。全員を同じ空気感で包む。Wet量は -18〜-20dBで薄くかける。</td>
       <td>全セクションから -18〜-20dB</td>
     </tr>
+    <tr>
+      <td class="td-gold" style="color:var(--muted)">FX6: 8dio弦楽<br>（Seventh Heaven導入後）</td>
+      <td><em>Seventh Heaven Standard</em><br><span style="color:var(--muted);font-size:0.8rem">（$69 → 最初の追加投資）</span></td>
+      <td>2.0–2.8s<br>Concert Hall / Amsterdam Hall</td>
+      <td>20–30ms</td>
+      <td>ER/Tailを独立制御。8dioの部屋感を払拭してBricasti M7の格調あるホールへ置換。</td>
+      <td>8dio: -12〜-15dB<br>（Close Mics中心で使用時）</td>
+    </tr>
   </table>
+
+  <div class="alert alert-red" style="margin-top:1.5rem">
+    <strong>Valhalla Room 最重要設定 — High Cut:</strong> 5000〜6500Hzにハイカットを必ず入れること。これをしないと高音がリバーブで過度に拡散し「玩具っぽいホール感」になる。VI-Controlのオーケストラミキサーが口を揃える最重要パラメータ。
+  </div>
 </section>
 
 <!-- ============================================================ -->
