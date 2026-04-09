@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>andAugment — 制作ガイド</title>
+<style>
+  :root {
+    --bg: #0f0a1a;
+    --bg2: #1a1030;
+    --bg3: #231545;
+    --gold: #c9a227;
+    --gold2: #e8c55a;
+    --purple: #7b4fa6;
+    --text: #e8e0f0;
+    --muted: #9080b0;
+    --border: #3a2860;
+    --green: #4caf7d;
+    --red: #e05c5c;
+    --blue: #5c9ae0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #0f0a1a 0%, #1a0a30 50%, #0f0a1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201,162,39,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero p { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.1em; }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 24px 40px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* Layout */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+
+  /* Sections */
+  section { padding: 60px 0 20px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 .num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    margin-right: 12px;
+    color: var(--gold);
+  }
+  h3 {
+    font-size: 1rem;
+    color: var(--gold2);
+    font-weight: 500;
+    margin: 32px 0 12px;
+    letter-spacing: 0.05em;
+  }
+  h4 {
+    font-size: 0.85rem;
+    color: var(--purple);
+    font-weight: 600;
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  p { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+
+  /* Cards */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 0.88rem;
+  }
+  th {
+    background: var(--bg3);
+    color: var(--gold);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(58,40,96,0.4);
+    color: var(--text);
+  }
+  tr:hover td { background: rgba(123,79,166,0.08); }
+  .center { text-align: center; }
+
+  /* Code blocks */
+  .prompt {
+    background: #080514;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 20px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.82rem;
+    color: #d0c8e8;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    margin: 12px 0 24px;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 2px;
+  }
+  .tag-gold { background: rgba(201,162,39,0.15); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); }
+  .tag-purple { background: rgba(123,79,166,0.15); color: #b08ad4; border: 1px solid rgba(123,79,166,0.3); }
+  .tag-green { background: rgba(76,175,125,0.12); color: var(--green); border: 1px solid rgba(76,175,125,0.25); }
+  .tag-blue { background: rgba(92,154,224,0.12); color: var(--blue); border: 1px solid rgba(92,154,224,0.25); }
+  .tag-red { background: rgba(224,92,92,0.12); color: var(--red); border: 1px solid rgba(224,92,92,0.25); }
+
+  /* Signal flow */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    font-size: 0.85rem;
+  }
+  .flow-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .flow-arrow { color: var(--gold); font-size: 1.1rem; }
+  .flow-fx {
+    background: rgba(201,162,39,0.1);
+    border-color: rgba(201,162,39,0.4);
+    color: var(--gold2);
+  }
+  .flow-bus {
+    background: rgba(123,79,166,0.15);
+    border-color: rgba(123,79,166,0.4);
+    color: #b08ad4;
+  }
+
+  /* Pan diagram */
+  .pan-bar {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    gap: 10px;
+    font-size: 0.83rem;
+  }
+  .pan-label { width: 160px; color: var(--text); flex-shrink: 0; }
+  .pan-track {
+    flex: 1;
+    height: 8px;
+    background: var(--bg3);
+    border-radius: 4px;
+    position: relative;
+  }
+  .pan-dot {
+    position: absolute;
+    top: -3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  .pan-center { width: 1px; height: 100%; background: var(--border); position: absolute; left: 50%; }
+  .dot-strings { background: var(--green); }
+  .dot-brass { background: var(--gold); }
+  .dot-ww { background: var(--blue); }
+  .dot-perc { background: var(--red); }
+
+  /* Warning / note boxes */
+  .note {
+    background: rgba(201,162,39,0.06);
+    border: 1px solid rgba(201,162,39,0.2);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 0.85rem;
+    color: #c0b080;
+    margin: 16px 0;
+  }
+  .note strong { color: var(--gold); }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>andAugment — Production Guide</h1>
+  <p>Cubase オーケストラテンプレート・MIX・リファレンスプロンプト 完全ガイド</p>
+</div>
+
+<nav class="nav">
+  <a href="#suno">Suno / Wondera プロンプト</a>
+  <a href="#template">テンプレート構成</a>
+  <a href="#panning">パン配置</a>
+  <a href="#reverb">リバーブ設計</a>
+  <a href="#libraries">ライブラリ設定</a>
+  <a href="#mix">MIXワークフロー</a>
+  <a href="#cubase">Cubase 実装手順</a>
+</nav>
+
+<div class="container">
+
+  <!-- ===================== SUNO / WONDERA ===================== -->
+  <section id="suno">
+    <h2><span class="num">1</span>Suno / Wondera — リファレンスプロンプト</h2>
+
+    <p>生成した音源は<strong>完成品ではなくリファレンス</strong>として使用する。構成・展開・テンション感の参考に。</p>
+
+    <h3>Suno プロンプト — Epic Battle Orchestral（澤野弘之風）</h3>
+    <div class="prompt">epic orchestral battle music, Hiroyuki Sawano style, cinematic game soundtrack,
+driving cello ostinato, powerful brass fanfare, soaring choir vocals,
+thunderous taiko percussion, emotional string swells, intense rhythmic pulse,
+dark fantasy RPG boss battle, 140-160 BPM, hybrid orchestral,
+minor key, dramatic tension and release, triple forte climax,
+no electric guitar, pure orchestral power</div>
+
+    <h3>Suno プロンプト — Epic Battle（よりハイブリッド）</h3>
+    <div class="prompt">cinematic hybrid orchestral, epic battle theme, dark fantasy game score,
+aggressive low brass, driving string ostinato, tribal percussion, epic choir,
+electronic bass pulses, tension building, explosive climax,
+influenced by Two Steps From Hell and Hiroyuki Sawano,
+140 BPM, minor scale, war and glory, emotionally overwhelming</div>
+
+    <h3>Wondera / Udio プロンプト</h3>
+    <div class="prompt">Genre: Epic Orchestral / Cinematic Game Music
+Mood: Intense, Dramatic, Powerful, Dark Fantasy
+Instrumentation: Full Orchestra — Strings (ostinato), Brass (fanfare), Choir (Latin vocals),
+  Taiko Drums, Timpani, Cinematic Percussion
+BPM: 150
+Key: D minor
+Structure: Intro buildup → Driving verse → Explosive chorus → Bridge breakdown → Final climax
+Reference: Hiroyuki Sawano - Attack on Titan OST, Two Steps From Hell - "Heart of Courage"
+Style notes: Heavy low-end foundation, sudden dynamic contrasts, sweeping string melody</div>
+
+    <div class="note">
+      <strong>使い方のコツ：</strong> 生成されたものの「構成」と「テンション曲線」だけを参考にする。実際の音色・質感は自分のライブラリで全部作り直す前提で聴く。
+    </div>
+  </section>
+
+  <!-- ===================== TEMPLATE ===================== -->
+  <section id="template">
+    <h2><span class="num">2</span>Cubase オーケストラテンプレート構成</h2>
+
+    <h3>全体のシグナルフロー</h3>
+    <div class="flow">
+      <div class="flow-box">Instrument Track</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-bus">Section Group</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-bus">Orchestral Bus</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-bus">Master Bus</div>
+    </div>
+    <div class="flow">
+      <div class="flow-box">Instrument Track</div>
+      <div class="flow-arrow">↘ Send</div>
+      <div class="flow-box flow-fx">Section Reverb FX</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-bus">Orchestral Bus</div>
+    </div>
+    <div class="flow">
+      <div class="flow-box flow-bus">Section Groups</div>
+      <div class="flow-arrow">↘ Send</div>
+      <div class="flow-box flow-fx">Global Reverb FX</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-bus">Master Bus</div>
+    </div>
+
+    <h3>推奨トラック構成</h3>
+
+    <h4>STRINGS（緑）</h4>
+    <table>
+      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
+      <tr><td>Vln I</td><td>Spitfire Studio Strings</td><td>メイン旋律・高音域</td></tr>
+      <tr><td>Vln II</td><td>Spitfire Studio Strings</td><td>ハーモニー・オスティナート</td></tr>
+      <tr><td>Vla</td><td>Spitfire Studio Strings</td><td>中域の厚み</td></tr>
+      <tr><td>Vc</td><td>8dio Century Strings または Spitfire</td><td>低域旋律・チェロオスティナート</td></tr>
+      <tr><td>Cb</td><td>8dio Century Strings または Spitfire</td><td>基礎低音</td></tr>
+      <tr><td>Vln I Sord</td><td>Spitfire Sordino</td><td>静かなセクション用（別トラック）</td></tr>
+      <tr><td>Vc Sord</td><td>Spitfire Sordino</td><td>静かなセクション用</td></tr>
+    </table>
+
+    <h4>BRASS（金）</h4>
+    <table>
+      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
+      <tr><td>Horns</td><td>Infinite Brass</td><td>コード・中域を埋める</td></tr>
+      <tr><td>Trumpets</td><td>Infinite Brass</td><td>ファンファーレ・主旋律</td></tr>
+      <tr><td>Trombones</td><td>Infinite Brass</td><td>低域ブラス・重厚感</td></tr>
+      <tr><td>Tuba</td><td>Infinite Brass</td><td>最低音域の土台</td></tr>
+    </table>
+
+    <h4>WOODWINDS（青）</h4>
+    <table>
+      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
+      <tr><td>Flutes</td><td>Infinite Woodwinds</td><td>高音域・透明感</td></tr>
+      <tr><td>Clarinets</td><td>Infinite Woodwinds</td><td>中高音域</td></tr>
+      <tr><td>Oboes</td><td>Infinite Woodwinds</td><td>旋律・色彩</td></tr>
+      <tr><td>Bassoons</td><td>Infinite Woodwinds</td><td>低木管</td></tr>
+    </table>
+
+    <h4>PERCUSSION（赤）</h4>
+    <table>
+      <tr><th>トラック名</th><th>ライブラリ</th><th>用途</th></tr>
+      <tr><td>Cinematic Perc 1</td><td>Damage</td><td>エピックヒット・衝撃音</td></tr>
+      <tr><td>Cinematic Perc 2</td><td>TrueStrike</td><td>タイコ・ドラムロール</td></tr>
+      <tr><td>HZ Percussion</td><td>Hans Zimmer Percussion</td><td>シネマティック・ハイブリッド</td></tr>
+      <tr><td>Timpani</td><td>Superior Drums または専用</td><td>ティンパニロール・アクセント</td></tr>
+    </table>
+
+    <h4>PIANO / SYNTH / BASS（紫）</h4>
+    <table>
+      <tr><th>トラック名</th><th>ライブラリ</th><th>備考</th></tr>
+      <tr><td>Piano</td><td>Keyscape（Concert Grand）</td><td>エモーショナルセクション</td></tr>
+      <tr><td>Synth Main</td><td>Serum 2</td><td>テクスチャー・パッド・リード</td></tr>
+      <tr><td>Synth Pad</td><td>Omnisphere / Avenger</td><td>広がり・雰囲気</td></tr>
+      <tr><td>Bass</td><td>Trilian</td><td>バトル曲の低音強化</td></tr>
+      <tr><td>Guitar（Elec）</td><td>Shreddage</td><td>ハイブリッドアクセント</td></tr>
+    </table>
+
+    <h3>グループ・バス構成（Cubase）</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>セクショングループ</h4>
+        <p>Strings Group<br>Brass Group<br>Woodwinds Group<br>Percussion Group<br>Piano/Keys Group<br>Synth Group<br>Bass/Guitar Group</p>
+      </div>
+      <div class="card">
+        <h4>FXチャンネル（リバーブ）</h4>
+        <p>FX1: String Reverb<br>FX2: Brass Reverb<br>FX3: WW Reverb<br>FX4: Perc Reverb<br>FX5: Global Reverb（全セクションから少量Send）</p>
+      </div>
+      <div class="card">
+        <h4>マスターバス</h4>
+        <p>Orchestral Master Bus<br>↳ 全グループが集まる<br>↳ 軽くグルーコンプ<br>↳ Ozone で最終処理</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANNING ===================== -->
+  <section id="panning">
+    <h2><span class="num">3</span>パン配置（指揮者視点）</h2>
+
+    <p>指揮者から見た配置を基本とする。<strong>Left = 指揮者から見て左 = 客席から見て左</strong>。</p>
+
+    <div class="note"><strong>重要：</strong> ライブラリによってすでにステレオイメージが広いものがある（8dio等）。そのままパンすると広がりすぎるため、ステレオ幅を先に調整してからパンをかける。</div>
+
+    <h3>弦楽器</h3>
+    <div class="pan-bar">
+      <div class="pan-label">1st Violins</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-strings" style="left:25%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L50〜60</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">2nd Violins</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-strings" style="left:35%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L20〜30</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Violas</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-strings" style="left:52%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">C〜R10</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Cellos</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-strings" style="left:62%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R20〜30</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Contrabasses</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-strings" style="left:72%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R40〜50</span>
+    </div>
+
+    <h3>金管楽器</h3>
+    <div class="pan-bar">
+      <div class="pan-label">French Horns</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-brass" style="left:35%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L20〜30</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Trumpets</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-brass" style="left:62%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R20〜30</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Trombones</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-brass" style="left:67%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R30〜40</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Tuba</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-brass" style="left:72%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R40〜50</span>
+    </div>
+
+    <h3>木管楽器</h3>
+    <div class="pan-bar">
+      <div class="pan-label">Flutes</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-ww" style="left:43%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L10〜15</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Clarinets</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-ww" style="left:45%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L5〜10</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Oboes</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-ww" style="left:55%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R5〜10</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Bassoons</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-ww" style="left:57%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">R10〜15</span>
+    </div>
+
+    <h3>打楽器</h3>
+    <div class="pan-bar">
+      <div class="pan-label">Timpani</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-perc" style="left:40%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">L10〜C</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Snare / SD</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-perc" style="left:50%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">Center</span>
+    </div>
+    <div class="pan-bar">
+      <div class="pan-label">Taiko / Damage</div>
+      <div class="pan-track">
+        <div class="pan-center"></div>
+        <div class="pan-dot dot-perc" style="left:50%"></div>
+      </div>
+      <span style="color:var(--muted);font-size:0.8rem">Center〜広がり</span>
+    </div>
+  </section>
+
+  <!-- ===================== REVERB ===================== -->
+  <section id="reverb">
+    <h2><span class="num">4</span>リバーブ設計</h2>
+
+    <div class="note">
+      <strong>大原則：VST内蔵リバーブは全てOFF。</strong> 全てのリバーブはSend/Returnで一元管理する。これにより空間の統一感と後からの調整が可能になる。
+    </div>
+
+    <h3>推奨リバーブ構成（5チャンネル）</h3>
+
+    <table>
+      <tr><th>FXチャンネル</th><th>プラグイン</th><th>設定目安</th><th>用途</th></tr>
+      <tr>
+        <td>FX1 String Reverb</td>
+        <td>Air Studios Reverb</td>
+        <td>Decay 2.5〜3.0s / Pre-delay 20ms</td>
+        <td>弦楽器専用ホール</td>
+      </tr>
+      <tr>
+        <td>FX2 Brass Reverb</td>
+        <td>Air Studios Reverb</td>
+        <td>Decay 2.0〜2.5s / Pre-delay 30ms</td>
+        <td>金管専用（少し後方）</td>
+      </tr>
+      <tr>
+        <td>FX3 WW Reverb</td>
+        <td>Air Studios Reverb</td>
+        <td>Decay 2.0s / Pre-delay 15ms</td>
+        <td>木管（前方・近い）</td>
+      </tr>
+      <tr>
+        <td>FX4 Perc Reverb</td>
+        <td>Air Studios Reverb</td>
+        <td>Decay 1.5〜2.0s / Pre-delay 5ms</td>
+        <td>打楽器（短め・鋭い）</td>
+      </tr>
+      <tr>
+        <td>FX5 Global Reverb</td>
+        <td>Air Studios Reverb</td>
+        <td>Decay 3.5〜4.0s / Pre-delay 50ms</td>
+        <td>全体をホールに置く「グルー」</td>
+      </tr>
+    </table>
+
+    <h3>Send量の目安</h3>
+    <table>
+      <tr><th>セクション</th><th>セクションリバーブSend</th><th>Globalリバーブ Send</th></tr>
+      <tr><td>1st/2nd Violins</td><td>-12dB〜-9dB</td><td>-18dB〜-15dB</td></tr>
+      <tr><td>Violas / Cellos</td><td>-15dB〜-12dB</td><td>-18dB</td></tr>
+      <tr><td>Contrabasses</td><td>-18dB（控えめ）</td><td>-20dB</td></tr>
+      <tr><td>Brass（全体）</td><td>-12dB〜-9dB</td><td>-15dB</td></tr>
+      <tr><td>Woodwinds</td><td>-15dB〜-12dB</td><td>-18dB</td></tr>
+      <tr><td>Cinematic Perc</td><td>-9dB〜-6dB</td><td>-12dB</td></tr>
+      <tr><td>Timpani</td><td>-12dB</td><td>-15dB</td></tr>
+    </table>
+
+    <h3>Spitfire vs 8dio のリバーブ処理の違い</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>Spitfire Studio Strings</h4>
+        <p><span class="tag tag-green">ドライ録音</span></p>
+        <p>AIR Studio 1で収録。意図的にドライな録音のため、リバーブは完全に自分で追加する。Send量は多めでOK。</p>
+      </div>
+      <div class="card">
+        <h4>8dio Century Strings</h4>
+        <p><span class="tag tag-purple">ホール録音</span></p>
+        <p>大きなホールで収録されており、すでに空間感がある。Sendは控えめに。Spitfireと混ぜるときは干渉注意。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>実用的なヒント：</strong> 8dio Century Stringsはチェロとコントラバスのみに使い、高音弦はSpitfireに統一するとルーム感の差が出にくい。
+    </div>
+  </section>
+
+  <!-- ===================== LIBRARIES ===================== -->
+  <section id="libraries">
+    <h2><span class="num">5</span>ライブラリ別設定ガイド</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Spitfire Studio Strings / Sordino</h4>
+        <p>内蔵リバーブ（Room）: <strong>OFF</strong><br>
+        Microphone mix: Close + Tree（50/50）<br>
+        Expression / Dynamics CC: CC11/CC1<br>
+        Sordino: 弦のソフトセクション専用に別トラック</p>
+      </div>
+      <div class="card">
+        <h4>8dio Century Strings</h4>
+        <p>内蔵リバーブ: <strong>OFF or 最小</strong><br>
+        ステレオ幅を少し絞る（〜70%）<br>
+        Spitfireと混ぜる場合はEQで2kHz帯を調整</p>
+      </div>
+      <div class="card">
+        <h4>Infinite Brass / Woodwinds</h4>
+        <p>内蔵リバーブ: <strong>OFF</strong><br>
+        Legato mode使用時はポルタメント調整<br>
+        CC2（Breath）で音量・表情をコントロール</p>
+      </div>
+      <div class="card">
+        <h4>Damage / TrueStrike / HZ Perc</h4>
+        <p>内蔵リバーブ: <strong>OFF</strong><br>
+        Damage: トランジェント強めに設定<br>
+        HZ Perc: ダイナミクスCC127推奨</p>
+      </div>
+      <div class="card">
+        <h4>Keyscape（Piano）</h4>
+        <p>内蔵リバーブ: <strong>OFF</strong>（Springだけ残しても可）<br>
+        Concert Grand推奨<br>
+        Close mic中心で後からFX Reverb</p>
+      </div>
+      <div class="card">
+        <h4>Shreddage（Guitar）</h4>
+        <p>アンプシミュレーター: Shreddage内臓 or 外部<br>
+        バトル曲では高域を少し削ってオケに馴染ませる<br>
+        Sendリバーブは控えめ（-18dB程度）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MIX ===================== -->
+  <section id="mix">
+    <h2><span class="num">6</span>MIXワークフロー</h2>
+
+    <h3>現状（iZotope）vs UAD — 正直な比較</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>iZotope Neutron + Ozone（現状）</h4>
+        <p><span class="tag tag-green">今すぐ使える</span> <span class="tag tag-blue">AI支援あり</span></p>
+        <p>Neutron 5のMix Assistantはオーケストラにも有効。Ozoneのマスタリングは出口として十分な品質。<br><br>
+        <strong>弱点：</strong> アナログ感・倍音感が薄い。キャラクターが出にくい。</p>
+      </div>
+      <div class="card">
+        <h4>UAD サブスク</h4>
+        <p><span class="tag tag-gold">音質向上</span> <span class="tag tag-red">月額コスト</span></p>
+        <p>Neve 1073/SSL G Bus/Manley Varimu等のアナログエミュが使える。シネマティックのグルー感・厚みは明確に変わる。<br><br>
+        <strong>弱点：</strong> 月額$19.99〜。曲が完成してからでも遅くない。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>結論：</strong> Phase 1（最初の2曲）はiZotope + FabFilterで十分。曲が完成してから必要と感じたらUADを検討。今は制作スピードが最優先。
+    </div>
+
+    <h3>推奨MIXチェーン（セクショングループ）</h3>
+    <table>
+      <tr><th>グループ</th><th>Insert処理</th><th>ポイント</th></tr>
+      <tr>
+        <td>Strings Group</td>
+        <td>FabFilter Pro-Q3 → 軽いコンプ → Neutron</td>
+        <td>200Hz以下をカット、8kHz帯を少し上げて輝きを出す</td>
+      </tr>
+      <tr>
+        <td>Brass Group</td>
+        <td>FabFilter Pro-Q3 → サチュレーション</td>
+        <td>300〜500Hzのこもりを削る、トランジェントは触らない</td>
+      </tr>
+      <tr>
+        <td>WW Group</td>
+        <td>FabFilter Pro-Q3（軽め）</td>
+        <td>基本的に触らない。存在感が薄い場合は2〜4kHz少し上げ</td>
+      </tr>
+      <tr>
+        <td>Perc Group</td>
+        <td>Transient Shaper → コンプ → EQ</td>
+        <td>アタックを前に出す。低域は80Hz以上に集中</td>
+      </tr>
+      <tr>
+        <td>Master Bus</td>
+        <td>Neutron Mix Bus → Ozone</td>
+        <td>軽いグルーコンプ（1〜2dB GR）。Ozoneで-1〜-0.5 LUFS目標</td>
+      </tr>
+    </table>
+
+    <h3>シネマティック楽曲のラウドネス目標</h3>
+    <table>
+      <tr><th>用途</th><th>ターゲット</th></tr>
+      <tr><td>Spotify / Apple Music配信</td><td>-14 LUFS (integrated)</td></tr>
+      <tr><td>YouTube</td><td>-13〜-14 LUFS</td></tr>
+      <tr><td>ライセンス（Fab / AudioJungle）</td><td>-16〜-14 LUFS</td></tr>
+      <tr><td>True Peak</td><td>-1 dBTP 以下</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== CUBASE STEPS ===================== -->
+  <section id="cubase">
+    <h2><span class="num">7</span>Cubase 実装手順（テンプレート作成）</h2>
+
+    <h3>Step 1: グループチャンネル作成</h3>
+    <p>「プロジェクト」→「トラックを追加」→「グループ」で以下を作成：</p>
+    <p>Strings / Brass / Woodwinds / Percussion / Keys / Synth / Bass&Guitar / Orchestral Master</p>
+
+    <h3>Step 2: FXチャンネル作成（リバーブ）</h3>
+    <p>「プロジェクト」→「トラックを追加」→「FX」で5つ作成。Air Studios Reverbをインサート。各リバーブは<strong>100% WET</strong>に設定。</p>
+
+    <h3>Step 3: 楽器トラック追加とルーティング</h3>
+    <p>各インストゥルメントトラックの出力を対応するグループに設定。Send欄からFXチャンネルへの量を設定。</p>
+
+    <h3>Step 4: セクショングループをOrchestral Masterへ</h3>
+    <p>各セクショングループの出力を「Orchestral Master」グループに設定。FXチャンネルも同様。</p>
+
+    <h3>Step 5: テンプレートとして保存</h3>
+    <p>「ファイル」→「テンプレートとして保存」→「andAugment_EPIC_BATTLE_v1」</p>
+
+    <div class="note">
+      <strong>Track Delay について：</strong> 一部ライブラリはレイテンシーが大きい（特にLegato音源）。CubaseのインスペクターのTrack Delayで-100ms程度マイナス値を設定するとタイミングが改善する場合がある。
+    </div>
+
+    <h3>MIDIコントローラー割り当て（推奨）</h3>
+    <table>
+      <tr><th>CC</th><th>用途</th></tr>
+      <tr><td>CC1 (Mod Wheel)</td><td>ダイナミクス / Dynamics（多くのSpitfireライブラリ）</td></tr>
+      <tr><td>CC2</td><td>ブレス / Breath（Infiniteシリーズ）</td></tr>
+      <tr><td>CC11</td><td>エクスプレッション（全体の音量表情）</td></tr>
+      <tr><td>CC64</td><td>サステインペダル</td></tr>
+    </table>
+  </section>
+
+</div>
+
+<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:60px;">
+  andAugment Production Guide — 2026 | 調査: VI-Control / Flypaper / Composer Focus / ImprovMX Docs
+</div>
+
+</body>
+</html>
