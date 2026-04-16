@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>andAugment — Epic Battle Production Guide v2</title>
+<title>andAugment — Epic Battle Production Guide v3</title>
 <style>
   :root {
     --bg: #0a0714;
@@ -176,20 +176,22 @@
 <div class="hero">
   <div class="hero-badge">andAugment / Epic Orchestral Game Music</div>
   <h1>Production Guide</h1>
-  <p>Cubase テンプレート · ライブラリ設定 · MIX · 澤野弘之分析 · 作曲技法</p>
-  <span class="ver">Version 2.0 — 6エージェント並列調査 · VI-Control / Gearspace / 公式ドキュメント参照</span>
+  <p>Cubase 15テンプレート · ライブラリ設定 · MIX · 澤野弘之分析 · 作曲技法 · 販売ロードマップ</p>
+  <span class="ver">Version 3.0 — 2026-04-16 更新 · Perplexity / VI-Control / 公式ドキュメント / Fab.com / Epidemic Sound 調査</span>
 </div>
 
 <nav class="nav">
   <a href="#correction">⚠ 前回修正</a>
   <a href="#sawano">澤野弘之分析</a>
   <a href="#composition">作曲技法</a>
-  <a href="#template">Cubaseテンプレート</a>
+  <a href="#template">Cubase 15テンプレート</a>
   <a href="#infinite">Infinite Brass/WW</a>
   <a href="#strings">Spitfire + 8dio</a>
   <a href="#panning">パン配置</a>
   <a href="#reverb">リバーブ設計</a>
   <a href="#mix">MIXチェーン</a>
+  <a href="#distribution">配信・販売</a>
+  <a href="#roadmap">ロードマップ</a>
   <a href="#suno">Sunoプロンプト</a>
 </nav>
 
@@ -417,7 +419,7 @@ Em — F — Em — D</div>
     <li><strong>シンコペーション = 危険のシグナル</strong> — オフビートアクセントで敵の強大さを表現（シモムラ・植松流）</li>
   </ul>
 
-  <h3>Spotify/YouTube戦略（2025最新）</h3>
+  <h3>Spotify/YouTube戦略（2026最新）</h3>
   <div class="cards">
     <div class="card">
       <h4>YouTube</h4>
@@ -426,31 +428,51 @@ Em — F — Em — D</div>
       <p>タグ: epic orchestral music, game battle music, cinematic orchestra, JRPG music, boss battle music</p>
     </div>
     <div class="card">
-      <h4>Spotify（2025）</h4>
+      <h4>Spotify（2026）</h4>
       <p><strong>Save rate</strong>（再生回数より3倍重要）と<strong>Repeat-listen ratio</strong>がアルゴリズムを動かす。</p>
       <p>リリース<strong>4週間前</strong>に Editorial Pitch を送信（必須）。</p>
       <p>SubmitHub「Epic Music Playlists」キュレーターへのアウトリーチ。</p>
+    </div>
+    <div class="card">
+      <h4>TikTok / Instagram Reels（2026 追加）</h4>
+      <p>15-60秒のバトル曲ハイライト。<strong>作曲プロセスの裏側</strong>（Cubase画面録画 + 楽曲再生）が最もエンゲージメントが高い。「100% Human-Composed」タグで差別化。</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <section id="template">
-  <h2><span class="sec-num">3</span>Cubase プロフェッショナルテンプレート設計</h2>
+  <h2><span class="sec-num">3</span>Cubase 15 プロフェッショナルテンプレート設計</h2>
 
   <div class="alert alert-blue">
-    <strong>調査ソース:</strong> VI-Control Orchestral Template スレッド群、Steinbergフォーラム、Art Conductor (BabylonWaves)公式、Negative Track Delay Database (VI-Control)
+    <strong>調査ソース:</strong> VI-Control Orchestral Template スレッド群、Steinbergフォーラム、Art Conductor (BabylonWaves)公式、Negative Track Delay Database (VI-Control)、Cubase 15 Release Notes (Steinberg公式 2026)
   </div>
 
   <div class="alert alert-red">
     <strong>重要原則:</strong> テンプレート構築に2〜3日以上かけるな。コアスケルトン（5楽器）を作って実際に曲を書き始める。実際の制作から必要なものが見えてくる。
   </div>
 
-  <h3>推奨Cubaseバージョン: Cubase Pro 14</h3>
-  <p>Cubase 14でCPU処理効率が大幅改善（VI-Controlユーザー報告: ピークCPU 25%→12-15%）。大規模テンプレートでの差が顕著。</p>
+  <h3>推奨Cubaseバージョン: Cubase Pro 15（2026年リリース）</h3>
+  <p>Cubase 14のCPU処理効率改善に加え、Cubase 15ではオーケストラ作曲者にとって革新的な機能が追加された。MusicTech「これまで使った中で最も多用途なDAW」と評価。</p>
 
-  <h3>必須機能（4つ）</h3>
+  <div class="alert alert-green">
+    <strong>Cubase 15 — オーケストラ作曲者向け3大新機能:</strong><br>
+    ① <strong>Expression Maps完全刷新</strong> — per-articulation attack compensation（アーティキュレーションごとのアタック補正）、separation timing、exclusive groups（排他グループ命名）、視覚的UIリデザイン。Art Conductor (BabylonWaves)も完全再設計版をリリース済。<br>
+    ② <strong>Score Editor強化 + Dorico連携</strong> — Steinbergの専用楽譜ソフトDorico との緊密な統合。楽譜表示と再生の連携が大幅向上。<br>
+    ③ <strong>Iconica Sketch同梱</strong> — Cubase Pro 15に50GB超のオーケストラサウンド（3,000音色以上）が付属。スケッチ用途に十分。
+  </div>
+
+  <div class="alert alert-gold">
+    <strong>Expression Maps v2 がもたらす変化:</strong><br>
+    旧バージョンの最大の問題だった「Shorts/Longsを別トラックにしないとNegative Track Delayが共存できない」問題が、<strong>per-articulation attack compensation</strong>で解決。1トラック内で各アーティキュレーションに個別のオフセットを設定できるようになった。ただし旧式マップも下位互換で動作する。
+  </div>
+
+  <h3>必須機能（5つ — Cubase 15更新）</h3>
   <div class="cards">
+    <div class="card">
+      <h4>Expression Maps v2（NEW in C15）</h4>
+      <p>per-articulation attack compensation: Legato -80ms / Staccato -20ms を同一トラック内で設定可能。exclusive groups で「Sustain/Marcato/Staccato」を排他グループにまとめ、自動切り替え。Art Conductor C15対応版が推奨。</p>
+    </div>
     <div class="card">
       <h4>VCAフェーダー</h4>
       <p>グループトラックより優れている理由: 相対的で非破壊的。個別トラックのオートメーションを壊さずにセクション全体のレベルを動かせる。入れ子にできる（楽器VCA → セクションVCA → マスターVCA）。</p>
@@ -461,7 +483,7 @@ Em — F — Em — D</div>
     </div>
     <div class="card">
       <h4>Negative Track Delay</h4>
-      <p>Kontaktライブラリには「音が鳴り始めるまでの時間」がある。インスペクターのDelayフィールドにマイナス値を設定してグリッドに合わせる。<strong>VI-Control Negative Track Delay Database Spreadsheet</strong>が標準値を網羅している。</p>
+      <p>Kontaktライブラリには「音が鳴り始めるまでの時間」がある。インスペクターのDelayフィールドにマイナス値を設定してグリッドに合わせる。<strong>VI-Control Negative Track Delay Database Spreadsheet</strong>が標準値を網羅。C15のExpression Maps v2ではper-articulation補正で代替可能なケースも。</p>
     </div>
     <div class="card">
       <h4>Disabled Tracks（デフォルト無効化）</h4>
@@ -494,7 +516,8 @@ FX RETURNS
   Hall Reverb / Room Reverb / Perc Reverb / Global Glue Reverb</div>
 
   <div class="alert alert-gold">
-    <strong>Shorts/Longsは必ず別トラック。</strong> Expression Mapsで同一トラック内で切り替えると、Negative Track DelayをアーティキュレーションごとにConditionできない（Legato -80ms / Staccato -20ms が同一トラックでは両立しない）。
+    <strong>Cubase 14以前: Shorts/Longsは必ず別トラック。</strong> Expression Mapsで同一トラック内で切り替えると、Negative Track DelayをアーティキュレーションごとにConditionできない（Legato -80ms / Staccato -20ms が同一トラックでは両立しない）。<br>
+    <strong>Cubase 15: per-articulation attack compensationで解決可能。</strong> ただし安全策として別トラック運用を推奨（MIXチェーンをアーティキュレーション別に変えたいケースが多いため）。
   </div>
 
   <h3>Kontakt ルーティング戦略</h3>
@@ -504,8 +527,11 @@ FX RETURNS
     <tr><td>マルチティンバル（複数出力）</td><td>バックグラウンドテクスチャー、RAM制約時</td><td>設定が複雑。Expression Maps管理が難しい</td></tr>
   </table>
 
-  <h3>Expression Maps: Art Conductor (BabylonWaves)</h3>
+  <h3>Expression Maps: Art Conductor (BabylonWaves) — C15対応版</h3>
   <p>Spitfire、VSL、EW、Aaron Venture等の主要ライブラリ向けに事前構築されたExpression Maps集。手動で作るのに数週間かかるものが即使える。Cubase専用設計。</p>
+  <div class="alert alert-green">
+    <strong>2026年更新:</strong> Art ConductorはCubase 15のExpression Maps v2に完全対応した再設計版をリリース済。articulation combinations（組み合わせ）とexclusion groups（排他グループ）を活用した新しいマップ構成。旧バージョンからの移行も可能。
+  </div>
 
   <h3>VEPro 7 — 必要か？</h3>
   <p><strong>最初のテンプレートでは不要。</strong> RAMが80-100GBを超えてプロジェクト読み込み/保存が問題になってから検討する。VEProの本質的価値は「1日に1回ロードするだけでいい」デカップリング機能。</p>
@@ -526,10 +552,18 @@ FX RETURNS
 
 <!-- ============================================================ -->
 <section id="infinite">
-  <h2><span class="sec-num">4</span>Aaron Venture Infinite Brass &amp; Woodwinds — 完全設定ガイド</h2>
+  <h2><span class="sec-num">4</span>Aaron Venture Infinite Brass 1.6 &amp; Woodwinds 2.0 — 完全設定ガイド</h2>
 
   <div class="alert alert-red">
-    <strong>注意:</strong> これはOrchestrall Toolsではなく<strong>Aaron Venture</strong>のライブラリ。物理モデリング/IR-ハイブリッドエンジン。キースイッチなし。全ての表情はCC1+ベロシティ+音価の組み合わせで自動生成される。
+    <strong>注意:</strong> これはOrchestral Toolsではなく<strong>Aaron Venture</strong>のライブラリ。物理モデリング/IR-ハイブリッドエンジン。キースイッチなし。全ての表情はCC1+ベロシティ+音価の組み合わせで自動生成される。
+  </div>
+
+  <div class="alert alert-green">
+    <strong>2026年 最新バージョン情報:</strong><br>
+    <strong>Infinite Woodwinds 2.0</strong> — 全楽器フルリメイク。新Space Selection GUI、Positioner GUI、Humanize、Attack Accuracy、Legato Minimum、拡張ピッチベンドレンジ。ソプラノサックス×2追加でダブルSATBサクソフォンセクション構築可能。<br>
+    <strong>Infinite Brass 1.6</strong> — 現行安定版。ネイティブエンジン版が開発中（リリース日未定）。<br>
+    <strong>Infinite Strings</strong> — Brass/WWのネイティブエンジン完了後にリリース予定。<br>
+    購入者は将来の全アップデート・拡張を無料で受け取れる。
   </div>
 
   <h3>完全CCマップ</h3>
@@ -1026,7 +1060,7 @@ Pro-R 2 Auto Gate: 有効 / Release 200-400ms（ランブル蓄積防止）</div
   </div>
 
   <!-- ===== REVERB MASTER COMPARISON ===== -->
-  <h3 style="margin-top:2.5rem">全リバーブ比較マスター表（2025年VI-Control調査）</h3>
+  <h3 style="margin-top:2.5rem">全リバーブ比較マスター表（2026年VI-Control調査）</h3>
 
   <table>
     <tr>
@@ -1193,18 +1227,232 @@ Pro-R 2 Auto Gate: 有効 / Release 200-400ms（ランブル蓄積防止）</div
    Orchestral: -13〜-14 LUFS integrated
    ダイナミクスを壊さない透明なリミッティング</div>
 
-  <h3>ラウドネス目標</h3>
+  <h3>ラウドネス目標（2026年更新）</h3>
   <table>
-    <tr><th>配信先</th><th>LUFS (Integrated)</th><th>True Peak</th></tr>
-    <tr><td>Spotify / Apple Music</td><td class="td-gold">-14 LUFS</td><td>-1 dBTP</td></tr>
-    <tr><td>YouTube</td><td>-13〜-14 LUFS</td><td>-1 dBTP</td></tr>
-    <tr><td>Fab / AudioJungle (ライセンス)</td><td>-16〜-14 LUFS</td><td>-1 dBTP</td></tr>
+    <tr><th>配信先</th><th>LUFS (Integrated)</th><th>Short Term</th><th>True Peak</th><th>備考</th></tr>
+    <tr><td class="td-gold">Spotify / Apple Music</td><td class="td-gold">-14 LUFS</td><td>—</td><td>-1 dBTP</td><td>ダイナミクス優先。過度なリミッティング不要</td></tr>
+    <tr><td>YouTube</td><td>-13〜-14 LUFS</td><td>—</td><td>-1 dBTP</td><td>-13LUFSが実質標準</td></tr>
+    <tr><td>Fab / AudioJungle (ライセンス)</td><td>-16〜-14 LUFS</td><td>—</td><td>-1 dBTP</td><td>ゲーム開発者が自分でマスタリングする前提</td></tr>
+    <tr><td class="td-gold">ゲーム内実装（コンソール）</td><td class="td-gold">-24 LUFS (±2LU)</td><td>-12〜-9 LUFS</td><td>-1 dBTP</td><td>Wwise/FMOD向け。ダイナミクスレンジ最大化</td></tr>
+    <tr><td>ゲーム内実装（モバイル）</td><td>-18 LUFS (±2LU)</td><td>—</td><td>-1 dBTP</td><td>スピーカー特性を考慮し少し大きめ</td></tr>
+    <tr><td>BOOTH / DLsite / AudioStock</td><td>-14〜-12 LUFS</td><td>—</td><td>-1 dBTP</td><td>日本市場。VTuber利用時のOBS設定を考慮</td></tr>
   </table>
+  <div class="alert alert-gold">
+    <strong>2026年のトレンド:</strong> 「-14 LUFSに合わせる」から「ジャンル内の他作品と比較して自然に聴こえるレベルに合わせる」へシフト。オーケストラ/シネマティック音楽はダイナミクスとコントラストで"インパクト"を作る。微細なピーク値より最も大きいセクションの「感触」を重視する。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="distribution">
+  <h2><span class="sec-num">9</span>配信・販売・ライセンス（2026年最新）</h2>
+
+  <div class="alert alert-blue">
+    <strong>調査ソース:</strong> Fab.com公式ドキュメント / Epidemic Sound公式 (2026 Q1) / CD Baby公式 / ASCAP・BMI公式 / SyncBrief "2026 Game Composer's Marketplace Guide" / AudioStock公式 / BOOTH / DLsite
+  </div>
+
+  <h3>配信プラットフォーム比較（2026年確定）</h3>
+  <table>
+    <tr><th>プラットフォーム</th><th>モデル</th><th>費用</th><th>取り分</th><th>用途</th><th>優先度</th></tr>
+    <tr>
+      <td class="td-gold"><strong>CD Baby</strong></td>
+      <td>買い切り</td>
+      <td>$9.99/曲 or アルバム</td>
+      <td>91%（9%手数料）</td>
+      <td>Spotify / Apple Music / Amazon 等全ストリーミング配信</td>
+      <td><span class="tag tag-g">Phase 1</span></td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Fab.com</strong><br>(旧UE Marketplace)</td>
+      <td>出品型</td>
+      <td>無料（出品費なし）</td>
+      <td><strong>88%</strong>（12%手数料）</td>
+      <td>ゲーム用BGMパック販売。UE/Unity/Godot/Blender全対応。WAV/MP3/OGG直接アップロード</td>
+      <td><span class="tag tag-g">Phase 2</span></td>
+    </tr>
+    <tr>
+      <td class="td-gold"><strong>Epidemic Sound</strong></td>
+      <td>先払い + ロイヤリティ</td>
+      <td>無料（招待/審査制）</td>
+      <td>先払い$2,000-8,000/曲 + Spotify 50/50 + Soundtrack Bonus (2026: 40M SEK総額)</td>
+      <td>映像制作者向け。YouTube/TikTok/企業映像のBGM</td>
+      <td><span class="tag tag-g">Phase 1</span></td>
+    </tr>
+    <tr>
+      <td><strong>Unity Asset Store</strong></td>
+      <td>出品型</td>
+      <td>無料</td>
+      <td>70%（30%手数料）</td>
+      <td>Unityゲーム開発者向け。Fabと両方出品が最適戦略</td>
+      <td><span class="tag tag-p">Phase 2</span></td>
+    </tr>
+  </table>
+
+  <div class="alert alert-gold">
+    <strong>Epidemic Sound 申請戦略:</strong> 曲が2曲完成したらすぐ申請。審査は提出順で処理されるため時間がかかる。PRO（ASCAP/BMI）登録前に申請すること（先払いモデルはPRO未登録者でも利用可能。Epidemic卒業後にASCAP登録する）。先払い額は曲の複雑さ・顧客需要・アーティストのスキルで決定。
+  </div>
+
+  <h3>日本市場向けプラットフォーム</h3>
+  <table>
+    <tr><th>プラットフォーム</th><th>特徴</th><th>価格帯</th><th>ターゲット</th></tr>
+    <tr>
+      <td class="td-gold"><strong>BOOTH</strong></td>
+      <td>BGM素材の出品が盛ん（7,900件以上）。手数料5.6%+22円。即時出品可能</td>
+      <td>¥500〜¥3,000/パック</td>
+      <td>VTuber・同人ゲーム・TRPG・マダミス</td>
+    </tr>
+    <tr>
+      <td><strong>DLsite</strong></td>
+      <td>成人向け含む同人市場最大手。BGM素材カテゴリあり。手数料35%</td>
+      <td>¥500〜¥2,000/パック</td>
+      <td>同人ゲーム制作者・VTuber</td>
+    </tr>
+    <tr>
+      <td><strong>AudioStock</strong></td>
+      <td>日本最大の著作権フリー音源プラットフォーム。48kHz/24bit品質。審査あり</td>
+      <td>¥1,210〜/曲（単品）</td>
+      <td>企業映像・CM・ゲーム・YouTube</td>
+    </tr>
+  </table>
+
+  <div class="alert alert-green">
+    <strong>日本市場のポイント:</strong> VTuber BGM需要が継続的に高い。BOOTH + DLsite両方に出品し、X（日本語アカウント）でプロモーション。Epic/Battle系は「ゲーム実況BGM」「配信用BGM」としても売れる。Fiverr/Etsyでは$30-75/曲でカスタムBGM受注も可能。
+  </div>
+
+  <h3>ASCAP / BMI 登録ガイド</h3>
+  <table>
+    <tr><th></th><th>ASCAP</th><th>BMI</th></tr>
+    <tr><td>ソングライター登録費</td><td class="td-gold">$50（1回のみ）</td><td><strong>無料</strong></td></tr>
+    <tr><td>パブリッシャー登録費</td><td>+$50</td><td>$150</td></tr>
+    <tr><td>ロイヤリティ支払い</td><td>四半期ごと（6-9ヶ月遅延）</td><td>四半期ごと（6-9ヶ月遅延）</td></tr>
+    <tr><td>推奨</td><td colspan="2">パブリッシャーアカウントも作成すること。作曲者分（50%）+出版者分（50%）= 100%のパフォーマンスロイヤリティ回収</td></tr>
+  </table>
+
+  <div class="alert alert-red">
+    <strong>タイミング重要:</strong> Epidemic Sound申請はASCAP/BMI登録<strong>前</strong>に行う。Epidemic Soundは独自のライセンスモデルを使用しており、PRO登録との兼ね合いがある。Phase 3（Epidemic卒業後）にASCAP登録する流れが最も収益を最大化する。
+  </div>
+
+  <h3>DistroKid vs CD Baby — andAugmentの選択理由</h3>
+  <table>
+    <tr><th></th><th>CD Baby（採用）</th><th>DistroKid（不採用）</th></tr>
+    <tr><td>料金体系</td><td class="td-gold">$9.99/リリース（永続）</td><td>$22.99/年（サブスク）</td></tr>
+    <tr><td>音楽の永続性</td><td class="td-gold">支払い後は永久に配信継続</td><td>サブスク停止で配信停止</td></tr>
+    <tr><td>取り分</td><td>91%</td><td>100%（YouTube CIDは80%）</td></tr>
+    <tr><td>配信速度</td><td>3-5営業日</td><td>1-2営業日</td></tr>
+    <tr><td>年間リリース数が少ない場合</td><td class="td-gold">圧倒的に有利</td><td>頻繁リリースなら有利</td></tr>
+  </table>
+  <p>andAugmentは年間リリース数が限定的（Phase 1で2曲）なので、CD Bayの買い切り$9.99が最適。</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="roadmap">
+  <h2><span class="sec-num">10</span>テンプレート → 作曲 → 販売 ロードマップ</h2>
+
+  <div class="alert alert-blue">
+    <strong>andAugmentの現在地:</strong> ブランド確立済（紫×黒×ゴールド）、戦略策定済、Cubaseテンプレート設計済（cubase-template.md）、音源保有（Spitfire Studio Strings / 8dio Century Strings / Infinite Brass & WW / Omnisphere）。<strong>次は実行フェーズ。</strong>
+  </div>
+
+  <!-- ===== 概要版ロードマップ ===== -->
+  <h3>概要ロードマップ（わかりやすい版）</h3>
+  <div class="structure">
+    <div class="str-block"><div class="label">STEP 1</div><div class="bars">テンプレ構築<br>1-2日</div></div>
+    <div class="str-block"><div class="label">STEP 2</div><div class="bars">32小節テスト<br>1日</div></div>
+    <div class="str-block peak"><div class="label">STEP 3</div><div class="bars">1曲目 作曲<br>1-2週</div></div>
+    <div class="str-block"><div class="label">STEP 4</div><div class="bars">MIX & Master<br>2-3日</div></div>
+    <div class="str-block drop"><div class="label">STEP 5</div><div class="bars">配信登録<br>1日</div></div>
+    <div class="str-block peak"><div class="label">STEP 6</div><div class="bars">YouTube投稿<br>随時</div></div>
+    <div class="str-block"><div class="label">STEP 7</div><div class="bars">2曲目→申請<br>2-4週</div></div>
+    <div class="str-block peak"><div class="label">STEP 8</div><div class="bars">販売開始<br>継続</div></div>
+  </div>
+
+  <!-- ===== 詳細版ロードマップ ===== -->
+  <h3>詳細ロードマップ（全ステップ）</h3>
+
+  <h4>STEP 1: Cubaseテンプレート構築（1-2日）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>所要時間</th><th>詳細</th></tr>
+    <tr><td>1-1</td><td class="td-gold">フォルダ構造 + カラーコーディング</td><td>30分</td><td>STRINGS(青) / BRASS(金) / WW(緑) / PERC(赤) / CHOIR(紫) / SYNTH(灰) をCubase 15で作成。楽器はまだロードしない</td></tr>
+    <tr><td>1-2</td><td class="td-gold">グループバス + VCA構造</td><td>30分</td><td>STR_GRP / BR_GRP / WW_GRP / PERC_GRP / CHOIR_GRP / SYNTH_GRP + 対応VCAフェーダー + MASTER ORCH Bus</td></tr>
+    <tr><td>1-3</td><td class="td-gold">FXチャンネル4本作成</td><td>45分</td><td>STRINGS_VERB(PhoenixVerb) / BRASS_VERB(Pro-R) / PERC_VERB(Pro-R) / GLUE_VERB(PhoenixVerb) — 設定値はcubase-template.mdとセクション7に従う</td></tr>
+    <tr><td>1-4</td><td>コア5楽器ロード</td><td>30分</td><td>Vln I(Spitfire) / Cello(8dio) / Brass Ens(Infinite Brass) / Timpani / Piano(スケッチ用)</td></tr>
+    <tr><td>1-5</td><td>Send接続 + ルーティング確認</td><td>30分</td><td>各楽器 → グループ → FX Send → マスター。音が正しく流れるか確認</td></tr>
+    <tr><td>1-6</td><td>Expression Maps設定（1楽器分）</td><td>45分</td><td>Cubase 15のExpression Maps v2でSpitfire Vln Iの基本マップを手動作成。仕組みを理解</td></tr>
+    <tr><td>1-7</td><td>Negative Track Delay設定</td><td>20分</td><td>VI-Control Spreadsheet参照。Infinite Brass: -20〜-30ms</td></tr>
+    <tr><td>1-8</td><td>テンプレートとして保存</td><td>5分</td><td>「andAugment Epic Battle v1.cpr」として保存</td></tr>
+  </table>
+
+  <h4>STEP 2: 32小節テスト曲（1日）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>2-1</td><td class="td-gold">Eマイナー / 130 BPMで32小節書く</td><td>Intro(4) → A(8) → Chorus(8) → Bridge(4) → Chorus2(8)。テンプレートの動作確認が目的</td></tr>
+    <tr><td>2-2</td><td>問題点洗い出し</td><td>レイテンシー/空間感/ルーティング/CPU負荷を確認。修正してテンプレート再保存</td></tr>
+    <tr><td>2-3</td><td>残り楽器を必要に応じて追加</td><td>32小節で足りなかったもの（Vln II / Viola / Tuba等）を追加。不要なものは追加しない</td></tr>
+  </table>
+
+  <h4>STEP 3: 1曲目の作曲（1-2週間）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>3-1</td><td>Sunoでリファレンス生成</td><td>セクション11のプロンプトを使用。構成・テンション曲線・レイヤー配置を確認</td></tr>
+    <tr><td>3-2</td><td class="td-gold">スケッチ（ピアノ + 弦）</td><td>メロディ・コード進行・構成をピアノとVln Iだけで作る。「1回聴いたら歌える」フック最優先</td></tr>
+    <tr><td>3-3</td><td class="td-gold">オーケストレーション</td><td>セクション2の技法を適用。弦オスティナート → 金管 → 打楽器 → コーラスの順で積み上げ。Sawano Drop構造を意識</td></tr>
+    <tr><td>3-4</td><td>ハイブリッド要素追加</td><td>Omnisphere シンセパッド / グリッチテクスチャ / ディストーションギター</td></tr>
+    <tr><td>3-5</td><td>ヒューマナイズ</td><td>タイミング±5-15ms / ベロシティ変動 / CC1オートメーション仕上げ</td></tr>
+  </table>
+
+  <h4>STEP 4: MIX & マスタリング（2-3日）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>4-1</td><td class="td-gold">バランス取り</td><td>全フェーダーを-∞から1つずつ上げる。弦→金管→WW→打楽器→シンセの順</td></tr>
+    <tr><td>4-2</td><td>セクション別EQ</td><td>セクション8のMIXチェーンに従う。Pro-Q3でHP/動的EQ/プレゼンス</td></tr>
+    <tr><td>4-3</td><td>リバーブ最終調整</td><td>セクション7のクイックリファレンスに基づきSend量を微調整</td></tr>
+    <tr><td>4-4</td><td>マスターバス</td><td>Pro-Q3(LP) → SSL G-Bus Comp(-1〜-3dB GR) → Pro-L2(-14 LUFS / -1 dBTP)</td></tr>
+    <tr><td>4-5</td><td>複数版書き出し</td><td>① ストリーミング版(-14 LUFS) ② ゲーム実装版(-24 LUFS) ③ ライセンス版(-16 LUFS) ④ ステム版(弦/金管/打楽器/シンセ別)</td></tr>
+  </table>
+
+  <h4>STEP 5: 配信登録（1日）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>5-1</td><td class="td-gold">CD Baby登録 + アップロード</td><td>$9.99支払い。WAVアップロード。アルバムアート準備。メタデータ入力（ジャンル: Soundtrack / Epic）</td></tr>
+    <tr><td>5-2</td><td>Epidemic Sound申請</td><td>2曲完成時に申請。ポートフォリオとして提出。審査は数週間〜数ヶ月</td></tr>
+    <tr><td>5-3</td><td>YouTube公開</td><td>楽曲ビジュアライザー動画 + Shorts（ベスト15秒）同時公開</td></tr>
+    <tr><td>5-4</td><td>BOOTH出品</td><td>日本語説明文。BGM素材パック（WAV + MP3）。¥500-1,500で設定</td></tr>
+  </table>
+
+  <h4>STEP 6: プロモーション（継続）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>6-1</td><td>X (日本語) 投稿</td><td>制作過程動画・完成報告。#DTM #ゲーム音楽 #作曲 タグ</td></tr>
+    <tr><td>6-2</td><td>YouTube定期投稿</td><td>週1回。楽曲 / Making of / チュートリアル</td></tr>
+    <tr><td>6-3</td><td>プロモチャンネルアウトリーチ</td><td>Epic Music World / Two Steps From Hell系プレイリスト / SubmitHub</td></tr>
+    <tr><td>6-4</td><td>Asobu Discord参加</td><td>日本のゲーム開発コミュニティでの認知獲得</td></tr>
+  </table>
+
+  <h4>STEP 7: 2曲目 + Fab出品（2-4週）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>7-1</td><td class="td-gold">2曲目作曲・MIX</td><td>1曲目と異なるテンポ/キーで。ポートフォリオの幅を見せる</td></tr>
+    <tr><td>7-2</td><td>Fab.com パブリッシャー登録</td><td>fab.com/become-a-publisher から登録。Epic Games アカウント必要</td></tr>
+    <tr><td>7-3</td><td class="td-gold">BGMパック作成・出品</td><td>2曲 + ステム + ループ版をパックにしてFab出品。88/12分配</td></tr>
+    <tr><td>7-4</td><td>Unity Asset Store出品</td><td>同じパックをUnity向けにも出品。Fabと両方が最適戦略</td></tr>
+  </table>
+
+  <h4>STEP 8: スケール（Phase 2-3）</h4>
+  <table>
+    <tr><th>#</th><th>タスク</th><th>詳細</th></tr>
+    <tr><td>8-1</td><td>Spotify Editorial Pitch</td><td>リリース4週間前に送信。"Epic Orchestral" / "Video Game Music" プレイリスト狙い</td></tr>
+    <tr><td>8-2</td><td>AudioStock審査提出</td><td>日本企業向け。審査通過で定常収入の柱に</td></tr>
+    <tr><td>8-3</td><td>ASCAP登録</td><td>Epidemic Sound卒業タイミングで。ソングライター$50 + パブリッシャー$50</td></tr>
+    <tr><td>8-4</td><td>Fiverr / Etsy カスタムBGM受注</td><td>$30-75/曲。VTuber向けカスタムBGMが需要高</td></tr>
+    <tr><td>8-5</td><td>BF セール購入</td><td>LiquidSonics Cinematic Rooms Pro($99〜BF) → STRINGS_VERBアップグレード</td></tr>
+  </table>
+
+  <div class="alert alert-gold">
+    <strong>最重要原則: 完璧なテンプレートより1曲完成が100倍価値がある。</strong> テンプレートは1-2日で「使える状態」にして曲を書き始める。実際の制作の中で足りないものを追加していく。テンプレート沼にはまらない。
+  </div>
 </section>
 
 <!-- ============================================================ -->
 <section id="suno">
-  <h2><span class="sec-num">9</span>Suno / Wondera — リファレンスプロンプト（改訂版）</h2>
+  <h2><span class="sec-num">11</span>Suno / Wondera — リファレンスプロンプト（改訂版）</h2>
 
   <h3>Sunoプロンプト — 澤野弘之スタイル（Sawano Drop構造あり）</h3>
   <div class="code">
@@ -1236,9 +1484,11 @@ glitch metallic sound design between sections</div>
 </div><!-- /container -->
 
 <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border);margin-top:40px;line-height:2.2;">
-  <strong style="color:var(--gold)">andAugment Production Guide v2.0</strong><br>
-  調査ソース: VI-Control（複数スレッド）/ Gearspace / Steinberg Forums / Aaron Venture公式 / Spitfire公式 / 8Dio公式<br>
+  <strong style="color:var(--gold)">andAugment Production Guide v3.0</strong> — 2026-04-17 更新<br>
+  調査ソース: VI-Control（複数スレッド）/ Gearspace / Steinberg Forums / Cubase 15 Release Notes / Aaron Venture公式 / Spitfire公式 / 8Dio公式<br>
   Genelec インタビュー（澤野弘之）/ Equipboard / HackMD / Sound On Sound / Universal Audio 公式 / BabylonWaves 公式<br>
+  Fab.com公式ドキュメント / Epidemic Sound公式 (2026 Q1) / CD Baby公式 / ASCAP・BMI公式 / SyncBrief<br>
+  AudioStock / BOOTH / DLsite / MasteringTheMix / MixingMonster / Audiokinetic (Wwise)<br>
   Sample Library Review / Professional Composers / Composer Focus / Become a Pro Composer / Flypaper (Soundfly)
 </div>
 
