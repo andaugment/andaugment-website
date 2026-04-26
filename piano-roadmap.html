@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ピアノ上達ロードマップ — 田中秀和を弾く日まで</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', 'Hiragino Sans', sans-serif; background: #0f0f1a; color: #e0e0f0; line-height: 1.7; }
+
+  .hero { background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%); padding: 60px 40px; text-align: center; border-bottom: 2px solid #7c3aed; }
+  .hero h1 { font-size: 2.4rem; color: #c4b5fd; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .hero p { color: #94a3b8; font-size: 1rem; }
+  .hero .goal { display: inline-block; margin-top: 16px; background: rgba(124,58,237,0.2); border: 1px solid #7c3aed; border-radius: 8px; padding: 10px 24px; color: #c4b5fd; font-size: 0.95rem; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  /* 現状診断 */
+  .diagnosis { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+  .diag-card { background: #1e1e2e; border-radius: 12px; padding: 20px; border-left: 4px solid; }
+  .diag-card.ok { border-color: #10b981; }
+  .diag-card.ng { border-color: #f59e0b; }
+  .diag-card h3 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .diag-card.ok h3 { color: #10b981; }
+  .diag-card.ng h3 { color: #f59e0b; }
+  .diag-card ul { list-style: none; }
+  .diag-card ul li { padding: 3px 0; font-size: 0.9rem; }
+  .diag-card.ok ul li::before { content: "✓ "; color: #10b981; }
+  .diag-card.ng ul li::before { content: "△ "; color: #f59e0b; }
+
+  /* セクションタイトル */
+  h2 { font-size: 1.4rem; color: #c4b5fd; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 1px solid #2d2d4e; }
+
+  /* ロードマップ */
+  .stage { background: #1e1e2e; border-radius: 16px; padding: 28px; margin-bottom: 24px; border: 1px solid #2d2d4e; position: relative; overflow: hidden; }
+  .stage::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+  .stage.s1::before { background: #10b981; }
+  .stage.s2::before { background: #3b82f6; }
+  .stage.s3::before { background: #f59e0b; }
+  .stage.s4::before { background: #ec4899; }
+  .stage.s5::before { background: #7c3aed; }
+
+  .stage-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .stage-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; }
+  .stage.s1 .stage-num { color: #10b981; border: 1px solid #10b981; }
+  .stage.s2 .stage-num { color: #3b82f6; border: 1px solid #3b82f6; }
+  .stage.s3 .stage-num { color: #f59e0b; border: 1px solid #f59e0b; }
+  .stage.s4 .stage-num { color: #ec4899; border: 1px solid #ec4899; }
+  .stage.s5 .stage-num { color: #7c3aed; border: 1px solid #7c3aed; }
+  .stage-title { font-size: 1.2rem; font-weight: 700; color: #e0e0f0; }
+  .stage-duration { margin-left: auto; font-size: 0.8rem; color: #64748b; }
+
+  .stage-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stage-body.full { grid-template-columns: 1fr; }
+
+  .info-block h4 { font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+  .info-block ul { list-style: none; }
+  .info-block ul li { font-size: 0.9rem; padding: 4px 0; border-bottom: 1px solid #2d2d4e; }
+  .info-block ul li:last-child { border: none; }
+
+  .code-block { background: #0d1117; border-radius: 8px; padding: 16px; font-family: 'Consolas', monospace; font-size: 0.85rem; color: #a5f3fc; margin-top: 8px; line-height: 1.8; }
+
+  .links-block a { display: block; font-size: 0.85rem; color: #60a5fa; text-decoration: none; padding: 4px 0; }
+  .links-block a:hover { color: #93c5fd; text-decoration: underline; }
+  .links-block a::before { content: "→ "; }
+
+  /* 伴奏パターン表 */
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { background: #2d2d4e; padding: 10px 14px; text-align: left; color: #94a3b8; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.05em; }
+  td { padding: 10px 14px; border-bottom: 1px solid #2d2d4e; }
+  tr:last-child td { border: none; }
+
+  /* コード進行練習ツール */
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px; }
+  .tool-card { background: #1e1e2e; border-radius: 12px; padding: 20px; border: 1px solid #2d2d4e; }
+  .tool-card .badge { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; margin-bottom: 10px; font-weight: 600; }
+  .badge.free { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid #10b981; }
+  .badge.paid { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid #f59e0b; }
+  .badge.freemium { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid #3b82f6; }
+  .tool-card h3 { font-size: 1rem; margin-bottom: 6px; }
+  .tool-card p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 12px; }
+  .tool-card .stars { color: #f59e0b; font-size: 0.8rem; margin-bottom: 8px; }
+  .tool-card a { font-size: 0.82rem; color: #60a5fa; text-decoration: none; }
+  .tool-card a:hover { text-decoration: underline; }
+
+  /* 田中秀和ゾーン */
+  .tanaka-box { background: linear-gradient(135deg, #1a0a2e, #16213e); border: 1px solid #7c3aed; border-radius: 16px; padding: 28px; margin-bottom: 48px; }
+  .tanaka-box h3 { color: #c4b5fd; margin-bottom: 16px; }
+  .chord-pill { display: inline-block; background: rgba(124,58,237,0.2); border: 1px solid #7c3aed; border-radius: 20px; padding: 4px 14px; margin: 4px; font-size: 0.85rem; color: #c4b5fd; font-family: 'Consolas', monospace; }
+
+  /* タイムライン */
+  .timeline { position: relative; padding-left: 24px; margin-bottom: 48px; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #10b981, #3b82f6, #f59e0b, #ec4899, #7c3aed); }
+  .tl-item { position: relative; margin-bottom: 24px; }
+  .tl-item::before { content: ''; position: absolute; left: -29px; top: 8px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid; }
+  .tl-item.s1::before { border-color: #10b981; background: #0f0f1a; }
+  .tl-item.s2::before { border-color: #3b82f6; background: #0f0f1a; }
+  .tl-item.s3::before { border-color: #f59e0b; background: #0f0f1a; }
+  .tl-item.s4::before { border-color: #ec4899; background: #0f0f1a; }
+  .tl-item.s5::before { border-color: #7c3aed; background: #0f0f1a; }
+  .tl-item .week { font-size: 0.75rem; color: #64748b; margin-bottom: 4px; }
+  .tl-item .label { font-size: 0.95rem; font-weight: 600; }
+
+  .section-gap { margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>ピアノ上達ロードマップ</h1>
+  <p>田中秀和（灼熱スイッチ）を弾く日まで</p>
+  <span class="goal">最終目標：アニソン・田中秀和曲をコード譜からさらっと弾ける</span>
+</div>
+
+<div class="container">
+
+  <!-- 現状診断 -->
+  <div class="section-gap">
+    <h2>現状診断</h2>
+    <div class="diagnosis">
+      <div class="diag-card ok">
+        <h3>できること</h3>
+        <ul>
+          <li>基本コード（メジャー・マイナー）</li>
+          <li>コード譜を見てゆっくり演奏</li>
+          <li>曲の流れを止めずに弾ける</li>
+        </ul>
+      </div>
+      <div class="diag-card ng">
+        <h3>課題</h3>
+        <ul>
+          <li>転回形に考える時間が必要</li>
+          <li>伴奏パターンが単調</li>
+          <li>メロディ＋コード同時が詰まる</li>
+          <li>おしゃれなコード語彙が少ない</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- アニソンのコード基礎知識 -->
+  <div class="section-gap">
+    <h2>まず知っておく：アニソンの王道進行</h2>
+    <div class="stage s1" style="border-left: none; border-top: 2px solid #10b981; padding: 20px;">
+      <p style="margin-bottom: 12px; color: #94a3b8; font-size: 0.9rem;">アニソン・J-Popの8割はこの進行で動いている。最初はここだけに集中する。</p>
+      <div class="code-block">FM7 → G7 → Em7 → Am
+（IV → V → IIIm → VIm）
+Key of C の例：
+　F → G → Em → Am</div>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #64748b;">この1進行を転回形 × 伴奏パターンで自在に弾けるようになれば実質7〜8割対応できる。</p>
+    </div>
+  </div>
+
+  <!-- ロードマップ本体 -->
+  <div class="section-gap">
+    <h2>ロードマップ 5段階</h2>
+
+    <!-- Stage 1 -->
+    <div class="stage s1">
+      <div class="stage-header">
+        <span class="stage-num">STAGE 1</span>
+        <span class="stage-title">転回形を反射にする</span>
+        <span class="stage-duration">2〜4週間</span>
+      </div>
+      <div class="stage-body">
+        <div class="info-block">
+          <h4>なぜここから？</h4>
+          <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 12px;">転回形が反射で出てくると、声部導音・伴奏パターン・メロディ同時、すべてが一気に解放される。ここが最大のボトルネック。</p>
+          <h4 style="margin-top: 16px;">毎日10分の練習</h4>
+          <div class="code-block">FM7 → G7 → Em7 → Am
+ルートポジション禁止縛りで弾く
+→ 指が最小距離で動くように
+
+例：
+C(root) → F(第2転回) → G(第1転回) → C
+テンポ ♩=60 で正確さ優先</div>
+        </div>
+        <div class="info-block">
+          <h4>体得の基準</h4>
+          <ul>
+            <li>王道進行を転回形で止まらず弾ける</li>
+            <li>「次のコードに最小移動」が反射になる</li>
+            <li>任意のキーで同じことができる</li>
+          </ul>
+          <h4 style="margin-top: 16px;">参考サイト</h4>
+          <div class="links-block">
+            <a href="https://4ch.site/chordmethod_tenkai/" target="_blank">440KEYBOARD 転回形 基本編（日本語・図解）</a>
+            <a href="https://4ch.site/chordmethod_tenkai2/" target="_blank">440KEYBOARD 転回形 実践編</a>
+            <a href="https://www.pianote.com/blog/how-to-practice-chord-inversions/" target="_blank">Pianote 転回形練習法（英語・動画付）</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage s2">
+      <div class="stage-header">
+        <span class="stage-num">STAGE 2</span>
+        <span class="stage-title">伴奏パターン 5つ習得</span>
+        <span class="stage-duration">2〜3週間</span>
+      </div>
+      <div class="stage-body">
+        <div class="info-block">
+          <h4>単調伴奏を直接解決する</h4>
+          <table style="margin-top: 8px;">
+            <tr><th>#</th><th>パターン</th><th>雰囲気</th><th>難易度</th></tr>
+            <tr><td>1</td><td>ブロックコード</td><td>力強い</td><td>★☆☆</td></tr>
+            <tr><td>2</td><td>ルート＋和音（ン・チャ）</td><td>J-Pop基本</td><td>★☆☆</td></tr>
+            <tr><td>3</td><td>アルペジオ↑</td><td>流れるような</td><td>★★☆</td></tr>
+            <tr><td>4</td><td>アルベルティ低音</td><td>クラシカル</td><td>★★☆</td></tr>
+            <tr><td>5</td><td>シンコペ（裏拍コード）</td><td>おしゃれ</td><td>★★★</td></tr>
+          </table>
+        </div>
+        <div class="info-block">
+          <h4>練習の進め方</h4>
+          <ul>
+            <li>1→2→3の順で王道進行に乗せる</li>
+            <li>Stage 1完了後に開始（転回形が使えると全部活きる）</li>
+            <li>1パターンずつ、1週間で定着させる</li>
+          </ul>
+          <h4 style="margin-top: 16px;">参考サイト</h4>
+          <div class="links-block">
+            <a href="https://pia-note.com/practice-piano-accompaniment/" target="_blank">pia-note.com 伴奏パターン5選（日本語）</a>
+            <a href="https://jun-music.com/piano-chord-rhythm/" target="_blank">JUN音楽教室 コードバッキング応用</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage s3">
+      <div class="stage-header">
+        <span class="stage-num">STAGE 3</span>
+        <span class="stage-title">メロディ＋コード同時</span>
+        <span class="stage-duration">3〜4週間</span>
+      </div>
+      <div class="stage-body">
+        <div class="info-block">
+          <h4>3ステップで段階的に</h4>
+          <div class="code-block">Step A: 左手ブロック固定 + 右手メロ
+         → 「両手で音が出る」体験を作る
+
+Step B: 左手パターン2（ン・チャ）+ 右手メロ
+
+Step C: 左手パターン3（アルペジオ）+ 右手メロ</div>
+        </div>
+        <div class="info-block">
+          <h4>曲の選び方</h4>
+          <ul>
+            <li>自分が好きな曲（モチベが続く）</li>
+            <li>コード数が少ない（4〜6コード）</li>
+            <li>王道進行が含まれる曲</li>
+          </ul>
+          <h4 style="margin-top: 16px;">参考</h4>
+          <div class="links-block">
+            <a href="https://www.flowkey.com/en/anime-piano-songs" target="_blank">flowkey アニソンピアノ一覧（難易度別）</a>
+            <a href="https://chromaticdreamers.com/analyzing-anime-song-chord-progressions/" target="_blank">アニソン15曲コード分析</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="stage s4">
+      <div class="stage-header">
+        <span class="stage-num">STAGE 4</span>
+        <span class="stage-title">おしゃれコード語彙</span>
+        <span class="stage-duration">以降ずっと</span>
+      </div>
+      <div class="stage-body full">
+        <div class="info-block">
+          <h4>追加するだけで一気におしゃれになるコード</h4>
+          <div style="margin-top: 12px;">
+            <span class="chord-pill">Cmaj7</span>
+            <span class="chord-pill">Cadd9</span>
+            <span class="chord-pill">Csus2</span>
+            <span class="chord-pill">Csus4</span>
+            <span class="chord-pill">C/E（分数コード）</span>
+            <span class="chord-pill">Am7</span>
+            <span class="chord-pill">Dm7</span>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.88rem; color: #94a3b8;">これらをダイアトニック7th一覧として覚えると、アニソンの大半に対応できる。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5 -->
+    <div class="stage s5">
+      <div class="stage-header">
+        <span class="stage-num">STAGE 5</span>
+        <span class="stage-title">田中秀和ゾーン</span>
+        <span class="stage-duration">1〜2年後</span>
+      </div>
+      <div class="stage-body">
+        <div class="info-block">
+          <h4>田中秀和の特徴コード</h4>
+          <div style="margin-top: 8px;">
+            <span class="chord-pill">Baug / F</span>
+            <span class="chord-pill">#IVm7-5</span>
+            <span class="chord-pill">IIIm7-5</span>
+            <span class="chord-pill">セカンダリードミナント</span>
+          </div>
+          <p style="margin-top: 12px; font-size: 0.85rem; color: #94a3b8;">灼熱スイッチのサビ頭 Baug/F がその象徴。augを王道進行に組み込む感覚。</p>
+        </div>
+        <div class="info-block">
+          <h4>参考・分析</h4>
+          <div class="links-block">
+            <a href="https://nnjblog.com/shakunetsu-switch/" target="_blank">灼熱スイッチ コード進行徹底解説</a>
+            <a href="https://note.com/tnkhdkz/n/n10e7d8655d9d" target="_blank">田中秀和コード進行4選</a>
+            <a href="https://note.com/tnkhdkz/n/n729cbb5cf0dc" target="_blank">灼熱スイッチ 例のコード3解釈</a>
+            <a href="https://www.hooktheory.com/theorytab/artists/h/hidekazu-tanaka" target="_blank">Hooktheory 田中秀和楽曲分析</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- コード進行練習ツール -->
+  <div class="section-gap">
+    <h2>コード進行を楽しく練習するツール</h2>
+    <div class="tools-grid">
+
+      <div class="tool-card">
+        <span class="badge free">無料</span>
+        <div class="stars">★★★★★</div>
+        <h3>Chordly</h3>
+        <p>ピアノコード練習ゲーム。4つの練習モード、MIDI対応、リアルタイムフィードバック。最もゲーム感覚で楽しめる。</p>
+        <a href="https://chordlypiano.com/" target="_blank">chordlypiano.com →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge free">無料</span>
+        <div class="stars">★★★★☆</div>
+        <h3>ChordIQ</h3>
+        <p>8つのゲームモード。コード認識・耳トレ・スケール。広告ありで全機能無料。MIDI対応。</p>
+        <a href="https://www.songtive.com/products/chordiq/" target="_blank">songtive.com/chordiq →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge free">無料</span>
+        <div class="stars">★★★★☆</div>
+        <h3>コード進行パズル</h3>
+        <p>日本語。パズル形式でコード進行を学び、LEARNモードで実際の音を聴きながら確認できる。</p>
+        <a href="https://news.denfaminicogamer.jp/news/2511172o" target="_blank">詳細記事 →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge free">無料</span>
+        <div class="stars">★★★★☆</div>
+        <h3>muted.io コード進行チャート</h3>
+        <p>インタラクティブなコード進行辞典。クリックして音を確認しながらコードの関係を視覚的に学べる。</p>
+        <a href="https://muted.io/chord-progressions/" target="_blank">muted.io →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge freemium">一部無料</span>
+        <div class="stars">★★★★☆</div>
+        <h3>Theta Music Trainer</h3>
+        <p>Chord Spells ゲームで和音のスペルを覚える。耳トレ + 理論をゲーム化。</p>
+        <a href="https://trainer.thetamusic.com/en/content/piano-games" target="_blank">thetamusic.com →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge freemium">一部無料</span>
+        <div class="stars">★★★★☆</div>
+        <h3>Tonegym（耳トレ）</h3>
+        <p>コード進行の耳トレに特化。「これがIV→V→VIm進行だ」という感覚を鍛える。</p>
+        <a href="https://www.tonegym.co/games/view?id=KDAH83HADGA" target="_blank">tonegym.co →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge freemium">一部無料</span>
+        <div class="stars">★★★☆☆</div>
+        <h3>Piano Companion（アプリ）</h3>
+        <p>1500以上のコード辞典。転回形を確認するのに最適。コード進行ビルダー付き。</p>
+        <a href="https://apps.apple.com/us/app/piano-companion-chords-scales/id598574333" target="_blank">App Store →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="badge paid">月額課金</span>
+        <div class="stars">★★★★★</div>
+        <h3>Simply Piano</h3>
+        <p>総合学習プラットフォーム。Chordsトラック（コード重視）とSoloistトラックがあり、アニソン系も多数収録。</p>
+        <a href="https://www.musicradar.com/news/the-best-online-piano-lessons" target="_blank">レビュー記事 →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- タイムライン -->
+  <div class="section-gap">
+    <h2>タイムライン</h2>
+    <div class="timeline">
+      <div class="tl-item s1">
+        <div class="week">Week 1〜4</div>
+        <div class="label">Stage 1：転回形反射化 → 王道進行を転回形で弾けるように</div>
+      </div>
+      <div class="tl-item s2">
+        <div class="week">Week 5〜7</div>
+        <div class="label">Stage 2：伴奏パターン5つ → 単調さを解消</div>
+      </div>
+      <div class="tl-item s3">
+        <div class="week">Week 8〜11</div>
+        <div class="label">Stage 3：メロディ同時 → 好きなアニソンを両手で</div>
+      </div>
+      <div class="tl-item s4">
+        <div class="week">Week 12〜</div>
+        <div class="label">Stage 4：おしゃれコード → maj7・add9・sus系を習得</div>
+      </div>
+      <div class="tl-item s5">
+        <div class="week">1〜2年後</div>
+        <div class="label">Stage 5：田中秀和ゾーン → aug・半減和音・セカンダリードミナント</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; padding: 40px 0; color: #4a4a6a; font-size: 0.8rem;">
+    andAugment Piano Roadmap — 2026-04-26 作成
+  </div>
+
+</div>
+</body>
+</html>
